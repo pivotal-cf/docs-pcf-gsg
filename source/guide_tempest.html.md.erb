@@ -181,39 +181,6 @@ title: Pivotal CF Getting Started (v.0.3.1)
 
  **Note**: On the recommended hardware infrastructure, deployment should take less that one hour and require no user intervention.
 
-## <a id='use_console'></a>Using the Cloud Foundry Console ##
-
-The Cloud Foundry Console is a tool to help manage organizations, users, applications, and applications spaces. Use the following steps to login and invite users to the console.
-
-1. Browse to http://console.(your-app-domain.com). Refer to **Runtime > Configuration > Console** if you forget your app domain.
-2. Login to the console using the UAA admin and password. Refer to **Runtime > Credentials** for this login information.
-
- <%= image_tag("guide/uaa_login.png") %>
-
-3. You will see the console org, which contains the console application information.
-
- <%= image_tag("guide/console_org.png") %>
-
-4. Select **ORG: Console > Create New Organization**.
-
- <%= image_tag("guide/create_org.png") %>
-
-5. Name your org, check the **Terms of Service** checkbox, and click **Create**.
-
- <%= image_tag("guide/name_org.png") %>
-
-6. Select **Users**.
-
- <%= image_tag("guide/select_users.png") %>
-
-7. Click **Add**.
-
- <%= image_tag("guide/add.png") %>
-
-8. Invite a new user to join your org. If your SMTP server is configured correctly (see **Runtime > Configure > Console**), the user will receive a confirmation email.
-
-  **Note**: In Pivotal CF version 0.3.0, the new user will get a 500 error after confirming and creating their password. Ignore this error. The error is resolved in Pivotal CF version 0.3.1.
-
 ## <a id='target'></a>Target Cloud Foundry ##
 
 The next step is to use the **cf** tool to target your Cloud Foundry installation. Make sure you have installed the **cf** tool according to the instructions on [docs.cloudfoundry.com|http://docs.cloudfoundry.com/docs/using/managing-apps/cf/index.html].
