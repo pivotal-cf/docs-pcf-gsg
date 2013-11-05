@@ -6,7 +6,13 @@ title: Pivotal CF Getting Started
 
 * vSphere 5.0, 5.1, 5.5. (**Recommended**: 5.1)
 * vSphere editions: standard and above
-* vSphere user privileges to create and delete VMs, disk paths, and VM folders
+* The following vSphere user privileges:
+	* Datastore (Allocate space, Browse datastore, Low level file operations, Remove file, Update virtual machine files)
+	* Folder (all)
+	* Network (Assign network)
+	* Resource (all)
+	* vApp (all)
+	* Virtual machine (all)
 * Ability to create a wildcard DNS record to point to your router or load balancer
 * No DHCP on the network: DHCP prevents static IP addresses from being re-allocated
 * A host with hardware virtualization turned off
@@ -103,7 +109,7 @@ title: Pivotal CF Getting Started
 
  **Note**: It is normal to experience a brief delay before the interface is accessible while the web server and VM start up.
 
-## <a id='config_tiles'></a>Configuring Included Product Tiles ##
+## <a id='config_tiles'></a>Configuring Included Product ##
 
 **Goal**: Configure VMware vSphere, Elastic Runtime, and MySQL.
 
