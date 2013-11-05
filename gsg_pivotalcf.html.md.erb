@@ -6,7 +6,7 @@ title: Pivotal CF Getting Started
 
 * vSphere 5.0, 5.1, 5.5. (**Recommended**: 5.1)
 * vSphere editions: standard and above
-* vSphere user privileges to create VMs, disk paths, and VM folders
+* vSphere user privileges to create and delete VMs, disk paths, and VM folders
 * Ability to create a wildcard DNS record to point to your router or load balancer
 * No DHCP on the network: DHCP prevents static IP addresses from being re-allocated
 * A host with hardware virtualization turned off
@@ -49,7 +49,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/new_folder.png") %>
 
-6. Name the folder "Pivotal CF" and select it.
+6. Name the folder "pivotal_cf" and select it.
 
  <%= image_tag("guide/folder_name.png") %>
 
@@ -103,9 +103,9 @@ title: Pivotal CF Getting Started
 
  **Note**: It is normal to experience a brief delay before the interface is accessible while the web server and VM start up.
 
-## <a id='install_cf'></a>Installing Cloud Foundry ##
+## <a id='install_cf'></a>Installing Pivotal CF ##
 
-**Goal**: Install Cloud Foundry via a web application running in the VM you just deployed.
+**Goal**: Install Pivotal CF via a web application running in the VM you just deployed.
 
 1. Browse to the interface at the IP address you specified above.
 
@@ -147,7 +147,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/pill_runtime.png") %>
 
-1. Enter two domains for your Cloud Controller installation and click **Save**. The system domain is used for targeting and pushing apps to Cloud Foundry. The application domain is used for serving apps. Set up wildcard DNS records for these domains as described in the next step.
+1. Enter two domains for your Cloud Controller installation and click **Save**. The system domain is used for targeting and pushing apps to Elastic Runtime. The application domain is used for serving apps. Set up wildcard DNS records for these domains as described in the next step.
 
  <%= image_tag("guide/cloud_cont.png") %>
 
@@ -155,7 +155,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/router.png") %>
 
-1. Select **SAML Login** and enter the URL of an SSO appliance to connect to Active Directory servers in your organization. Cloud Foundry's User Account and Authentication server uses this address. For more information about configuring an SSO appliance, refer to the SSO Appliance topic.
+1. **(Optional)** Select **SAML Login** and enter the URL of an SSO appliance to connect to Active Directory servers in your organization. Elastic Runtime's User Account and Authentication server uses this address.
 
  <%= image_tag("guide/saml_login.png") %>
 
@@ -168,7 +168,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/pill_mysql.png") %>
 
-1. Configure MySQL or keep the default values, then click **Back to Install** to return to the **Install** page.
+1. Configure MySQL or keep the default values, then click **Back to Install** to return to the Product Dashboard.
 1. Click **Install**.
 
  <%= image_tag("guide/install.png") %>
@@ -183,9 +183,9 @@ title: Pivotal CF Getting Started
 
  **Note**: On the recommended hardware infrastructure, deployment should take less that one hour and require no user intervention.
 
-## <a id='target'></a>Target Cloud Foundry ##
+## <a id='target'></a>Target Elastic Runtime ##
 
-The next step is to use the **cf** tool to target your Cloud Foundry installation. Make sure you have installed the **cf** tool according to the instructions on [docs.cloudfoundry.com|http://docs.cloudfoundry.com/docs/using/managing-apps/cf/index.html].
+The next step is to use the **cf** tool to target your Elastic Runtime installation. Make sure you have installed the **cf** tool according to the instructions on docs.cloudfoundry.com.
 
 1. Open a terminal on a Mac or *nix computer.
 2. Login to your Cloud Controller by targeting 'api' followed by the system domain. Refer to **Elastic Runtime > Configure > Domains** if you do not remember this domain.
@@ -198,7 +198,7 @@ The next step is to use the **cf** tool to target your Cloud Foundry installatio
 
   **Note**: Refer to **Elastic Runtime > Credentials** for the UAA admin and password. You can also use the user that you created in the console, or create another user with the create-user command.
 
-3. Switch to the org and space you created in the Console.
+3. Switch to the org and space you created in the Developer Console.
 
   ```
   cf target -o my-awesome-org
@@ -216,13 +216,13 @@ The next step is to use the **cf** tool to target your Cloud Foundry installatio
   target app space: development (org: my-awesome-org)
   ```
 
-4. Switch to the directory of an application you would like to push to Cloud Foundry.
+4. Switch to the directory of an application you would like to push to Elastic Runtime.
 
  ```
  $ cd someapp
  ```
 
-5. Push the app to Cloud Foundry.
+5. Push the app to Elastic Runtime.
 
  ```
  $ cf push someapp
@@ -232,18 +232,18 @@ The next step is to use the **cf** tool to target your Cloud Foundry installatio
 
 ## <a id='known_issues'></a>Known Issues and Important Tips for this Release ##
 
- Version 0.3.1 of Pivotal CF includes the following known issues:
+ Version 1.0.0.0 of Pivotal CF includes the following known issues:
 
  * vSphere folder names with slashes in the name will cause failures.
  * A vCenter password starting with a special character will cause failures.
  * You must use the UAAC gem to create additional admin users or change the admin user's password.
  * Your app domain must be different than your system domain to protect against deploying apps called "uaa."
  * The Cloud Controller blobstore will continue to grow as users deploy apps. Garbage collection of the blobstore will be forthcoming in a subsequent release.
- * **Add Services** and **Marketplace** features of the Console are not functional.
- * Cloud Foundry deployments provisioned to a resource pool cannot be deleted using the Pivotal CF interface and must be deleted using vCenter.
+ * **Add Services** and **Marketplace** features of the Developer Console are not functional.
+ * Pivotal CF deployments provisioned to a resource pool cannot be deleted using the Pivotal CF interface and must be deleted using vCenter.
  * Clicking **Install** with empty vSphere settings will raise an exception.
  * If vSphere performance data is not available, a deploy will result in a divide by zero error.
- * HTTPS is turned off for Cloud Foundry in this release.
+ * HTTPS is turned off for Elastic Runtime in this release.
  * The network you use must be outside of any folders in vCenter.
  * If the install fails, check vSphere to ensure that the IP ranges you requested are still available.
 
