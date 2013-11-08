@@ -20,25 +20,34 @@ title: Pivotal CF Getting Started
 * Twice as many available IPs as instances
 * Capacity for the following virtual machines:
 
-| **INSTANCES**        | **VM**        | **RAM (GB)** | **DISK (GB)**  | **CPU**  |
-| :-------- | :-------- | :------- | :----------- | :-------- |
-| 1 | NATS | 1 | 10 | 1 |
-| 1 | Health Manager | 3 | 36 | 1 |
-| 1 | NFS Server | 1 | 100 | 1 |
-| 1 | Cloud Controller Database | 1 | 4 | 1 |
-| 1 | Cloud Controller | 1 | 2 | 1 |
-| 1 | Router | 1 | 2 | 1 |
-| 1 | Syslog | 1 | 10 | 1 |
-| 1 | Collector | 1 | 2 | 1 |
-| 1 | UAA Database | 1 | 10 | 1 |
-| 1 | UAA | 1 | 3 | 1 |
-| 1 | SAML Login | 1 | 3 | 1 |
-| 1 | Console Database | 1 | 3 | 1 |
-| 1 | DEA | 16 | 11 | 2 |
-| 1 |Loggregator Server | 1 | 2 | 1 |
-| 1 |Loggregator Router | 1 | 2 | 1 |
-| 6 | Compilation | 1 | 4 | 2 |
-|**21**|**TOTALS**|**33**|**204**|**18**|
+<style type="text/css">
+.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
+.table tr {background-color:#d4e3e5;}
+.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.table tr:hover {background-color:#ffffff;}
+</style>
+
+<table border="1" class="table" >
+<tr><th><strong>INSTANCES</strong></th><th><strong>VM</strong></th><th><strong>RAM (GB)</strong></th><th><strong>DISK (GB)</strong></th><th><strong>CPU</strong></th></tr>
+<tr><td>1</td><td>NATS</td><td>1</td><td>10</td><td>1</td></tr>
+<tr><td>1</td><td>Health Manager</td><td>3</td><td>36</td><td>1</td></tr>
+<tr><td>1</td><td>NFS Server</td><td>1</td><td>100</td><td>1</td></tr>
+<tr><td>1</td><td>Cloud Controller Database</td><td>1</td><td>4</td><td>1</td></tr>
+<tr><td>1</td><td>Cloud Controller</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>1</td><td>Router</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>1</td><td>Syslog</td><td>1</td><td>10</td><td>1</td></tr>
+<tr><td>1</td><td>Collector</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>1</td><td>UAA Database</td><td>1</td><td>10</td><td>1</td></tr>
+<tr><td>1</td><td>UAA</td><td>1</td><td>3</td><td>1</td></tr>
+<tr><td>1</td><td>SAML Login</td><td>1</td><td>3</td><td>1</td></tr>
+<tr><td>1</td><td>Console Database</td><td>1</td><td>3</td><td>1</td></tr>
+<tr><td>1</td><td>DEA</td><td>16</td><td>11</td><td>2</td></tr>
+<tr><td>1</td><td>Loggregator Server</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>1</td><td>Loggregator Router</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>6</td><td>Compilation</td><td>1</td><td>4</td><td>2</td></tr>
+<tr><th><strong>21</strong></th><th><strong>TOTALS</strong></th><th><strong>33</strong></th><th><strong>204</strong></th><th><strong>18</strong></th></tr>
+</table>
 
 ## <a id='deploy_vm'></a>Deploying the Installation Virtual Machine ##
 
@@ -250,6 +259,6 @@ The next step is to use the **cf** tool to target your Elastic Runtime installat
  * Clicking **Install** with empty vSphere settings will raise an exception.
  * If vSphere performance data is not available, a deploy will result in a divide by zero error.
  * HTTPS is turned off for Elastic Runtime in this release.
- * The network you use must be outside of any folders in vCenter.
+ * The network you use must be outside of any administrator-created sub-folders in vCenter.
  * If the install fails, check vSphere to ensure that the IP ranges you requested are still available.
 
