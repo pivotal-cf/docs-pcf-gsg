@@ -118,17 +118,39 @@ title: Pivotal CF Getting Started
 
  **Note**: It is normal to experience a brief delay before the interface is accessible while the web server and VM start up.
 
-## <a id='config_tiles'></a>Configuring Included Products ##
+## <a id='paas'></a>Setting Up Your PaaS ##
 
 **Goal**: Configure VMware vSphere, Elastic Runtime, and MySQL.
 
-1. Browse to the interface at the IP address you specified above.
+### <a id='interface'></a>Understanding the Pivotal CF Interface ###
+
+1. Browse to the interface IP address you specified above.
 
  <%= image_tag("guide/pivotal_cf.png") %>
 
-1. Create a **User name** and **Password**.
+1. Create a **User name** and **Password** and log in to access the interface.
 
  **Note**: Save your password in a backed-up location. If you lose your password, your installation will be unmanageable.
+
+ <%= image_tag("guide/interface.png") %>
+
+
+ - **A**---**Product Dashboard**: Displays product tiles for each installed product in your PaaS.
+
+   - **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product.
+
+ - **B**---**User account menu**: Use this menu to change your password or log out.
+
+ - **C**---**Actions menu**: Includes the following options:
+
+   - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation.
+   - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information.
+
+ - **D**---**Pending Changes view**: Displays queued installations and updates that will install during the next deploy.
+
+ **Note**: Installs and updates automatically execute in the correct order such that prerequisites install before the update that depends on them.
+
+### <a id='config_tiles'></a>Configuring Included Products ###
 
 1. Under VMware vSphere, click **Configure**.
 
