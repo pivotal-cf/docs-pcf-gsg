@@ -1,3 +1,11 @@
+<style type="text/css">
+.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
+.table tr {background-color:#d4e3e5;}
+.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.table tr:hover {background-color:#ffffff;}
+</style>
+
 ---
 title: Pivotal CF Getting Started
 ---
@@ -20,14 +28,6 @@ title: Pivotal CF Getting Started
 * Twice as many available IPs as instances
 - **cf** command line interface tool version 5.4.3 or higher. Refer to docs.cloudfoundry.com for help installing the **cf** CLI tool.
 * Capacity for the following virtual machines:
-
-<style type="text/css">
-.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
-.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
-.table tr {background-color:#d4e3e5;}
-.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
-.table tr:hover {background-color:#ffffff;}
-</style>
 
 <table border="1" class="table" >
 <tr><th><strong>INSTANCES</strong></th><th><strong>VM</strong></th><th><strong>RAM (GB)</strong></th><th><strong>DISK (GB)</strong></th><th><strong>CPU</strong></th></tr>
@@ -202,7 +202,12 @@ title: Pivotal CF Getting Started
  <%= image_tag("guide/console.png") %>
 
 1. Click **Back to Install** to return to the Product Dashboard.
-15. Under MySQL Dev, click **Add**.
+
+1. Click **Add a new product**.
+
+ <%= image_tag("guide/add_prod.png") %>
+
+1. Under MySQL Dev, click **Add**.
 
  <%= image_tag("guide/pill_mysql.png") %>
 
