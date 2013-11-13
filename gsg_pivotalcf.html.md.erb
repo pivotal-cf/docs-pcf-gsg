@@ -1,11 +1,3 @@
-<style type="text/css">
-.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
-.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
-.table tr {background-color:#d4e3e5;}
-.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
-.table tr:hover {background-color:#ffffff;}
-</style>
-
 ---
 title: Pivotal CF Getting Started
 ---
@@ -28,6 +20,15 @@ title: Pivotal CF Getting Started
 * Twice as many available IPs as instances
 - **cf** command line interface tool version 5.4.3 or higher. Refer to docs.cloudfoundry.com for help installing the **cf** CLI tool.
 * Capacity for the following virtual machines:
+
+<style type="text/css">
+.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
+.table tr {background-color:#d4e3e5;}
+.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.table tr:hover {background-color:#ffffff;}
+</style>
+
 
 <table border="1" class="table" >
 <tr><th><strong>INSTANCES</strong></th><th><strong>VM</strong></th><th><strong>RAM (GB)</strong></th><th><strong>DISK (GB)</strong></th><th><strong>CPU</strong></th></tr>
@@ -175,7 +176,11 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/ntp_servers.png") %>
 
-1. Click **Back to Install** to return to the Product Dashboard.
+1. Select **Resource Sizes**, accept the defaults or make necessary changes, and click **Save**.
+
+ <%= image_tag("guide/vsphere_rsc.png") %>
+
+1. Click **Product Dashboard** to return to the Product Dashboard.
 
 1. Click **Add a new product**.
 
@@ -184,6 +189,24 @@ title: Pivotal CF Getting Started
 1. Under **Elastic Runtime**, click **Add**.
 
  <%= image_tag("guide/pill_runtime.png") %>
+
+1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer.
+
+ <%= image_tag("guide/blank_haprox.png") %>
+
+1. Click **Generate Self-Signed RSA Certificate**.
+
+1. Enter at least the following three domains, then click **Save**:
+
+ * The system domain with a wildcard.
+ * The apps domain with a wildcard.
+ * The domain for your app(s).
+
+ <%= image_tag("guide/rsa_cert.png") %>
+
+1. The **Private Key PEM** and **Certificate Key PEM** fields now contain information. Click **Save**.
+
+ <%= image_tag("guide/filled_haprox.png") %>
 
 1. Enter two domains for your Cloud Controller installation and click **Save**. The system domain is used for targeting and pushing apps to Elastic Runtime. The application domain is used for serving apps. Set up wildcard DNS records for these domains as described in the next step.
 
@@ -201,6 +224,10 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/console.png") %>
 
+1. Select **Resource Sizes**, accept the defaults or make necessary changes, and click **Save**.
+
+ <%= image_tag("guide/runtime_rsc.png") %>
+
 1. Click **Back to Install** to return to the Product Dashboard.
 
 1. Click **Add a new product**.
@@ -211,7 +238,10 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/pill_mysql.png") %>
 
-1. Configure MySQL or keep the default values, then click **Back to Install** to return to the Product Dashboard.
+1. Configure the MySQL resource sizes or keep the default values, then click **Back to Install** to return to the Product Dashboard.
+
+ <%= image_tag("guide/mysql_rsc.png") %>
+
 1. Click **Install**.
 
  <%= image_tag("guide/install.png") %>
@@ -225,6 +255,21 @@ title: Pivotal CF Getting Started
  <%= image_tag("guide/deploy_success.png") %>
 
  **Note**: On the recommended hardware infrastructure, deployment should take less that one hour and require no user intervention.
+
+### <a id='install_addl'></a>Installing Additional Products and Versions ###
+
+Choose from the following two options for installing additional products and versions:
+
+1.  Add product view:- **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product.
+
+2. Actions menu **C**---**Actions menu**: Includes the following options:
+
+  - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation.
+
+**Note:**
+ * You cannot install two products with the same name. This includes different versions of the same product.
+ * Updates and installs automatically execute in the correct order such that
+ * You can import and existing installation with all assets, and the assets appear in the correct locations.
 
 ## <a id='target'></a>Target Elastic Runtime ##
 
