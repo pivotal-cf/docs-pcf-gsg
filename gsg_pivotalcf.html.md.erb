@@ -128,7 +128,7 @@ Before you begin, ensure your system meets the following prerequisites:
 
 ## <a id='paas'></a>Setting Up Your PaaS ##
 
-**Goal**: Configure VMware vSphere, Elastic Runtime, and MySQL.
+**Goal**: Configure vmware vSphere, Elastic Runtime, and MySQL.
 
 ### <a id='interface'></a>Understanding the Pivotal CF Interface ###
 
@@ -145,14 +145,14 @@ Before you begin, ensure your system meets the following prerequisites:
 
  - **A**---**Product Dashboard**: Displays product tiles for each installed product in your PaaS.
 
-   - **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product.
+   - **Add a new product**: Navigates to the Add Product view. You can either add a new product or import an existing configured product.
 
  - **B**---**User account menu**: Use this menu to change your password or log out.
 
  - **C**---**Actions menu**: Includes the following options:
 
-   - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation.
-   - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information.
+   - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
+   - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and packages needed. As a result, an export can be very large (at least 5 GB).
 
  - **D**---**Pending Changes view**: Displays queued installations and updates that will install during the next deploy.
 
@@ -262,20 +262,23 @@ Before you begin, ensure your system meets the following prerequisites:
 
  **Note**: On the recommended hardware infrastructure, deployment should take less that one hour and require no user intervention.
 
-### <a id='install_addl'></a>Installing Additional Products and Versions ###
+### <a id='install_addl'></a>Installing, Importing, and Exporting Products ###
 
-Choose from the following two options for installing additional products and versions:
+Choose from the following two workflows for installing additional products and versions:
 
-1.  Add product view:- **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product.
+1. **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product. Installs and updates automatically execute in the correct order such that prerequisites install before the update that depends on them.
 
-2. Actions menu **C**---**Actions menu**: Includes the following options:
+ <%= image_tag("guide/add_prod.png") %>
 
-  - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation.
+1. **Actions menu**: Locate this menu on the product dashboard. Includes the following options:
 
-**Note:**
- * You cannot install two products with the same name. This includes different versions of the same product.
- * Updates and installs automatically execute in the correct order such that
- * You can import and existing installation with all assets, and the assets appear in the correct locations.
+  - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
+
+   - **Note**: You cannot install two products with the same name, including multiple versions of the same product.
+
+  - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and packages needed. As a result, an export can be very large (at least 5 GB).
+
+**Note**: We recommend that you export your installations frequently, and always export an installation before importing a new one. This is the only way to look at the prior installation's VMs.
 
 ## <a id='target'></a>Target Elastic Runtime ##
 
