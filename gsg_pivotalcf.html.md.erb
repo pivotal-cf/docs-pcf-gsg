@@ -154,7 +154,7 @@ title: Pivotal CF Getting Started
 
 ### <a id='config_tiles'></a>Configuring Included Products ###
 
-1. Under VMware vSphere, click **Configure**.
+1. Under vmware vSphere, click **Configure**.
 
  <%= image_tag("guide/pill_vsphere.png") %>
 
@@ -180,7 +180,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/vsphere_rsc.png") %>
 
-1. Click **Product Dashboard** to return to the Product Dashboard.
+1. Click **Product Dashboard** to exit the configuration wizard.
 
 1. Click **Add a new product**.
 
@@ -194,21 +194,21 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/blank_haprox.png") %>
 
-1. Click **Generate Self-Signed RSA Certificate**.
+1. **(Required if using HAProxy)** Click **Generate Self-Signed RSA Certificate**.
 
-1. Enter at least the following three domains, then click **Save**:
+1. **(Required if using HAProxy)** Enter at least the following three domains, then click **Save**:
 
- * The system domain with a wildcard.
- * The apps domain with a wildcard.
+ * The system domain in wildcard format.
+ * The apps domain in wildcard format.
  * The domain for your app(s).
 
  <%= image_tag("guide/rsa_cert.png") %>
 
-1. The **Private Key PEM** and **Certificate Key PEM** fields now contain information. Click **Save**.
+1. **(Required if using HAProxy)** The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
 
  <%= image_tag("guide/filled_haprox.png") %>
 
-1. Enter two domains for your Cloud Controller installation and click **Save**. The system domain is used for targeting and pushing apps to Elastic Runtime. The application domain is used for serving apps. Set up wildcard DNS records for these domains as described in the next step.
+1. Enter two domains for your Cloud Controller installation and click **Save**. The system domain is used to target and push apps to Elastic Runtime. The application domain is used to serve apps. Set up wildcard DNS records for these domains as described in the next step.
 
  <%= image_tag("guide/cloud_cont.png") %>
 
@@ -228,7 +228,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/runtime_rsc.png") %>
 
-1. Click **Back to Install** to return to the Product Dashboard.
+1. Click **Product Dashboard** to exit the configuration wizard.
 
 1. Click **Add a new product**.
 
@@ -238,7 +238,7 @@ title: Pivotal CF Getting Started
 
  <%= image_tag("guide/pill_mysql.png") %>
 
-1. Configure the MySQL resource sizes or keep the default values, then click **Back to Install** to return to the Product Dashboard.
+1. Configure the MySQL resource sizes or keep the default values, then click **Product Dashboard** to exit the configuration wizard.
 
  <%= image_tag("guide/mysql_rsc.png") %>
 
