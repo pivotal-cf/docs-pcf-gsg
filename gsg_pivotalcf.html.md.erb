@@ -278,15 +278,8 @@ The next step is to use the **cf** tool to target your Elastic Runtime installat
  Version 1.0.0.0 of Pivotal CF includes the following known issues:
 
  * vSphere folder names with slashes in the name will cause failures.
- * A vCenter password starting with a special character will cause failures.
- * You must use the UAAC gem to create additional admin users or change the admin user's password.
  * Your app domain must be different than your system domain to protect against deploying apps called "uaa."
  * The Cloud Controller blobstore will continue to grow as users deploy apps. Garbage collection of the blobstore will be forthcoming in a subsequent release.
- * **Add Services** and **Marketplace** features of the Developer Console are not functional.
- * Pivotal CF deployments provisioned to a resource pool cannot be deleted using the Pivotal CF interface and must be deleted using vCenter.
- * Clicking **Install** with empty vSphere settings will raise an exception.
  * If vSphere performance data is not available, a deploy will result in a divide by zero error.
- * HTTPS is turned off for Elastic Runtime in this release.
  * The network you use must be outside of any administrator-created sub-folders in vCenter.
- * If the install fails, check vSphere to ensure that the IP ranges you requested are still available.
 
