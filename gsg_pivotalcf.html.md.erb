@@ -4,7 +4,7 @@ title: Getting Started with Pivotal CF
 
 Welcome to Pivotal CF!
 
-This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the [Troubleshooting Guide](http://docs.gopivotal.com) for more tips. Once you're done, explore the rest of the documentation to learn more about Pivotal CF and the Pivotal One product suite.
+This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the [Troubleshooting Guide](http://docs.gopivotal.com) for more tips. Once you have completed the steps in this guide, explore the documentation on [docs.gopivotal.com](http://docs.gopivotal.com) to learn more about Pivotal CF and the Pivotal One product suite.
 
 ## <a id='requirements'></a>Requirements ##
 
@@ -19,7 +19,7 @@ Before you begin, ensure your system meets the following prerequisites:
 	* Resource (All)
 	* vApp (All)
 	* Virtual machine (All)
-* Ability to create a wildcard DNS record to point to your router or load balancer
+* Ability to create a wildcard DNS record to point to your router or load balancer. Alternatively, you could use a service such as xip.io. (Example: 172.16.64.xip.io)
 - (**Recommended**) A network without DHCP available for deploying the Pivotal CF VMs. **Note**: If you have DHCP, refer to the Troubleshooting Guide to avoid issues with your installation.
 * Turn hardware virtualization off if your vSphere hosts do not support VT-X/EPT. If you are unsure whether the VM hosts support VT-x/EPT, then you may turn this setting off. If you leave this setting on and the VM hosts do not support VT-x/EPT, then each VM will require manual intervention in vCenter to continue powering on without the Intel virtualized VT-x/EPT. Refer to the vCenter help topic at [Configuring Virtual Machines > Setting Virtual Processors and Memory > Set Advanced Processor Options](http://pubs.vmware.com/fusion-5/index.jsp?topic=%2Fcom.vmware.fusion.help.doc%2FGUID-38178690-1234-4843-B135-4063F9AA73E4.html) for more information.
 * Shared storage input/output operations per second (IOPS) at least 10,000
@@ -197,17 +197,21 @@ Before you begin, ensure your system meets the following prerequisites:
 
  <%= image_tag("guide/pill_runtime.png") %>
 
-1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank. If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following steps marked **Required if using HAProxy without importing certificate** to generate self-signed RSA certificates.
+1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank.
 
-  <%= image_tag("guide/blank_haprox.png") %>
+  <%= image_tag("guide/haproxy.png") %>
 
-1. **(Required if using HAProxy without importing certificate)** Click **Generate Self-Signed RSA Certificate**.
+1. **(Required)** SSL certificates: If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following steps marked **Required unless importing certificate** to generate self-signed RSA certificates.
 
-1. **(Required if using HAProxy without importing certificate)** Enter at least the following three domains, then click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values. Include the system domain in wildcard format, the apps domain in wildcard format, and the domain for any apps that will use a domain different from the app serving domain.
+ <%= image_tag("guide/ssl.png") %>
+
+1. **(Required unless importing certificate)** Click **Generate Self-Signed RSA Certificate**.
+
+1. **(Required unless importing certificate)** Enter your system and app domains in wildcard format, as well as optionally any custom domains, and click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values.
 
     <%= image_tag("guide/rsa_cert.png") %>
 
-1. **(Required if using HAProxy)** The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
+1. **(Required)** The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
 
  <%= image_tag("guide/filled_haprox.png") %>
 
@@ -215,7 +219,7 @@ Before you begin, ensure your system meets the following prerequisites:
 
  <%= image_tag("guide/cloud_cont.png") %>
 
-1. If you are using HAProxy, you may leave this field blank. Alternatively, if you are not using HAProxy and you are using your own load balancer, select **Router** and enter the static IP(s) for Pivotal CF that you have registered previously with your load balancer.
+1. If you are using HAProxy, you may leave the **Router IPs** field blank. Alternatively, if you are not using HAProxy and you are using your own load balancer, select **Router IPs** and enter the static IP(s) for Pivotal CF that you have registered previously with your load balancer.
 
  <%= image_tag("guide/router.png") %>
 
@@ -399,7 +403,7 @@ Refer to this section for help importing and exporting your Pivotal CF installat
 
 From the Product Dashboard, select **Actions > Export installation**. This option is only available after you have deployed at least one time.
 
-**Export Installation** exports the current Pivotal CF installation with all of its assets. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and necessary packages. As a result, an export can be very large (as much as 5 GB or more).
+**Export installation** exports the current Pivotal CF installation with all of its assets. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and necessary packages. As a result, an export can be very large (as much as 5 GB or more).
 
 #### <a id='export'></a>Importing an installation ####
 
