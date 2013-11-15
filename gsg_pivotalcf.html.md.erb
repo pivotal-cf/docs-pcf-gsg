@@ -412,7 +412,14 @@ From the Product Dashboard, select **Actions > Import installation**.
  Version 1.0.0.0 of Pivotal CF includes the following known issues:
 
  * vSphere folder names with special characters in the name will cause failures.
- * Your app domain must be different than your system domain to protect against deploying apps called "uaa."
+ * You must use the UAAC gem to create additional admin users.
+ * Changing the CF admin user's password will revert if Elastic Runtime is re-installed.
  * If vSphere performance data is not available, a deploy will result in a divide by zero error.
- * The network you use must be outside of any administrator-created sub-folders in vCenter.
+ * Networks, clusters, and datacenters cannot be in folders.
+ * If DHCP is available to the Pivotal CF VM, the IP could be reset from the static IP (reboot to fix).
+ * Admins must create organizations and users if SMTP is not available for inviting users via email.
+ * SMTP settings for the console must be changed manually after the first deploy.
+ * Deleting a service (MySQL, Rabbit, HD) from the Product Dashboard requires manual service broker removal.
+ * Logging into the Pivotal CF VM causes browser to complain about self-signed certificates.
+ * You must turn hardware virtualization off if the vSphere host does not support VT-X/EPT.
 
