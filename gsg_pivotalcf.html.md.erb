@@ -4,7 +4,7 @@ title: Getting Started with Pivotal CF
 
 Welcome to Pivotal CF!
 
-This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the [Troubleshooting Guide](http://docs.gopivotal.com/pivotalcf/customizing/troubleshooting.html) for more tips. Once you're done, explore the rest of the documentation to learn more about Pivotal CF and the Pivotal One product suite.
+This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the [Troubleshooting Guide](http://docs.gopivotal.com) for more tips. Once you're done, explore the rest of the documentation to learn more about Pivotal CF and the Pivotal One product suite.
 
 ## <a id='requirements'></a>Requirements ##
 
@@ -24,7 +24,7 @@ Before you begin, ensure your system meets the following prerequisites:
 * Turn hardware virtualization off if your vSphere hosts do not support VT-X/EPT. If you are unsure whether the VM hosts support VT-x/EPT, then you may turn this setting off. If you leave this setting on and the VM hosts do not support VT-x/EPT, then each VM will require manual intervention in vCenter to continue powering on without the Intel virtualized VT-x/EPT. Refer to the vCenter help topic at [Configuring Virtual Machines > Setting Virtual Processors and Memory > Set Advanced Processor Options](http://pubs.vmware.com/fusion-5/index.jsp?topic=%2Fcom.vmware.fusion.help.doc%2FGUID-38178690-1234-4843-B135-4063F9AA73E4.html) for more information.
 * Shared storage input/output operations per second (IOPS) at least 10,000
 * Twice as many available IPs as instances
-- The cf command line interface tool version 5.4.3 or higher. Refer to the help topic on [installing the cf CLI tool](http://docs.gopivotal.com/pivotalcf/devguide/installcf/install-ruby-cli.html) for more information.
+- The cf command line interface tool version 5.4.3 or higher. Refer to the help topic on [installing the cf CLI tool](http://docs.gopivotal.com) for more information.
 * Capacity for the following virtual machines:
 
 <style type="text/css">
@@ -197,21 +197,15 @@ Before you begin, ensure your system meets the following prerequisites:
 
  <%= image_tag("guide/pill_runtime.png") %>
 
-1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank. If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following steps to generate self-signed RSA certificates.
+1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank. If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following steps marked **Required if using HAProxy without importing certificate** to generate self-signed RSA certificates.
 
   <%= image_tag("guide/blank_haprox.png") %>
 
-  a. **(Required if using HAProxy without importing certificate)** Click **Generate Self-Signed RSA Certificate**.
+1. **(Required if using HAProxy without importing certificate)** Click **Generate Self-Signed RSA Certificate**.
 
-  a.  **(Required if using HAProxy without importing certificate)** Enter at least the following three domains, then click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values.
+1. **(Required if using HAProxy without importing certificate)** Enter at least the following three domains, then click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values. Include the system domain in wildcard format, the apps domain in wildcard format, and the domain for any apps that will use a domain different from the app serving domain.
 
-     * The system domain in wildcard format.
-
-     * The apps domain in wildcard format.
-
-     * The domain for any apps that will use a domain different from the app serving domain.
-
-  <%= image_tag("guide/rsa_cert.png") %>
+    <%= image_tag("guide/rsa_cert.png") %>
 
 1. **(Required if using HAProxy)** The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
 
@@ -225,11 +219,13 @@ Before you begin, ensure your system meets the following prerequisites:
 
  <%= image_tag("guide/router.png") %>
 
-1. **(Optional--Advanced)** If you are using the vmware SSO appliance for integration with Active Directory, complete this step. Select **SAML Login** and enter the URL of an SSO appliance to connect to Active Directory servers in your organization. Elastic Runtime's User Account and Authentication server uses this address.
+1. **(Optional--Advanced)** If you are using the vmware SSO appliance for integration with Active Directory, complete this step. Select **SAML Login** and enter the URL of an SSO appliance to connect to Active Directory servers in your organization.
 
  <%= image_tag("guide/saml_login.png") %>
 
-1. Select **Web Console**, enter your reply-to and SMTP email information, and click **Save**. The console uses these settings to send invitations and confirmations to console users.
+1. **(Optional)** Select **Web Console**, enter your reply-to and SMTP email information, and click **Save**. The console uses these settings to send invitations and confirmations to console users. These SMTP settings are required if you want to enable end-user self-registration.
+
+ **Note**: If you do not configure the SMTP settings using this form, the administrator will be required to create orgs and users using the cf CLI tool. Refer to the section on [Creating a New User Account](#new-users) for more information.
 
  <%= image_tag("guide/console.png") %>
 
@@ -302,52 +298,28 @@ If you have not set up SMTP, the admin must create an organization and assign ne
   $ cf login admin
   ...
   ```
-1. You must create a new org for new users or select an existing org for them to join.
+1. You must create a new org for new users or select an existing org for them to join. To create a new org, run:
 
-To create a new org, run:
  ```
  $ cf create-org [org-name]
- ...
  ```
 
 1. Create a new user and specify the org the user should join.
 
   ```
   $ cf create-user [user-email] -o [org-name]
-  ...
+
   ```
 
 1. cf prompts you for the password for the new user.
 
 1. Give the new user the Developer Console address and their new credentials. The user now has access to the Developer Console. Refer to the Pivotal CF Developer Console documentation at [docs.gopivotal.com](http://docs.gopivotal.com) for more information about using the Developer Console.
 
-
-### <a id='install-addl'></a>Installing, Importing, and Exporting Products ###
-
-Choose from the following two workflows for updating existing products or installing additional products, such as Pivotal HD for Pivotal CF, Pivotal AX, and Pivotal RabbitMQ:
-
-1. **Add a new product**: Navigates to the Add Product view. You can either add a new product or import the configuration for a previously created product. Installs and updates automatically execute in the correct order such that prerequisites install before the update that depends on them.
-
- <%= image_tag("guide/add_prod.png") %>
-
-1. **Actions menu**: Locate this menu on the product dashboard. Includes the following options:
-
-  - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
-
-   - **Note**: You cannot install two products with the same name, including multiple versions of the same product.
-
-  - **Export Installation**: (Only available once you have deployed at least one time) Exports the current Pivotal CF installation with all of its assets. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and necessary packages. As a result, an export can be very large (at least 5 GB).
-
-  - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information.
-**Note**: We recommend that you export your installations frequently, and always export an installation before importing a new one. This is the only way to look at the prior installation's VMs.
-
-  - **Delete Installation** (Only available after you have deployed at least one time)
-
 ## <a id='target'></a>Target Elastic Runtime ##
 
 The next step is to use the cf tool to target your Elastic Runtime installation. Make sure you have installed the cf tool according to the instructions on [docs.gopivotal.com](http://docs.gopivotal.com).
 
-1. Open a terminal on a Mac or *nix computer.
+1. Open a terminal.
 2. Login to your Cloud Controller by targeting 'api' followed by the system domain. Refer to **Elastic Runtime > Configure > Domains** if you do not remember this domain.
 
  ```
@@ -388,7 +360,52 @@ The next step is to use the cf tool to target your Elastic Runtime installation.
  $ cf push someapp
  ```
 
-  Refer to the Cloud Foundry documentation for an overview and examples of the cf command line tool.
+  Refer to the Pivotal CF documentation for an overview and examples of the cf command line tool.
+
+
+### <a id='install-addl'></a>Adding and Deleting Products ###
+
+Refer to this section for help adding and deleting additional products, such as Pivotal HD for Pivotal CF, Pivotal AX, and Pivotal RabbitMQ.
+
+#### <a id="add-import"></a>Adding and Importing Products ####
+
+1. From the Product Dashboard, click the **Add a new product** tile to navigate to the Add Products page.
+
+ <%= image_tag("guide/add_prod.png") %>
+
+1. The Add Products page displays the **Import A Product** tile and tiles for bundled and previously imported products that are available to add.
+
+ <%= image_tag("guide/add_comp_page.png") %>
+
+1. **To add an available product**, click **Add** on the associated product tile.
+
+1. **To import a product**, use the **Import A Product** tile to choose the .zip file that you downloaded from Pivotal Network or received from your software distributor, then click **Add**.
+
+#### <a id='del-prod'></a>Deleting a Product ####
+
+1. From the Product Dashboard, click the trash icon on a product tile to remove that product.
+
+	**Note**: You cannot delete the vmware vSphere product.
+
+1. **After you delete a product**, the product tile is removed from the installation and the Product Dashboard. However, the product appears as an available product in the Add Products page.
+
+### <a id='install-addl'></a>Backing Up and Restoring Your Installation Settings ###
+
+Refer to this section for help importing and exporting your Pivotal CF installation settings. It is important to back up your installation settings by exporting frequently. Always export an installation before importing a new one. Import an installation to restore your settings or to share your settings with another user.
+
+ **Note**: Exporting your installation only backs up your installation settings. It does not back up your VMs.
+
+#### <a id='export'></a>Exporting an installation ####
+
+From the Product Dashboard, select **Actions > Export installation**. This option is only available after you have deployed at least one time.
+
+**Export Installation** exports the current Pivotal CF installation with all of its assets. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and necessary packages. As a result, an export can be very large (as much as 5 GB or more).
+
+#### <a id='export'></a>Importing an installation ####
+
+From the Product Dashboard, select **Actions > Import installation**.
+
+**Import installation** imports an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
 
 ## <a id='known_issues'></a>Known Issues and Important Tips for this Release ##
 
