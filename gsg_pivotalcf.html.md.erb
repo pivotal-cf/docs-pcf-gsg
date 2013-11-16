@@ -4,7 +4,7 @@ title: Getting Started with Pivotal CF
 
 Welcome to Pivotal CF!
 
-This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the [Troubleshooting Guide](../customizing/troubleshooting.html) for more tips. Once you have completed the steps in this guide, explore the documentation on [docs.gopivotal.com](http://docs.gopivotal.com) to learn more about Pivotal CF and the Pivotal One product suite.
+This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the Troubleshooting Guide for more tips. Once you have completed the steps in this guide, explore the documentation on [docs.gopivotal.com](http://docs.gopivotal.com) to learn more about Pivotal CF and the Pivotal One product suite.
 
 ## <a id='requirements'></a>Requirements ##
 
@@ -120,7 +120,7 @@ Before you begin, ensure your system meets the following prerequisites:
 
  **Note**: The IP Address you enter will be the location of the Pivotal CF Operations Manager interface.
 
- <%= image_tag("guide/vm_admin.png") %>
+ <%= image_tag("guide/vm_admin.png", :height => "375px", :width => "400px") %>
 
 17. Check the **Power on after deployment** checkbox and click **Finish**. Once the VM boots, the interface is available at the IP address you specified.
 
@@ -426,4 +426,5 @@ From the Product Dashboard, select **Actions > Import installation**.
  * Deleting a service (MySQL, Rabbit, HD) from the Product Dashboard requires manual service broker removal.
  * Logging into the Pivotal CF VM causes browser to complain about self-signed certificates.
  * You must turn hardware virtualization off if the vSphere host does not support VT-X/EPT.
+ * If you delete and add products in the same update, the Pivotal CF Operations Manager will attempt to use IPs for the new products that have not yet been freed and will raise an error. Instead, delete products and click **Install Updates** before attempting to add products.
 
