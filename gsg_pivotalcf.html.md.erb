@@ -427,5 +427,6 @@ From the Product Dashboard, select **Actions > Import installation**.
  * Logging into the Pivotal CF VM causes browser to complain about self-signed certificates.
  * You must turn hardware virtualization off if the vSphere host does not support VT-X/EPT.
  * If you delete and add products in the same update, the Pivotal CF Operations Manager will attempt to use IPs for the new products that have not yet been freed and will raise an error. Instead, delete products and click **Install Updates** before attempting to add products.
+ * Forcing the login server to use SSL is not supported for deployments that use the 172.16/12 network range. Instead, set login.protocol to http in your deployment manifest.
  * Active Directory and LDAP integration for Pivotal CF users with the VMware vCenter Single Sign-On Appliance requires a manual procedure. See Pivotal Support Knowledge Base article 201119123 for details.
 
