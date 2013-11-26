@@ -197,21 +197,30 @@ Before you begin, ensure your system meets the following prerequisites:
 
  <%= image_tag("guide/pill_runtime.png") %>
 
-1. **(Optional)** Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank.
+1. (**Understanding SSL termination options**) SSL termination is turned on by default. You can use the Pivotal-deployed HAProxy load balancer for SSL termination, or you can use a load balancer that you provide. The SSL termination method you select determines whether certain fields in the Elastic Runtime configuration are required. The table below helps you understand which steps are required for your SSL termination method. Steps 11-15 and step 17 walk you through configuring these fields.
+
+  <table border="1" class="table" >
+  <tr><th></th><th><strong>Pivotal-Deployed HAProxy Load Balancer (Default)</strong></th><th><strong>Other Load Balancer</strong></th></tr>
+  <tr><td><strong>HAProxy IPs field</strong> (HAProxy page)</td><td><strong>REQUIRED</strong>. Enter the IP address(es) for HAProxy. You must point your DNS to this IP. HAProxy's IP must be in your subnet.</td><td>Unnecessary; leave blank.</td></tr>
+  <tr><td><strong>SSL Certificate field</strong> (HAProxy page)</td><td><strong>REQUIRED</strong>. If you are using a signed certificate from a well-known certificate authority (CA), you can import it. Alternatively, click <strong>Generate Self-Signed RSA Certificate</strong> and follow the instructions in the next step.</td><td><strong>REQUIRED</strong>. If you are using a signed certificate from a well-known certificate authority (CA), you can import it. Alternatively, click <strong>Generate Self-Signed RSA Certificate</strong> and follow the instructions in the next step.</td></tr>
+  <tr><td><strong>Router IPs field</strong> (Router page)</td><td>Leave this field blank. HAProxy assigns the router IPs internally.</td><td><strong>REQUIRED</strong>. Enter the static IP(s) for Pivotal CF that you have registered previously with your load balancer.</td></tr>
+  </table>
+
+1. Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank.
 
   <%= image_tag("guide/haproxy.png") %>
 
-1. **(Required)** SSL certificates: If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following steps marked **Required unless importing certificate** to generate self-signed RSA certificates.
+1. SSL certificates: If you are using a signed certificate from a well-known certificate authority (CA), input that value in the fields below. Alternatively, complete the following two steps to generate self-signed RSA certificates.
 
  <%= image_tag("guide/ssl.png") %>
 
-1. **(Required unless importing certificate)** Click **Generate Self-Signed RSA Certificate**.
+1. Click **Generate Self-Signed RSA Certificate**.
 
-1. **(Required unless importing certificate)** Enter your system and app domains in wildcard format, as well as optionally any custom domains, also in wildcard format if necessary. Then, click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values.
+1. Enter your system and app domains in wildcard format, as well as optionally any custom domains, also in wildcard format if necessary. Then, click **Save**. Refer to **Elastic Runtime > Cloud Controller** for explanations of these domain values.
 
     <%= image_tag("guide/rsa_cert.png") %>
 
-1. **(Required)** The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
+1. The **Private Key PEM** and **Certificate Key PEM** fields now contain certificate keys. Click **Save**.
 
  <%= image_tag("guide/filled_haprox.png") %>
 
