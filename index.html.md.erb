@@ -6,59 +6,7 @@ Welcome to Pivotal CF!
 
 This guide is intended to walk you through deploying the installation virtual machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first app. If at any time you experience a problem following the steps below, try checking the [Known Issues](#known_issues) at the bottom of this guide, or refer to the Troubleshooting Guide for more tips. Once you have completed the steps in this guide, explore the documentation on [docs.gopivotal.com](http://docs.gopivotal.com) to learn more about Pivotal CF and the Pivotal One product suite.
 
-## <a id='requirements'></a>Requirements ##
-
-Before you begin, ensure your system meets the following prerequisites:
-
-* vSphere 5.0, 5.1, or 5.5
-* vSphere editions: standard and above
-* The following vSphere user privileges:
-	* Datastore (Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files)
-	* Folder (All)
-	* Network (Assign network)
-	* Resource (All)
-	* vApp (All)
-	* Virtual machine (All)
-* Ability to create a wildcard DNS record to point to your router or load balancer. Alternatively, you could use a service such as xip.io. (Example: 172.16.64.xip.io)
-- (**Recommended**) A network without DHCP available for deploying the Pivotal CF VMs. **Note**: If you have DHCP, refer to the Troubleshooting Guide to avoid issues with your installation.
-* Turn hardware virtualization off if your vSphere hosts do not support VT-X/EPT. If you are unsure whether the VM hosts support VT-x/EPT, then you may turn this setting off. If you leave this setting on and the VM hosts do not support VT-x/EPT, then each VM will require manual intervention in vCenter to continue powering on without the Intel virtualized VT-x/EPT. Refer to the vCenter help topic at [Configuring Virtual Machines > Setting Virtual Processors and Memory > Set Advanced Processor Options](http://pubs.vmware.com/fusion-5/index.jsp?topic=%2Fcom.vmware.fusion.help.doc%2FGUID-38178690-1234-4843-B135-4063F9AA73E4.html) for more information.
-* Shared storage input/output operations per second (IOPS) at least 10,000
-* Twice as many available IPs as instances
-- The cf command line interface tool version 5.4.3 or higher.
-* Capacity for the following virtual machines:
-
-<style type="text/css">
-.table {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
-.table th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
-.table tr {background-color:#d4e3e5;}
-.table td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
-.table tr:hover {background-color:#ffffff;}
-</style>
-
-
-<table border="1" class="table" >
-<tr><th><strong>INSTANCES</strong></th><th><strong>VM</strong></th><th><strong>RAM (GB)</strong></th><th><strong>DISK (GB)</strong></th><th><strong>CPU</strong></th></tr>
-<tr><td>1</td><td>NATS</td><td>1</td><td>10</td><td>1</td></tr>
-<tr><td>1</td><td>Health Manager</td><td>3</td><td>36</td><td>1</td></tr>
-<tr><td>1</td><td>NFS Server</td><td>1</td><td>100</td><td>1</td></tr>
-<tr><td>1</td><td>Cloud Controller Database</td><td>1</td><td>4</td><td>1</td></tr>
-<tr><td>1</td><td>Cloud Controller</td><td>1</td><td>2</td><td>1</td></tr>
-<tr><td>1</td><td>Router</td><td>1</td><td>2</td><td>1</td></tr>
-<tr><td>1</td><td>Syslog</td><td>1</td><td>10</td><td>1</td></tr>
-<tr><td>1</td><td>Collector</td><td>1</td><td>2</td><td>1</td></tr>
-<tr><td>1</td><td>UAA Database</td><td>1</td><td>10</td><td>1</td></tr>
-<tr><td>1</td><td>UAA</td><td>1</td><td>3</td><td>1</td></tr>
-<tr><td>1</td><td>SAML Login</td><td>1</td><td>3</td><td>1</td></tr>
-<tr><td>1</td><td>Console Database</td><td>1</td><td>3</td><td>1</td></tr>
-<tr><td>1</td><td>DEA</td><td>16</td><td>11</td><td>2</td></tr>
-<tr><td>1</td><td>Loggregator Server</td><td>1</td><td>2</td><td>1</td></tr>
-<tr><td>1</td><td>Loggregator Router</td><td>1</td><td>2</td><td>1</td></tr>
-<tr><td>6</td><td>Compilation</td><td>1</td><td>4</td><td>2</td></tr>
-<tr><th><strong>21</strong></th><th><strong>TOTALS</strong></th><th><strong>33</strong></th><th><strong>204</strong></th><th><strong>18</strong></th></tr>
-</table>
-
 ## <a id='deploy_vm'></a>Deploying the Installation Virtual Machine ##
-
 
 **Goal**: Create a virtual machine to install and manage Pivotal CF on vSphere.
 
@@ -130,8 +78,6 @@ Before you begin, ensure your system meets the following prerequisites:
 
 **Goal**: Configure vmware vSphere, Elastic Runtime, and MySQL.
 
-### <a id='interface'></a>Understanding the Pivotal CF Operations Manager Interface ###
-
 1. Browse to the interface IP address you specified in the **Deploying the Installation VM** section above.
 
  <%= image_tag("guide/pivotal_cf.png") %>
@@ -139,25 +85,6 @@ Before you begin, ensure your system meets the following prerequisites:
 1. Create a **User name** and **Password** and log in to access the interface.
 
  **Note**: Save your password in a backed-up location. If you lose your password, your installation will be unmanageable.
-
- <%= image_tag("guide/interface.png") %>
-
-
- - **A**---**Product Dashboard**: Displays product tiles for each installed product in your PaaS.
-
-   - **Add a new product**: Navigates to the Add Product view. You can either add a new product or import an existing configured product.
-
- - **B**---**User account menu**: Use this menu to change your password or log out.
-
- - **C**---**Actions menu**: Includes the following options:
-
-   - **Import installation**: Navigates to the Import installation view. Select this option to import an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
-
-   - **Export activity data**: Downloads a directory containing the the config file for the installation, the deployment history, and version information.
-
- - **D**---**Pending Changes view**: Displays queued installations and updates that will install during the next deploy.
-
- **Note**: Installs and updates automatically execute in the correct order such that prerequisites install before the update that depends on them.
 
 ### <a id='config_tiles'></a>Configuring Included Products ###
 
@@ -213,12 +140,12 @@ Before you begin, ensure your system meets the following prerequisites:
  **Note:** Verify that your DNS resolves to the HAproxy IP address, as in the following example:
 
  <pre>
-	# in this example, 88.198.254.170 is the HAproxy IP and gopaas.eu is both the system and app domain
-	$ host gopaas.eu
+	# in this example, 88.198.254.170 is the HAproxy IP and example.com is both the system and app domain
+	$ host example.com
 
-	gopaas.eu has address 88.198.254.170
-	gopaas.eu mail is handled by 0 smtp.secureserver.net.
-	gopaas.eu mail is handled by 10 mailstore1.secureserver.net.
+	example.com has address 88.198.254.170
+	example.com mail is handled by 0 smtp.secureserver.net.
+	example.com mail is handled by 10 mailstore1.secureserver.net.
 
  </pre>
 
@@ -256,21 +183,15 @@ Before you begin, ensure your system meets the following prerequisites:
 
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and click **Save**.
 
- <%= image_tag("guide/runtime_rsc.png") %>
-
 1. Click **Product Dashboard** to exit the configuration wizard.
 
 1. Click **Add a new product**.
-
- <%= image_tag("guide/add_prod.png") %>
 
 1. Under MySQL Dev, click **Add**.
 
  <%= image_tag("guide/pill_mysql.png") %>
 
 1. Configure the MySQL resource sizes or keep the default values, then click **Product Dashboard** to exit the configuration wizard.
-
- <%= image_tag("guide/mysql_rsc.png") %>
 
 1. Click **Install**.
 
@@ -414,40 +335,4 @@ Refer to this section for help adding and deleting additional products, such as 
 
 1. **After you delete a product**, the product tile is removed from the installation and the Product Dashboard. However, the product appears as an available product in the Add Products page.
 
-### <a id='install-addl'></a>Backing Up and Restoring Your Installation Settings ###
-
-Refer to this section for help importing and exporting your Pivotal CF installation settings. It is important to back up your installation settings by exporting frequently. Always export an installation before importing a new one. Import an installation to restore your settings or to share your settings with another user.
-
- **Note**: Exporting your installation only backs up your installation settings. It does not back up your VMs.
-
-#### <a id='export'></a>Exporting an installation ####
-
-From the Product Dashboard, select **Actions > Export installation**. This option is only available after you have deployed at least one time.
-
-**Export installation** exports the current Pivotal CF installation with all of its assets. When you export an installation, the exported file contains references to the installation's IP addresses. It also contains the base VM images and necessary packages. As a result, an export can be very large (as much as 5 GB or more).
-
-#### <a id='export'></a>Importing an installation ####
-
-From the Product Dashboard, select **Actions > Import installation**.
-
-**Import installation** imports an existing Pivotal CF installation with all of its assets. When you import an installation, the prior installation will disappear and be replaced by the newly imported one.
-
-## <a id='known_issues'></a>Known Issues and Important Tips for this Release ##
-
- Version 1.0.0.1 of Pivotal CF includes the following known issues:
-
- * vSphere folder names with special characters in the name will cause failures.
- * You must use the UAAC gem to create additional admin users.
- * Changing the CF admin user's password will revert if Elastic Runtime is re-installed.
- * If vSphere performance data is not available, a deploy will result in a divide by zero error.
- * Networks, clusters, and datacenters cannot be in folders.
- * If DHCP is available to the Pivotal CF VM, the IP could be reset from the static IP (reboot to fix).
- * Admins must create organizations and users if SMTP is not available for inviting users via email.
- * SMTP settings for the console must be changed manually after the first deploy.
- * Deleting a service (MySQL, Rabbit, HD) from the Product Dashboard requires manual service broker removal.
- * Logging into the Pivotal CF VM causes browser to complain about self-signed certificates.
- * You must turn hardware virtualization off if the vSphere host does not support VT-X/EPT.
- * If you delete and add products in the same update, the Pivotal CF Operations Manager will attempt to use IPs for the new products that have not yet been freed and will raise an error. Instead, delete products and click **Install Updates** before attempting to add products.
- * Forcing the login server to use SSL is not supported for deployments that use the 172.16/12 network range. Instead, set login.protocol to http in your deployment manifest. Refer to Pivotal Support Knowledge Base article [200930818](https://discuss.zendesk.com/hc/en-us/articles/200930818-Pivotal-CF-does-not-support-forcing-SSL-for-the-172-16-12-network-range) for more information.
- * Active Directory and LDAP integration for Pivotal CF users with the VMware vCenter Single Sign-On Appliance requires a manual procedure. Refer to Pivotal Support Knowledge Base article [201119123](http://ask.gopivotal.com/hc/en-us/articles/201119123-PCF-Elastic-Runtime-Service-1-0-0-1-vCenter-SSO-integration-procedure-) for more information.
 
