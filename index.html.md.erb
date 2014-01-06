@@ -8,7 +8,7 @@ This guide is intended to walk you through deploying the installation virtual ma
 
 ## <a id='deploy'></a>Step 1: Deploy the Pivotal CF Installation Virtual Machine ##
 
-Download the Pivotal CF .ova file and deploy it using vCenter. Refer to the Pivotal CF documentation at [docs.gopivotal.com](http://docs.gopivotal.com) for more detailed instructions.
+Download the Pivotal CF .ova file and deploy it using vCenter. Refer to the Using Ops Manager section of the Pivotal CF documentation at [docs.gopivotal.com](http://docs.gopivotal.com) for more detailed instructions.
 
 ## <a id='paas'></a>Step 2: Set Up Your PaaS ##
 
@@ -54,7 +54,7 @@ Download the Pivotal CF .ova file and deploy it using vCenter. Refer to the Pivo
 
 1. Under **Elastic Runtime**, click **Add**.
 
-1. Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank. Refer to the Understanding the SSL Termination Options topic on [docs.gopivotal.com](http://docs.gopivotal.com) for more information.
+1. Enter at least one HAProxy IP address. You must point your DNS to this IP unless you are using your own load balancer. If you decide to use your own load balancer, leave this field blank. For more information, refer to the Understanding the SSL Termination Options topic in the Operating Elastic Runtime section of the Pivotal CF docs on [docs.gopivotal.com](http://docs.gopivotal.com).
 
   <%= image_tag("guide/haproxy.png") %>
 
@@ -116,51 +116,10 @@ You now have a fully functional installation of Pivotal CF and Pivotal MySQL Ser
 
 ## <a id='users'></a>Step 3: Create New User Accounts ##
 
-Once you have successfully deployed Pivotal CF, add users to your account. Refer to the Pivotal CF documentation at [docs.gopivotal.com](http://docs.gopivotal.com) for more detailed instructions.
+Once you have successfully deployed Pivotal CF, add users to your account. Refer to the Using Ops Manager section of the Pivotal CF documentation at [docs.gopivotal.com](http://docs.gopivotal.com) for more detailed instructions.
 
 ## <a id='target'></a>Step 4: Target Elastic Runtime ##
 
-The next step is to use the cf tool to target your Elastic Runtime installation. Make sure you have installed the cf tool according to the instructions on [docs.gopivotal.com](http://docs.gopivotal.com).
+The next step is to use the cf tool to target your Elastic Runtime installation. Make sure you have installed the cf tool according to the instructions on [docs.gopivotal.com](http://docs.gopivotal.com). Refer to the Pivotal CF documentation for an overview and examples of the cf command line tool.
 
-1. Open a terminal.
-2. Login to your Cloud Controller by targeting 'api' followed by the system domain. Refer to **Elastic Runtime > Configure > Domains** if you do not remember this domain.
-
- ```
- $ cf target https://api.<your-sys-domain>
- $ cf login admin
- Password> ***********
- ```
-
-  **Note**: Refer to **Elastic Runtime > Credentials** for the UAA admin and password. You can also use the user that you created in the console, or create another user with the create-user command.
-
-3. Switch to the org and space you created in the Developer Console.
-
-  ```
-  cf target -o my-awesome-org
-  Switching to organization my-awesome-org... OK
-  1: development
-  2: production
-  3: staging
-  Space> 1
-  Switching to space development... OK
-
-  Target Information (where apps will be pushed):
-
-  CF instance: http://api.<your-sys-domain> (API version: 2)
-  user: admin
-  target app space: development (org: my-awesome-org)
-  ```
-
-4. Switch to the directory of an app you would like to push to Elastic Runtime.
-
- ```
- $ cd someapp
- ```
-
-5. Push the app to Elastic Runtime.
-
- ```
- $ cf push someapp
- ```
-
-  Refer to the Pivotal CF documentation for an overview and examples of the cf command line tool.
+ **Note**: Refer to **Elastic Runtime > Credentials** for the UAA admin and password. You can also use the user that you created in the console, or create another user with the create-user command.
