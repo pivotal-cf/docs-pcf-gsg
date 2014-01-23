@@ -70,7 +70,8 @@ click **Save**.
 
 1. Under **Elastic Runtime**, click **Add**.
 
-1. The value you enter in the HAProxy IPs field depends on whether you are using your own load balancer or the HAProxy load balancer.
+1. The value you enter in the **HAProxy IPs** field depends on whether you are 
+using your own load balancer or the HAProxy load balancer.
 
   **Your own load balancer**: Leave this field blank.
 
@@ -110,10 +111,12 @@ You configured wildcard DNS records for these domains in step 14.
 
  <%= image_tag("guide/cloud_cont.png") %>
 
-1. If you are using HAProxy, you may leave the **Router IPs** field blank.
-Alternatively, if you are not using HAProxy and you are using your own load
-balancer, select **Router IPs** and enter the static IP(s) for Pivotal CF that
-you have registered previously with your load balancer.
+1. The value you enter in the **Router IPs** field depends on whether you are 
+using your own load balancer or the HAProxy load balancer.
+
+  **Your own load balancer**: Enter the static IP(s) for Pivotal CF that you registered previously with your load balancer.
+
+  **HAProxy load balancer**: Leave this field blank.
 
  <%= image_tag("guide/router.png") %>
 
