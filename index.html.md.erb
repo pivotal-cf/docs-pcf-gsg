@@ -56,12 +56,12 @@ Elastic Runtime and Pivotal MySQL Dev.
 1. Select **vSphere configuration**, specify the installation resources, and
 click **Save**.
 
- <%= image_tag("guide/vcenter_configuration.png") %>
+ <%= image_tag("guide/vsphere_configuration.png") %>
 
 1. Select **Network configuration**, enter the Pivotal CF IP ranges, DNS, and
-gateway settings, and click **Save**.
+Gateway settings, and click **Save**.
 The Pivotal CF VMs will use the IP range you specify.
-**Reserved IP Ranges** are blacklisted from the installation.
+**Excluded IP Ranges** are blacklisted from the installation.
 
  <%= image_tag("guide/network_configuration.png") %>
 
@@ -70,8 +70,14 @@ addresses, and click **Save**.
 
  <%= image_tag("guide/ntp_servers.png") %>
 
-1. Select **Ops Manager**, check or uncheck **Enable VM resurrector plugin**,
-and click **Save**.
+1. Select **Health Montor**.
+This field should be left blank unless you have already installed Pivotal Ops
+Metrics.
+
+ <%= image_tag("guide/health_monitor.png") %>
+
+1. Select **System Settings**, check or uncheck **Enable VM resurrector
+plugin**, and click **Save**.
 
  <%= image_tag("guide/resurrector.png") %>
 
