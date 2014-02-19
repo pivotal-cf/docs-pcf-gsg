@@ -25,7 +25,7 @@ more information.
 
 1. Browse to the interface IP address you specified in Step 1.
 
- <%= image_tag("guide/pivotal_cf.png") %>
+    <%= image_tag("guide/pivotal_cf.png") %>
 
 1. Create a **User name** and **Password** and log in to access the interface.
 
@@ -34,57 +34,57 @@ If you lose your password, your installation will be unmanageable.
 
 ### <a id='select_tiles'></a>Select Products ###
 
-1. Once logged into the Pivotal Operations Manager, click **Add** for Pivotal
+Once logged into the Pivotal Operations Manager, click **Add** for Pivotal
 Elastic Runtime and Pivotal MySQL Dev.
 
- <%= image_tag("guide/add_products.png") %>
+<%= image_tag("guide/add_products.png") %>
 
 ### <a id='configure_vsphere'></a>Configure VMware vSphere ###
 
 1. Click the **VMware vSphere** tile.
 
- <%= image_tag("guide/no_vmware_no_er.png") %>
+    <%= image_tag("guide/no_vmware_no_er.png") %>
 
 1. In the left column, select **vCenter credentials** if not already selected.
 
 1. Enter your vCenter IP and credentials and click **Save**.
 
- <%= image_tag("guide/vcenter_credentials.png") %>
+    <%= image_tag("guide/vcenter_credentials.png") %>
 
- **Note**: This user must have create and delete privileges for VMs and folders.
+    **Note**: This user must have create and delete privileges for VMs and folders.
 
 1. Select **vSphere configuration**, specify the installation resources, and
 click **Save**.
 
- <%= image_tag("guide/vsphere_configuration.png") %>
+    <%= image_tag("guide/vsphere_configuration.png") %>
 
 1. Select **Network configuration**, enter the Pivotal CF IP ranges, DNS, and
 Gateway settings, and click **Save**.
 The Pivotal CF VMs will use the IP range you specify.
 **Excluded IP Ranges** are blacklisted from the installation.
 
- <%= image_tag("guide/network_configuration.png") %>
+    <%= image_tag("guide/network_configuration.png") %>
 
 1. Select **NTP servers**, enter a comma-delimited list of time server
 addresses, and click **Save**.
 
- <%= image_tag("guide/ntp_servers.png") %>
+    <%= image_tag("guide/ntp_servers.png") %>
 
 1. Select **Health Monitor**. This field should be left blank unless you have
 installed Pivotal Ops Metrics.
 Only set an IP address _after_ you install Pivotal Ops Metrics.
 
- <%= image_tag("guide/health_monitor.png") %>
+    <%= image_tag("guide/health_monitor.png") %>
 
 1. Select **System Settings**, check or uncheck **Enable VM resurrector
 plugin**, and click **Save**.
 
- <%= image_tag("guide/resurrector.png") %>
+    <%= image_tag("guide/resurrector.png") %>
 
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and
 click **Save**.
 
- <%= image_tag("guide/vsphere_resources.png") %>
+    <%= image_tag("guide/vsphere_resources.png") %>
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
@@ -93,22 +93,22 @@ Dashboard.
 
 1. Click the **Elastic Runtime** tile.
 
- <%= image_tag("guide/no_er.png") %>
+    <%= image_tag("guide/no_er.png") %>
 
 1. In the left column, select **HAProxy** if not already selected.
 
 1. The value you enter in the **HAProxy IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
 
-  **Your own load balancer**: Leave this field blank.
+     **Your own load balancer**: Leave this field blank.
 
-  **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
+     **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
 
-  For more information, refer to the Understanding the SSL Termination Options
+     For more information, refer to the Understanding the SSL Termination Options
 topic in the Operating Elastic Runtime section of the Pivotal CF docs on
 [docs.gopivotal.com](http://docs.gopivotal.com). For help understanding the Elastic Runtime architecture, refer to the [Architecture](http://docs.gopivotal.com/pivotalcf/concepts/architecture/) topic in the Elastic Runtime Concepts docs.
 
- <%= image_tag("guide/haproxy.png") %>
+    <%= image_tag("guide/haproxy.png") %>
 
 1. SSL certificates: If you are using a signed certificate from a known
 certificate authority (CA), input that value in the SSL Certificate fields.
@@ -117,19 +117,19 @@ certificates.
 
 1. <a id='generate_rsa_cert'></a>Click **Generate Self-Signed RSA Certificate**.
 
- <%= image_tag("guide/generate_ssl.png") %>
+    <%= image_tag("guide/generate_ssl.png") %>
 
 1. Enter your system and app domains in wildcard format. Optionally, also add
 any custom domains, in wildcard format if necessary.
 Click **Save**.
 
- <%= image_tag("guide/enter_ssl_domains.png") %>
+    <%= image_tag("guide/enter_ssl_domains.png") %>
 
 1. The **Certificate Key PEM** and **Private Key PEM** fields now contain
 certificate keys.
 Click **Save**.
 
- <%= image_tag("guide/haproxy_ssl.png") %>
+    <%= image_tag("guide/haproxy_ssl.png") %>
 
 1. Select **Cloud Controller**, enter the system and application domains for
 your Cloud Controller installation, and click **Save**.
@@ -137,26 +137,26 @@ You configured wildcard DNS records for these domains in an earlier step.
   - The system domain is used to target and push apps to Elastic Runtime.
   - The application domain is used to serve apps.
 
- <%= image_tag("guide/cloud_controller.png") %>
+    <%= image_tag("guide/cloud_controller.png") %>
 
 1. Select **Router IPs**.
 The value you enter in the **Router IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
 
-  **Your own load balancer**: Enter the IP address(es) for Pivotal CF that you registered previously with your load balancer.
+     **Your own load balancer**: Enter the IP address(es) for Pivotal CF that you registered previously with your load balancer.
 
-  **HAProxy load balancer**: Leave this field blank.
+     **HAProxy load balancer**: Leave this field blank.
 
 1. Click **Save**.
 
- <%= image_tag("guide/router_ips.png") %>
+    <%= image_tag("guide/router_ips.png") %>
 
 1. **(Optional--Advanced)** If you are using the VMware SSO appliance for
 integration with Active Directory, complete this step.
 Select **SAML Login**, enter the URL of an SSO appliance to connect to Active
 Directory servers in your organization, and click **Save**.
 
- <%= image_tag("guide/saml_login.png") %>
+    <%= image_tag("guide/saml_login.png") %>
 
 1. **(Optional)** Select **Web Console**, enter your reply-to and SMTP email
 information, and click **Save**.
@@ -165,17 +165,17 @@ users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
 
- **Note**: If you do not configure the SMTP settings using this form, the
+    **Note**: If you do not configure the SMTP settings using this form, the
 administrator will be required to create orgs and users using the cf CLI tool.
 Refer to the section on [Creating a New User Account](#new-users) for more
 information.
 
- <%= image_tag("guide/web_console.png") %>
+    <%= image_tag("guide/web_console.png") %>
 
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and
 click **Save**.
 
- <%= image_tag("guide/er_resources.png") %>
+    <%= image_tag("guide/er_resources.png") %>
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
@@ -194,15 +194,15 @@ Dashboard.
 
 1. Click **Install**.
 
- <%= image_tag("guide/install.png") %>
+     <%= image_tag("guide/install.png") %>
 
 1. Your updated Pivotal CF installation begins deploying.
 
- <%= image_tag("guide/deploy_progress.png") %>
+     <%= image_tag("guide/deploy_progress.png") %>
 
 1. When the deployment is finished, a success message appears.
 
- **Note**: On the recommended hardware infrastructure, deployment should take
+     **Note**: On the recommended hardware infrastructure, deployment should take
 less that one hour and require no user intervention.
 
 You now have a fully functional installation of Pivotal CF and Pivotal MySQL
