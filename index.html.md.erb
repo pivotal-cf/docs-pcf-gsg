@@ -130,13 +130,23 @@ Click **Save**.
 
     <%= image_tag("guide/haproxy_ssl.png") %>
 
-1. Select **Cloud Controller**, enter the system and application domains for
-your Cloud Controller installation, and click **Save**.
+1. Select **Cloud Controller** and enter the system and application domains for
+your Cloud Controller installation.
 You configured wildcard DNS records for these domains in an earlier step.
   - The system domain is used to target and push apps to Elastic Runtime.
   - The application domain is used to serve apps.
 
-    <%= image_tag("guide/cloud_controller.png") %>
+    <%= image_tag("guide/cloud-controller.png") %>
+
+1. **(Optional)** Check the **Disable Custom Buildpacks** checkbox.
+
+    By default, the cf command line tool gives developers the option of using a custom
+buildpack when they deploy apps to Elastic Runtime. To do so, they use the `-b` option
+to provide a custom buildpack URL with the `cf push` command. The **Disable Custom
+Buildpacks** checkbox disables the `-b` option. For more information about custom buildpacks, refer to
+[docs.gopivotal.com/pivotalcf/buildpacks](http://docs.gopivotal.com/pivotalcf/buildpacks/).
+
+1. Click **Save**.
 
 1. Select **Router IPs**.
 The value you enter in the **Router IPs** field depends on whether you are
