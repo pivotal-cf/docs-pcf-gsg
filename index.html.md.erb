@@ -123,9 +123,9 @@ using your own load balancer or the HAProxy load balancer.
 
      **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
 
-     For more information, refer to the Understanding the SSL Termination Options
-topic in the Operating Elastic Runtime section of the Pivotal CF docs on
-[docs.gopivotal.com](http://docs.gopivotal.com). For help understanding the Elastic Runtime architecture, refer to the [Architecture](http://docs.gopivotal.com/pivotalcf/concepts/architecture/) topic in the Elastic Runtime Concepts docs.
+     For more information, refer to the [Understanding the SSL Termination Options](../opsguide/ssl-term.html)
+topic. For help understanding the Elastic Runtime architecture, refer to the 
+[Architecture](../concepts/architecture/) topic.
 
     <%= image_tag("guide/haproxy.png") %>
 
@@ -164,8 +164,8 @@ You configured wildcard DNS records for these domains in an earlier step.
     By default, the cf command line tool gives developers the option of using a custom
 buildpack when they deploy apps to Elastic Runtime. To do so, they use the `-b` option
 to provide a custom buildpack URL with the `cf push` command. The **Disable Custom
-Buildpacks** checkbox disables the `-b` option. For more information about custom buildpacks, refer to
-[docs.gopivotal.com/pivotalcf/buildpacks](http://docs.gopivotal.com/pivotalcf/buildpacks/).
+Buildpacks** checkbox disables the `-b` option. For more information about custom buildpacks, refer to the
+[buildpacks](../buildpacks/) section of the Pivotal CF documentation.
 
 1. Click **Save**.
 
@@ -240,16 +240,14 @@ The following sections will help you start using your PaaS.
 ## <a id='new-users'></a>Step 4: Create New User Accounts ##
 
 Once you have successfully deployed Pivotal CF, add users to your account.
-Refer to the Using Ops Manager section of the Pivotal CF documentation at
-[docs.gopivotal.com](http://docs.gopivotal.com) for more detailed instructions.
+Refer to the [Using Ops Manager](../customizing/) section of the Pivotal CF documentation for more detailed instructions.
 
 ## <a id='target'></a>Step 5: Target Elastic Runtime ##
 
 The next step is to use the cf tool to target your Elastic Runtime installation.
-Make sure you have installed the cf tool according to the instructions on
-[docs.gopivotal.com](http://docs.gopivotal.com).
-Refer to the Pivotal CF documentation for an overview and examples of the cf
-command line tool.
+Make sure you have [installed the cf tool](../devguide/installcf/install-go-cli.html).
+Refer to the Pivotal CF documentation for more information about [using the cf
+command line tool](../devguide/installcf/whats-new-v6.html).
 
  **Note**: In Pivotal Operations Manager, refer to **Elastic Runtime > Credentials** for the UAA admin and password.
 You can also use the user that you created in the console, or create another
