@@ -21,17 +21,19 @@ necessary for the deployment, a supported version of the cf command line interfa
 tool, and certain user privileges. Refer to the
 [Prerequisites](../customizing/requirements.html) topic for the complete list.
 
-## <a id='deploy'></a>Step 2: Deploy the Pivotal CF Installation Virtual Machine ##
+## <a id='deploy'></a>Step 2: Deploy Pivotal CF Installation Virtual Machine ##
 
 Download the Pivotal CF .ova file and deploy it using vCenter.
-Refer to [Deploying Operations Manager](http://docs.gopivotal.com/pivotalcf/customizing/deploying-vm.html) for
+Refer to [Deploying Operations Manager](../customizing/deploying-vm.html) for
 more information.
 
 ## <a id='paas'></a>Step 3: Set Up Your PaaS ##
 
-**Goal**: Configure and install VMware vSphere, Elastic Runtime, and MySQL.
+**Goal**: Configure and install Ops Manager Director (included), Elastic Runtime,
+and Pivotal MySQL Dev. Skip the import steps for Elastic Runtime or Pivotal MySQL
+Dev if you do not want to import these products.
 
-1. Browse to the interface IP address you specified in Step 1.
+1. Browse to the interface IP address you specified in Step 2.
 
     <%= image_tag("guide/pivotal_cf.png") %>
 
@@ -40,10 +42,21 @@ more information.
  **Note**: Save your password in a backed-up location.
 If you lose your password, your installation will be unmanageable.
 
-### <a id='select_tiles'></a>Select Products ###
+### <a id='import_tiles'></a>Import Products ###
 
-Once logged into the Pivotal Operations Manager, click **Add** for Pivotal
-Elastic Runtime and Pivotal MySQL Dev.
+1. Download Elastic Runtime and Pivotal MySQL Dev from [Pivotal Network](https://network.gopivotal.com).
+
+1. From the Available Products view, click **Import a Product** to navigate to the Add Products page.
+
+1. Click **Choose File** and select the Elastic Runtime .zip file that you downloaded from Pivotal Network, then click **Add**.
+
+    <%= image_tag("guide/add-comp-page.png") %>
+
+    After the import completes, Elastic Runtime appears in the Available Products view.
+
+1. Repeat the previous step for Pivotal MySQL Dev.
+
+1. In the Available Products view, hover over Elastic Runtime and click **Add**. Repeat this step for Pivotal MySQL Dev.
 
 <%= image_tag("guide/add_products.png") %>
 
