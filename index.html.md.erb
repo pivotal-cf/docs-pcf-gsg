@@ -111,15 +111,23 @@ Click **Save**.
 
     <%= image_tag("guide/haproxy_ssl.png") %>
 
-1. Select **Cloud Controller** and enter:
-  - The system domain that will be your target when you push apps to Elastic Runtime
-  - The application domain that Elastic Runtime should use to serve apps
-  - Your Cloud Controller database encryption key
-  - Your intended maximum file upload size
+1. Select **Cloud Controller** and enter the system and application domains.
+  - The system domain will be your target when you push apps to Elastic Runtime
+  - The application domain is where Elastic Runtime should serve your apps
 
     <%= image_tag("guide/cloud-controller.png") %>
 
-**Note**: You configured wildcard DNS records for the system and application domains in an earlier step.
+    **Note**: You configured wildcard DNS records for these domains in an earlier step.
+
+1. Leave the **Cloud Controller DB encryption key** field blank unless:
+  - You deployed Elastic Runtime earlier
+  - You then stopped Elastic Runtime, or it crashed
+  - You are re-deploying Elastic Runtime with a backup of your Cloud Controller database
+
+    Enter your Cloud Controller database encryption key only if these conditions apply.
+    See [Backing Up Pivotal CF] (backup-settings.html).
+
+1. Enter your intended maximum file upload size.
 
 1. **(Optional)** Check the **Disable Custom Buildpacks** checkbox.
 
