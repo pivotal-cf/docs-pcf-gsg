@@ -111,13 +111,15 @@ Click **Save**.
 
     <%= image_tag("guide/haproxy_ssl.png") %>
 
-1. Select **Cloud Controller** and enter the system and application domains for
-your Cloud Controller installation.
-You configured wildcard DNS records for these domains in an earlier step.
-  - The system domain is used to target and push apps to Elastic Runtime.
-  - The application domain is used to serve apps.
+1. Select **Cloud Controller** and enter:
+  - The system domain that will be your target when you push apps to Elastic Runtime
+  - The application domain that Elastic Runtime should use to serve apps
+  - Your Cloud Controller database encryption key
+  - Your intended maximum file upload size
 
     <%= image_tag("guide/cloud-controller.png") %>
+
+You configured wildcard DNS records for these domains in an earlier step.
 
 1. **(Optional)** Check the **Disable Custom Buildpacks** checkbox.
 
