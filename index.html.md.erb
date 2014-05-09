@@ -87,29 +87,30 @@ using your own load balancer or the HAProxy load balancer.
 topic. For help understanding the Elastic Runtime architecture, refer to the
 [Architecture](../concepts/architecture/) topic.
 
-    <%= image_tag("guide/haproxy.png") %>
+    <%= image_tag("guide/ha-proxy.png") %>
 
-1. SSL Certificates: If you are using a signed certificate from a known
-certificate authority (CA), input that value in the SSL Certificate fields.
+1. If you are using a signed **SSL Certificate** from a known certificate
+authority (CA), copy and paste its values for **Certificate PEM** and
+**Private Key PEM** into the appropriate text fields.
 Alternatively, complete the following two steps to generate self-signed RSA
 certificates.
 
     1. <a id='generate_rsa_cert'></a>Click **Generate Self-Signed RSA
-Certificate**.
+Certificate** and check the **Trust Self-Signed Certificates** box.
 
-        <%= image_tag("guide/generate_ssl.png") %>
+        <%= image_tag("guide/gen-ssl.png") %>
 
     1. Enter your system and app domains in wildcard format. Optionally, also
 add any custom domains in wildcard format.
 Click **Generate**.
 
-        <%= image_tag("guide/enter_ssl_domains.png") %>
+        <%= image_tag("guide/enter-ssl-domains.png") %>
 
 1. The **Certificate Key PEM** and **Private Key PEM** fields now contain
 certificate keys.
 Click **Save**.
 
-    <%= image_tag("guide/haproxy_ssl.png") %>
+    <%= image_tag("guide/haproxy-ssl.png") %>
 
 1. Select **Cloud Controller** and enter the system and application domains.
   - The system domain will be your target when you push apps to Elastic Runtime
