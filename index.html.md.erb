@@ -60,13 +60,14 @@ If you lose your password, your installation will be unmanageable.
 
 1. In the Available Products view, hover over Elastic Runtime and click **Add**. Repeat this step for Pivotal MySQL Dev.
 
-<%= image_tag("guide/add_products.png") %>
+<%= image_tag("guide/add-products.png") %>
 
 ### <a id='configure_vsphere'></a>Configure Ops Manager Director ###
 
 Your Ops Manager download includes a tile for the version of Ops Manager Director that corresponds to your IaaS. Refer to one of the following topics for help configuring your Ops Manager Director product tile:
 
 * [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html)
+* [Configuring Ops Manager Director for vCHS and vCloud](../customizing/vchs-vcloud-config.html)
 
 ### <a id='configure_er'></a>Configure Elastic Runtime ###
 
@@ -95,8 +96,8 @@ authority (CA), copy and paste its values for **Certificate PEM** and
 Alternatively, complete the following two steps to generate self-signed RSA
 certificates.
 
-    1. <a id='generate_rsa_cert'></a>Click **Generate Self-Signed RSA
-Certificate** and check the **Trust Self-Signed Certificates** box.
+    1. <a id='generate_rsa_cert'></a>Check the **Trust Self-Signed Certificates**
+checkbox, then click **Generate Self-Signed RSA Certificate**.
 
         <%= image_tag("guide/gen-ssl.png") %>
 
@@ -109,8 +110,6 @@ Click **Generate**.
 1. The **Certificate Key PEM** and **Private Key PEM** fields now contain
 certificate keys.
 Click **Save**.
-
-    <%= image_tag("guide/haproxy-ssl.png") %>
 
 1. Select **Cloud Controller** and enter the system and application domains.
   - The system domain will be your target when you push apps to Elastic Runtime
@@ -154,7 +153,7 @@ using your own load balancer or the HAProxy load balancer.
 
 1. **(Optional - Advanced)** If you are using the VMware SSO appliance for
 integration with Active Directory, complete this step.
-Select **SAML Login**, enter the URL of an SSO appliance to connect to Active
+Select **SSO Login**, enter the URL of an SSO appliance to connect to Active
 Directory servers in your organization, and click **Save**.
 
     <%= image_tag("guide/saml_login.png") %>
@@ -171,10 +170,12 @@ administrator will need to create orgs and users using the cf CLI tool. See [Cre
 
     <%= image_tag("guide/web_console.png") %>
 
+1. **(Optional)** Select **Quota Settings**, enter in-range quota values or accept the defaults, and click **Save**. The values you specify affect apps and service instances using the default quota plan. After the initial Elastic Runtime installation, use the cf CLI to manage quota plans.
+
+    <%= image_tag("guide/quotas.png") %>
+
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and
 click **Save**.
-
-    <%= image_tag("guide/er_resources.png") %>
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
