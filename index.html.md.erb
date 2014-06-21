@@ -44,9 +44,6 @@ want to import these products.
 
 1. Create a **User name** and **Password** and log in to access the interface.
 
- **Note**: Save your password in a backed-up location.
-If you lose your password, your installation will be unmanageable.
-
 ### <a id='import-tiles'></a>Import Products ###
 
 1. Download Elastic Runtime and Pivotal MySQL Dev from [Pivotal Network](https://network.gopivotal.com).
@@ -123,7 +120,7 @@ Click **Save**.
 
     <%= image_tag("guide/cloud-controller.png") %>
 
-    **Note**: You configured wildcard DNS records for these domains in an earlier step.
+    <p class="note"><strong>Note</strong>: You configured wildcard DNS records for these domains in an earlier step. </p>
 
 1. Leave the **Cloud Controller DB encryption key** field blank unless:
   - You deployed Elastic Runtime earlier
@@ -173,8 +170,8 @@ users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
 
-    **Note**: If you do not configure the SMTP settings using this form, the
-administrator will need to create orgs and users using the cf CLI tool. See [Creating and Managing Users with the cf CLI](../adminguide/cli-user-management.html) for more information.
+    <p class="note"><strong>Note</strong>: If you do not configure the SMTP settings using this form, the
+administrator will need to create orgs and users using the cf CLI tool. See [Creating and Managing Users with the cf CLI](../adminguide/cli-user-management.html) for more information.</p>
 
     <%= image_tag("guide/web_console.png") %>
 
@@ -214,8 +211,8 @@ Dashboard.
 
 1. When the deployment is finished, a success message appears.
 
-     **Note**: On the recommended hardware infrastructure, deployment should take
-less that one hour and require no user intervention.
+     <p class="note"><strong>Note</strong>: On the recommended hardware infrastructure, deployment should take
+less that one hour and require no user intervention. </p>
 
 You now have a fully functional installation of Pivotal CF and Pivotal MySQL
 Service.
@@ -233,6 +230,6 @@ Make sure you have [installed the cf tool](../devguide/installcf/install-go-cli.
 Refer to the Pivotal CF documentation for more information about [using the cf
 command line tool](../devguide/installcf/whats-new-v6.html).
 
- **Note**: In Pivotal Operations Manager, refer to **Elastic Runtime > Credentials** for the UAA admin name and password.
+<p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to **Elastic Runtime > Credentials** for the UAA admin name and password.
 You can also use the user that you created in the console, or create another
-user with the create-user command.
+user with the create-user command. </p>
