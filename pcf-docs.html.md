@@ -46,5 +46,5 @@ title: Pivotal CF Documentation
     </li>
     <li>
         <a class="title" href="../pcf-release-notes/">Release Notes</a>
-        <div class="docs-module-description">Release notes and known issues for the PCF 1.1.0.0 release of Pivotal Operations Manager, Pivotal Elastic Runtime and Pivotal MySQL Developer.</div>
+        <div class="docs-module-description">Release notes and known issues for Pivotal Operations Manager, Pivotal Elastic Runtime and Pivotal MySQL Developer.</div>
     </li></ol>
