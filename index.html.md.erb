@@ -21,8 +21,7 @@ minimum requirements.
 The requirements include capacity for the virtual machines necessary for the
 deployment, a supported version of the cf command line interface tool, and
 certain user privileges.
-Refer to the [Prerequisites](../customizing/requirements.html) topic for the
-complete list.
+Refer to the [Prerequisites to Deploying Operations Manager and Elastic Runtime](../customizing/requirements.html) topic for the complete list.
 
 ## <a id='deploy'></a>Step 2: Deploy Pivotal CF Installation Virtual Machine ##
 
@@ -53,9 +52,7 @@ want to import these products.
 
     <%= image_tag("guide/import-prod.png") %>
 
-1. Select the Elastic Runtime .zip file that you downloaded from Pivotal Network, then click **Open**.
-
-    After the import completes, Elastic Runtime appears in the Available Products view.
+1. Select the Elastic Runtime .zip file that you downloaded from Pivotal Network, then click **Open**. After the import completes, Elastic Runtime appears in the Available Products view.
 
 1. Repeat the previous step for Pivotal MySQL Dev.
 
@@ -83,67 +80,71 @@ Director product tile:
 
 1. The value you enter in the **HAProxy IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
+    * **Your own load balancer**: Leave this field blank.
+    * **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
 
-     **Your own load balancer**: Leave this field blank.
-
-     **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
-
-     For more information, refer to the [Understanding the SSL Termination Options](../opsguide/ssl-term.html)
-topic. For help understanding the Elastic Runtime architecture, refer to the
+    For more information, refer to the [Understanding the SSL Termination Options](../opsguide/ssl-term.html) topic.
+For help understanding the Elastic Runtime architecture, refer to the
 [Architecture](../concepts/architecture/) topic.
 
     <%= image_tag("guide/ha-proxy.png") %>
 
-1. <a id='generate-rsa-cert'></a>If you are using a signed **SSL Certificate** from a known certificate
-authority (CA), copy and paste its values for **Certificate PEM** and
-**Private Key PEM** into the appropriate text fields. If you have an **Intermediate CA** paste it in the same box below the Certificate PEM. Alternatively, complete the following two steps to generate self-signed RSA certificates.
-    - Check the **Trust Self-Signed Certificates** checkbox, then click **Generate Self-Signed RSA Certificate**.
+1. <a id='generate-rsa-cert'></a>If you are using a signed **SSL Certificate**
+from a known certificate authority (CA), copy and paste its values for
+**Certificate PEM** and **Private Key PEM** into the appropriate text fields.
+If you have an **Intermediate CA** paste it in the same box below the
+Certificate PEM.
+Alternatively, complete the following two steps to generate self-signed RSA
+certificates.
+    * Check the **Trust Self-Signed Certificates** checkbox, then click **Generate Self-Signed RSA Certificate**.
+    <%= image_tag("guide/gen-ssl.png") %>
+    * Enter your system and app domains in wildcard format. Optionally, also add any custom domains in wildcard format. Click **Generate**.
 
-        <%= image_tag("guide/gen-ssl.png") %>
+    <%= image_tag("guide/enter-ssl-domains.png") %>
 
-        - Enter your system and app domains in wildcard format. Optionally, also add any custom domains in wildcard format. Click **Generate**.
-
-        <%= image_tag("guide/enter-ssl-domains.png") %>
-5. The **Certificate Key PEM** and **Private Key PEM** fields now contain certificate keys.
+1. The **Certificate Key PEM** and **Private Key PEM** fields now contain
+certificate keys.
 Click **Save**.
 
 1. Select **Cloud Controller** and enter the system and application domains.
-  - The system domain defines your target when you push apps to Elastic Runtime
-  - The application domain defines where Elastic Runtime should serve your apps
+    * The system domain defines your target when you push apps to Elastic
+	Runtime
+    * The application domain defines where Elastic Runtime should serve your
+	apps
 
     <%= image_tag("guide/cloud-controller.png") %>
 
     <p class="note"><strong>Note</strong>: You configured wildcard DNS records for these domains in an earlier step. </p>
 
 1. Leave the **Cloud Controller DB encryption key** field blank unless:
-  - You deployed Elastic Runtime earlier
-  - You then stopped Elastic Runtime, or it crashed
-  - You are re-deploying Elastic Runtime with a backup of your Cloud Controller database
+    * You deployed Elastic Runtime earlier
+    * You then stopped Elastic Runtime, or it crashed
+    * You are re-deploying Elastic Runtime with a backup of your Cloud
+	Controller database
 
-    Enter your Cloud Controller database encryption key only if these conditions apply.
-    See [Backing Up Pivotal CF](../customizing/backup-settings.html) for more information.
+    Enter your Cloud Controller database encryption key only if these conditions
+apply.
+See [Backing Up Pivotal CF](../customizing/backup-settings.html) for more
+information.
 
 1. Enter your intended maximum file upload size.
 
 1. **(Optional)** Check the **Disable Custom Buildpacks** checkbox.
-
-    By default, the cf command line tool gives developers the option of using a
-    custom buildpack when they deploy apps to Elastic Runtime.
-    To do so, they use the `-b` option to provide a custom buildpack URL with
-    the `cf push` command.
-    The **Disable Custom Buildpacks** checkbox disables the `-b` option.
-    For more information about custom buildpacks, refer to the
-    [buildpacks](../buildpacks/) section of the Pivotal CF documentation.
+By default, the cf command line tool gives developers the option of using a
+custom buildpack when they deploy apps to Elastic Runtime.
+To do so, they use the `-b` option to provide a custom buildpack URL with the
+`cf push` command.
+The **Disable Custom Buildpacks** checkbox disables the `-b` option.
+For more information about custom buildpacks, refer to the
+[buildpacks](../buildpacks/) section of the Pivotal CF documentation.
 
 1. Click **Save**.
 
 1. Select **Router IPs**.
 The value you enter in the **Router IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
-
-     **Your own load balancer**: Enter the IP address(es) for Pivotal CF that you registered with your load balancer. Refer to the [Using Your Own Load Balancer](../customizing/custom-load-balancer.html) topic for help using your own load balancer with Pivotal CF.
-
-     **HAProxy load balancer**: Leave this field blank.
+    * **Your own load balancer**: Enter the IP address(es) for Pivotal CF that you registered with your load balancer. Refer to the [Using Your Own Load Balancer](../customizing/custom-load-balancer.html) topic for help using your own load balancer with Pivotal CF.
+    * **HAProxy load balancer**: Leave this field blank.
 
 1. Click **Save**.
 
@@ -163,8 +164,7 @@ users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
 
-    <p class="note"><strong>Note</strong>: If you do not configure the SMTP settings using this form, the
-administrator will need to create orgs and users using the cf CLI tool. See <a href="../adminguide/cli-user-management.html">Creating and Managing Users with the cf CLI</a> for more information.</p>
+    <p class="note"><strong>Note</strong>: If you do not configure the SMTP settings using this form, the administrator must create orgs and users using the cf CLI tool. See <a href="../adminguide/cli-user-management.html">Creating and Managing Users with the cf CLI</a> for more information.</p>
 
     <%= image_tag("guide/web_console.png") %>
 
