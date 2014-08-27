@@ -40,7 +40,7 @@ want to import these products.
 
 1. Browse to the interface IP address you specified in Step 2.
 
-    <%= image_tag("guide/pivotal_cf.png") %>
+    <%= image_tag("guide/pivotal-cf.png") %>
 
 1. Create a **User name** and **Password** and log in to access the interface.
 
@@ -74,7 +74,7 @@ Director product tile:
 
 1. Click the **Elastic Runtime** tile.
 
-    <%= image_tag("guide/no_er.png") %>
+    <%= image_tag("guide/click-er.png") %>
 
 1. In the left column, select **HAProxy** if not already selected.
 
@@ -148,14 +148,27 @@ using your own load balancer or the HAProxy load balancer.
 
 1. Click **Save**.
 
-    <%= image_tag("guide/router_ips.png") %>
+    <%= image_tag("guide/router-ip.png") %>
 
 1. **(Optional - Advanced)** If you are using the VMware SSO appliance for
 integration with Active Directory, complete this step.
 Select **SSO Login**, enter the URL of an SSO appliance to connect to Active
 Directory servers in your organization, and click **Save**.
 
-    <%= image_tag("guide/saml_login.png") %>
+    <%= image_tag("guide/saml-login.png") %>
+
+1. **(Optional - Advanced)** If you are using the LDAP endpoint for UAA,
+complete this step. Select **LDAP Login** and enter the following information:
+    * LDAP server URL
+    * LDAP credentials
+    * LDAP search base
+    * LDAP search filter
+    * LDAP server SSL certificate
+    * Alternate name for the LDAP server SSL certificate
+
+    Click **Save**.
+
+    <%= image_tag("guide/ldap.png") %>
 
 1. **(Optional)** Select **Web Console**, enter your reply-to and SMTP email
 information, and click **Save**.
@@ -166,7 +179,7 @@ self-registration.
 
     <p class="note"><strong>Note</strong>: If you do not configure the SMTP settings using this form, the administrator must create orgs and users using the cf CLI tool. See <a href="../adminguide/cli-user-management.html">Creating and Managing Users with the cf CLI</a> for more information.</p>
 
-    <%= image_tag("guide/web_console.png") %>
+    <%= image_tag("guide/web-console.png") %>
 
 1. **(Optional)** Select **Quota Settings**, enter in-range quota values or accept the defaults, and click **Save**. The values you specify affect apps and service instances using the default quota plan. After the initial Elastic Runtime installation, use the cf CLI to manage quota plans.
 
@@ -182,18 +195,34 @@ self-registration.
 
     <%= image_tag("guide/errands.png") %>
 
+1. Select **Assign Availability Zones**. Ops Manager Availability Zones
+correspond to vCenter clusters and resource pools.
+    * Select an Availability Zone under **Place singleton jobs**. Ops Manager
+	runs jobs with only one instance in this Availability Zone.
+	* Select one or more Availability Zones under **Balance other jobs**. Ops
+	Manager balances instances of jobs with more than one instance across the
+	Availability Zones specified.
+
+    <%= image_tag("guide/az-assignment.png") %>
+
+1. Select **Assign Networks**. Ops Manager Networks correspond to vSphere
+networks. Elastic Runtime runs on the selected network.
+
+    <%= image_tag("guide/assign-network.png") %>
+
+
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and
 click **Save**.
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
 
-### <a id='configure-mysql'></a>Configure mySQL ###
+### <a id='configure-mysql'></a>Configure MySQL ###
 
 1. Click the **MySQL Dev** tile.
 
-1. Configure the MySQL Service Plan, Lifecycle Errands, and resource sizes or keep the default values, then click
-**Save**.
+1. Configure the MySQL Service Plan, Lifecycle Errands, and resource sizes.
+Assign Availability Zones and a Ops Manager network, then click **Save**.
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
@@ -206,7 +235,7 @@ Dashboard.
 
 1. Your updated Pivotal CF installation begins deploying.
 
-     <%= image_tag("guide/deploy_progress.png") %>
+     <%= image_tag("guide/deploy-progress.png") %>
 
 1. When the deployment is finished, a success message appears.
 
