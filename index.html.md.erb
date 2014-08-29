@@ -195,21 +195,21 @@ self-registration.
 
     <%= image_tag("guide/errands.png") %>
 
-1. Select **Assign Availability Zones**. Ops Manager Availability Zones
-correspond to vCenter clusters and resource pools.
+1. **(vSphere Only)** Select **Assign Availability Zones**. These are the
+Availability Zones you [create](../customizing/vsphere-config.html#create-az)
+when configuring Ops Manager Director.
     * Select an Availability Zone under **Place singleton jobs**. Ops Manager
-	runs jobs with only one instance in this Availability Zone.
+	runs any job with a single instance in this Availability Zone.
 	* Select one or more Availability Zones under **Balance other jobs**. Ops
 	Manager balances instances of jobs with more than one instance across the
-	Availability Zones specified.
+	Availability Zones you specify.
 
     <%= image_tag("guide/az-assignment.png") %>
 
-1. Select **Assign Networks**. Ops Manager Networks correspond to vSphere
+1. Select **Assign Networks**. Ops Manager networks correspond to vSphere
 networks. Elastic Runtime runs on the selected network.
 
     <%= image_tag("guide/assign-network.png") %>
-
 
 1. Select **Resource Sizes**, accept the defaults or make necessary changes, and
 click **Save**.
