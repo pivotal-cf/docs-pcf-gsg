@@ -187,11 +187,13 @@ self-registration.
 
 1. Select **Lifecycle Errands**. By default, Ops Manager runs the **Run Smoke Tests** and **Push Console** errands after installing Elastic Runtime. See  [Understanding Lifecycle Errands](../packaging/lifecycle-errands.html) for more information.
 
-    <p class="note"><strong>Note</strong>: The Push Console post-install errand
-	includes pushing the usage service. When the usage service starts, it
-	executes an API call to purge all application usage events. Subsequent
-	console and usage service pushes do not trigger the usage service API call,
-	and do not purge application usage events.</p>
+    <p class="note"><strong>Note</strong>: The Push Console errand also deploys
+	the usage service, which provides data on the count of instances and amount
+	of memory that apps consume. When the usage service starts for the first
+	time, it executes an API call to purge all application usage events from the
+	Cloud Controller Database. Subsequent console and usage service deploys do
+	not trigger this API call, and do not purge application usage events.
+	</p>
 
     <%= image_tag("guide/errands.png") %>
 
