@@ -52,11 +52,15 @@ want to import these products.
 
     <%= image_tag("guide/import-prod.png") %>
 
-1. Select the Elastic Runtime .zip file that you downloaded from Pivotal Network, then click **Open**. After the import completes, Elastic Runtime appears in the Available Products view.
+1. Select the Elastic Runtime .zip file that you downloaded from Pivotal
+Network, then click **Open**.
+After the import completes, Elastic Runtime appears in the Available Products
+view.
 
 1. Repeat the previous step for Pivotal MySQL Dev.
 
-1. In the Available Products view, hover over Elastic Runtime and click **Add**. Repeat this step for Pivotal MySQL Dev.
+1. In the Available Products view, hover over Elastic Runtime and click **Add**.
+Repeat this step for Pivotal MySQL Dev.
 
 <%= image_tag("guide/add-products.png") %>
 
@@ -96,11 +100,12 @@ when configuring Ops Manager Director.
 1. The value you enter in the **HAProxy IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
     * **Your own load balancer**: Leave this field blank.
-    * **HAProxy load balancer**: Enter at least one HAProxy IP address. Point your DNS to this address.
+    * **HAProxy load balancer**: Enter at least one HAProxy IP address. Point
+	your DNS to this address.
 
-    For more information, refer to the [Configuring Pivotal CF SSL Termination](../opsguide/ssl-term.html) topic.
-For help understanding the Elastic Runtime architecture, refer to the
-[Architecture](../concepts/architecture/) topic.
+    For more information, refer to the [Configuring Pivotal CF SSL 	Termination](../opsguide/ssl-term.html) topic.
+	For help understanding the Elastic Runtime architecture, refer to the
+	[Architecture](../concepts/architecture/) topic.
 
     <%= image_tag("guide/ha-proxy-1_3.png") %>
 
@@ -111,9 +116,11 @@ If you have an **Intermediate CA** paste it in the same box below the
 Certificate PEM.
 Alternatively, complete the following two steps to generate self-signed RSA
 certificates.
-    * Check the **Trust Self-Signed Certificates** checkbox, then click **Generate Self-Signed RSA Certificate**.
+    * Check the **Trust Self-Signed Certificates** checkbox, then click
+	**Generate Self-Signed RSA Certificate**.
     <%= image_tag("guide/gen-ssl.png") %>
-    * Enter your system and app domains in wildcard format. Optionally, also add any custom domains in wildcard format. Click **Generate**.
+    * Enter your system and app domains in wildcard format. Optionally, also add
+	any custom domains in wildcard format. Click **Generate**.
 
     <%= image_tag("guide/enter-ssl-domains.png") %>
 
@@ -124,22 +131,26 @@ Click **Save**.
 1. Select **Router IPs**.
 The value you enter in the **Router IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
-    * **Your own load balancer**: Enter the IP address(es) for Pivotal CF that you registered with your load balancer. Refer to the [Using Your Own Load Balancer](../customizing/custom-load-balancer.html) topic for help using your own load balancer with Pivotal CF.
+    * **Your own load balancer**: Enter the IP address(es) for Pivotal CF that
+	you registered with your load balancer. Refer to the [Using Your Own Load Balancer](../customizing/custom-load-balancer.html) topic for help using your
+	own load balancer with Pivotal CF.
     * **HAProxy load balancer**: Leave this field blank.
 
 1. Click **Save**.
 
     <%= image_tag("guide/router-ip-1_3.png") %>
 
-1. Select **Cloud Controller** and enter the system and application domains.
-    * The system domain defines your target when you push apps to Elastic
-	Runtime
-    * The application domain defines where Elastic Runtime should serve your
-	apps
+1. <a id="cloud-controller"></a>Select **Cloud Controller** and enter the system
+and application domains.
+    * The **System Domain** defines your target when you push apps to Elastic
+	Runtime.
+    * The **Apps Domain** defines where Elastic Runtime should serve your
+	apps.
 
     <%= image_tag("guide/cloud-controller-1_3.png") %>
 
-    <p class="note"><strong>Note</strong>: You configured wildcard DNS records for these domains in an earlier step. </p>
+    <p class="note"><strong>Notes</strong>: You configured wildcard DNS records
+	for these domains in an earlier step. </p>
 
 1. Leave the **Cloud Controller DB encryption key** field blank unless:
     * You deployed Elastic Runtime earlier
@@ -148,9 +159,9 @@ using your own load balancer or the HAProxy load balancer.
 	Controller database
 
     Enter your Cloud Controller database encryption key only if these conditions
-apply.
-See [Backing Up Pivotal CF](../customizing/backup-settings.html) for more
-information.
+	apply.
+	See [Backing Up Pivotal CF](../customizing/backup-settings.html) for more
+	information.
 
 1. Enter your intended maximum file upload size.
 
@@ -165,12 +176,16 @@ For more information about custom buildpacks, refer to the
 
 1. Click **Save**.
 
-1. **(Optional - Advanced)** If you are forwarding syslog messages via TCP to a RELP syslog server, complete this step.
-Select **External Endpoints**, enter the IP address and port of the syslog aggregator host, and click **Save**.
+1. **(Optional - Advanced)** If you are forwarding syslog messages via TCP to a
+RELP syslog server, complete this step.
+Select **External Endpoints**, enter the IP address and port of the syslog
+aggregator host, and click **Save**.
 
     <%= image_tag("guide/external-endpoints.png") %>
 
-<p class-'note'>The host must be reachable from the Elastic Runtime network, accept TCP connections, and use the RELP protocol. Ensure syslogd listens on external interfaces.</p>
+    <p class="note"><strong>Note</strong>: The host must be reachable from the
+	Elastic Runtime network, accept TCP connections, and use the RELP protocol.
+	Ensure <code>syslogd</code> listens on external interfaces.</p>
 
 1. **(Optional - Advanced)** If you are using the VMware SSO appliance for
 integration with Active Directory, complete this step.
@@ -199,11 +214,17 @@ users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
 
-    <p class="note"><strong>Note</strong>: If you do not configure the SMTP settings using this form, the administrator must create orgs and users using the cf CLI tool. See <a href="../adminguide/cli-user-management.html">Creating and Managing Users with the cf CLI</a> for more information.</p>
+    <p class="note"><strong>Note</strong>: If you do not configure the SMTP
+	settings using this form, the administrator must create orgs and users using
+	the cf CLI tool. See <a href="../adminguide/cli-user-management.html">Creating and Managing Users with
+		the cf CLI</a> for more information.</p>
 
     <%= image_tag("guide/smtp-1_3.png") %>
 
-1. Select **Lifecycle Errands**. By default, Ops Manager runs the **Run Smoke Tests** and **Push Console** errands after installing Elastic Runtime. See  [Understanding Lifecycle Errands](../packaging/lifecycle-errands.html) for more information.
+1. Select **Lifecycle Errands**.
+By default, Ops Manager runs the **Run Smoke Tests** and **Push Console** errands after installing Elastic Runtime.
+See  [Understanding Lifecycle Errands](../packaging/lifecycle-errands.html) for
+more information.
 
     <p class="note"><strong>Note</strong>: The Push Console errand also deploys
 	the usage service, which provides data on the count of instances and amount
@@ -243,7 +264,9 @@ Dashboard.
 
 1. When the deployment is finished, a success message appears.
 
-     <p class="note"><strong>Note</strong>: On the recommended hardware infrastructure, deployment should take less than one hour and require no user intervention.</p>
+     <p class="note"><strong>Note</strong>: On the recommended hardware
+	infrastructure, deployment should take less than one hour and require no
+	user intervention.</p>
 
 You now have a fully functional installation of Pivotal CF and Pivotal MySQL
 Service.
@@ -263,4 +286,4 @@ command line tool](../devguide/installcf/whats-new-v6.html).
 
 <p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to <strong>Elastic Runtime > Credentials</strong> for the UAA admin name and password.
 You can also use the user that you created in the console, or create another
-user with the create-user command. </p>
+user with the create-user command.</p>
