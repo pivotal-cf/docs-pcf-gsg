@@ -25,7 +25,7 @@ title: Pivotal CF Documentation
     </li>
     <li>
         <a class="title" href="../console/index.html">Using the Apps Manager</a>
-        <div class="docs-module-description">A guide to using the web-based console application for managing users, organizations, spaces, and applications.</div>
+        <div class="docs-module-description">A guide to using the web-based Apps Manager application for managing users, organizations, spaces, and applications.</div>
     </li>
 
     <li>

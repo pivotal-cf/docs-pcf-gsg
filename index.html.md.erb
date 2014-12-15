@@ -211,7 +211,7 @@ complete this step. Select **LDAP Config** and enter the following information:
 
 1. **(Optional)** Select **SMTP Config**, enter your reply-to and SMTP email
 information, and click **Save**.
-The console uses these settings to send invitations and confirmations to console
+Apps Manager uses these settings to send invitations and confirmations to console
 users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
@@ -232,7 +232,7 @@ more information.
 	the usage service, which provides data on the count of instances and amount
 	of memory that apps consume. When the usage service starts for the first
 	time, it executes an API call to purge all application usage events from the
-	Cloud Controller Database. Subsequent console and usage service deploys do
+	Cloud Controller Database. Subsequent Apps Manager and usage service deploys do
 	not trigger this API call, and do not purge application usage events.
 	</p>
 
@@ -287,5 +287,5 @@ Refer to the Pivotal CF documentation for more information about [using the cf
 command line tool](../devguide/installcf/whats-new-v6.html).
 
 <p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to <strong>Elastic Runtime > Credentials</strong> for the UAA admin name and password.
-You can also use the user that you created in the console, or create another
+You can also use the user that you created in Apps Manager, or create another
 user with the create-user command.</p>
