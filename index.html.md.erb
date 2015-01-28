@@ -34,8 +34,8 @@ The procedure you follow depends on the IaaS you use:
 ## <a id='paas'></a>Step 3: Set Up Your PaaS ##
 
 **Goal**: Configure and install Ops Manager Director (included), Elastic
-Runtime, and Pivotal MySQL Dev.
-Skip the import steps for Elastic Runtime or Pivotal MySQL Dev if you do not
+Runtime, and MySQL for Pivotal CF.
+Skip the import steps for Elastic Runtime or MySQL for Pivotal CF if you do not
 want to import these products.
 
 1. Browse to the interface IP address you specified in Step 2.
@@ -47,21 +47,24 @@ want to import these products.
 
 ### <a id='import-tiles'></a>Import Products ###
 
-1. Download Elastic Runtime and Pivotal MySQL Dev from [Pivotal Network](https://network.pivotal.io).
+1. Download Elastic Runtime and MySQL for Pivotal CF at [Pivotal Network](https://network.pivotal.io).
+
+    * Elastic Runtime: Click the **Pivotal CF** region to access the Pivotal CF product page. Use the dropdown menu to select an Elastic Runtime release.
+    * MySQL for Pivotal CF: Click the **All Products** region to view available products. Search for MySQL for Pivotal CF and select a release.
 
 1. From the Available Products view, click **Import a Product**.
 
     <%= image_tag("guide/import-prod.png") %>
 
-1. Select the Elastic Runtime .zip file that you downloaded from Pivotal
-Network, then click **Open**.
+1. Select the Elastic Runtime .pivotal file that you downloaded from Pivotal
+Network and click **Open**.
 After the import completes, Elastic Runtime appears in the Available Products
 view.
 
-1. Repeat the previous step for Pivotal MySQL Dev.
+1. Repeat the previous step for MySQL for Pivotal CF.
 
 1. In the Available Products view, hover over Elastic Runtime and click **Add**.
-Repeat this step for Pivotal MySQL Dev.
+Repeat this step for MySQL for Pivotal CF.
 
 <%= image_tag("guide/add-products.png") %>
 
