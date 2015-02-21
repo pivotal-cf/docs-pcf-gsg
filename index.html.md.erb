@@ -8,8 +8,8 @@ Welcome to Pivotal CF!
 This guide is intended to walk you through deploying the installation virtual
 machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first
 app.
-If at any time you experience a problem following the steps below, try checking
-the Known Issues, or refer to the Troubleshooting Guide for more tips.
+If you experience a problem while following the steps below, try checking the
+Known Issues, or refer to the Troubleshooting Guide for more tips.
 Once you have completed the steps in this guide, explore the documentation on
 [docs.pivotal.io](http://docs.pivotal.io) to learn more about Pivotal CF
 and the Pivotal One product suite.
@@ -43,13 +43,19 @@ want to import these products.
     <%= image_tag("guide/pivotal-cf.png") %>
 
 1. Create a **User name** and **Password** and log in to access the interface.
-    <p class="note"><strong>Note</strong>: On your first login attempt, an error message that the connection is untrusted appears because you are attempting to connect securely to a website with a self-signed certificate. Add Ops Manager as an exception to bypass this message on subsequent logins. </p>
+    <p class="note"><strong>Note</strong>: On your first login attempt, an error
+	message that the connection is untrusted appears because you are attempting
+	to connect securely to a website with a self-signed certificate. Add Ops
+	Manager as an exception to bypass this message on subsequent logins. </p>
 
 ### <a id='import-tiles'></a>Import Products ###
 
 1. Download Elastic Runtime and MySQL for Pivotal CF at [Pivotal Network](https://network.pivotal.io).
-    * Elastic Runtime: Click the **Pivotal CF** banner to access the Pivotal CF product page. Use the dropdown menu to select an Elastic Runtime release.
-    * MySQL for Pivotal CF: Select the **All Products** tab to view available products. Search for MySQL for Pivotal CF and select a release.
+    * Elastic Runtime: Click the **Pivotal CF** banner to access the Pivotal CF
+		product page. Use the drop-down menu to select an Elastic Runtime
+		release.
+    * MySQL for Pivotal CF: Select the **All Products** tab to view available
+		products. Search for "MySQL for Pivotal CF" and select a release.
 
 1. From the Available Products view, click **Import a Product**.
 
@@ -88,7 +94,8 @@ Director product tile:
     <%= image_tag("guide/assign-networks-1_3.png") %>
 
 1. **(vSphere Only)** Select **Assign Availability Zones**. These are the
-Availability Zones that you [create](../customizing/vsphere-config.html#create-az) when configuring Ops Manager Director.
+Availability Zones that you [create](../customizing/vsphere-config.html#create-az) when configuring Ops
+Manager Director.
     * Select an Availability Zone under **Place singleton jobs**. Ops Manager
 	runs any job with a single instance in this Availability Zone.
 	* Select one or more Availability Zones under **Balance other jobs**. Ops
@@ -126,7 +133,11 @@ certificates.
 
     <%= image_tag("guide/enter-ssl-domains.png") %>
 
-    <p class="note"><strong>Note</strong>: Wildcard DNS records only work for a single domain name component or component fragment. For example, <code>*.domain.com</code> works for <code>apps.domain.com</code> and <code>system.domain.com</code>, but not <code>my.apps.domain.com</code> or <code>my.system.domain.com</code>.</p>
+    <p class="note"><strong>Note</strong>: Wildcard DNS records only work for a
+	single domain name component or component fragment. For example,
+	<code>*.domain.com</code> works for <code>apps.domain.com</code> and
+	<code>system.domain.com</code>, but not <code>my.apps.domain.com</code> or
+	<code>my.system.domain.com</code>.</p>
 
 1. The **Certificate Key PEM** and **Private Key PEM** fields now contain
 certificate keys.
@@ -198,23 +209,15 @@ Directory servers in your organization, and click **Save**.
 
     <%= image_tag("guide/sso-config-1_3.png") %>
 
-1. **(Optional - Advanced)** If you are using the LDAP endpoint for UAA,
-complete this step. Select **LDAP Config** and enter the following information:
-    * LDAP Server URL
-    * LDAP Credentials
-    * LDAP Search Base
-    * LDAP Search Filter
-    * LDAP Group Search Base
-    * LDAP Group Search Filter
-
-    Click **Save**.
-
-    <%= image_tag("guide/ldap-1_3.png") %>
+1. **(Optional - Advanced)** If you are using the LDAP endpoint for UAA, you
+must configure Elastic Runtime with your LDAP endpoint information.
+See [Connecting Elastic Runtime to LDAP](../customizing/ldap-uaa.html) for more
+information.
 
 1. **(Optional)** Select **SMTP Config**, enter your reply-to and SMTP email
 information, and click **Save**.
-Apps Manager uses these settings to send invitations and confirmations to console
-users.
+Apps Manager uses these settings to send invitations and confirmations to
+console users.
 These SMTP settings are required if you want to enable end-user
 self-registration.
 
@@ -226,7 +229,8 @@ self-registration.
     <%= image_tag("guide/smtp-1_3.png") %>
 
 1. Select **Lifecycle Errands**.
-By default, Ops Manager runs the **Run Smoke Tests** and **Push Console** errands after installing Elastic Runtime.
+By default, Ops Manager runs the **Run Smoke Tests** and **Push Console**
+errands after installing Elastic Runtime.
 See  [Understanding Lifecycle Errands](../packaging/lifecycle-errands.html) for
 more information.
 
@@ -234,13 +238,14 @@ more information.
 	the usage service, which provides data on the count of instances and amount
 	of memory that apps consume. When the usage service starts for the first
 	time, it executes an API call to purge all application usage events from the
-	Cloud Controller Database. Subsequent Apps Manager and usage service deploys do
-	not trigger this API call, and do not purge application usage events.
+	Cloud Controller Database. Subsequent Apps Manager and usage service deploys
+	do not trigger this API call, and do not purge application usage events.
 	</p>
 
     <%= image_tag("guide/lifecycle-errands-1_3.png") %>
 
-1. Select **Resource Config**, accept the defaults or make necessary changes, and click **Save**.
+1. Select **Resource Config**, accept the defaults or make necessary changes,
+and click **Save**.
 
 1. Click the **Installation Dashboard** link to return to the Installation
 Dashboard.
@@ -282,11 +287,13 @@ Refer to the [Creating New Elastic Runtime User Accounts](../customizing/creatin
 
 ## <a id='target'></a>Step 5: Target Elastic Runtime ##
 
-The next step is to use the cf CLI tool to target your Elastic Runtime installation.
+The next step is to use the cf CLI tool to target your Elastic Runtime
+installation.
 Make sure you have [installed the cf CLI tool](../devguide/installcf/install-go-cli.html).
 Refer to the Pivotal CF documentation for more information about [using the cf
 command line tool](../devguide/installcf/whats-new-v6.html).
 
-<p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to <strong>Elastic Runtime > Credentials</strong> for the UAA admin name and password.
-You can also use the user that you created in Apps Manager, or create another
-user with the create-user command.</p>
+<p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to
+	<strong>Elastic Runtime > Credentials</strong> for the UAA admin name and
+	password. You can also use the user that you created in Apps Manager, or
+	create another user with the <code>create-user</code> command.</p>
