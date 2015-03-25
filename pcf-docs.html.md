@@ -1,23 +1,23 @@
 ---
-title: Pivotal CF Documentation
+title: Pivotal Cloud Foundry Documentation
 ---
 
 <ol class="class-list">
     <li>
         <a class="title" href="./index.html">Getting Started</a>
-        <div class="docs-module-description">A quick guide to installing and getting started with Pivotal CF. If you are new to Pivotal CF, start here.</div>
+        <div class="docs-module-description">A quick guide to installing and getting started with [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF). If you are new to PCF, start here.</div>
     </li>
     <li>
         <a class="title" href="../customizing/index.html">Using Ops Manager</a>
-        <div class="docs-module-description">A guide to using the Ops Manager interface to manage your Pivotal CF PaaS.</div>
+        <div class="docs-module-description">A guide to using the Pivotal Cloud Foundry Operations Manager interface to manage your PCF PaaS.</div>
     </li>
     <li>
         <a class="title" href="../concepts/index.html">Elastic Runtime Concepts</a>
-        <div class="docs-module-description">An explanation of the components in Elastic Runtime and how they work.</div>
+        <div class="docs-module-description">An explanation of the components in Pivotal Cloud Foundry Elastic Runtime and how they work.</div>
     </li>
     <li>
         <a class="title" href="../opsguide/index.html">Operating Elastic Runtime</a>
-        <div class="docs-module-description">A guide to running the Elastic Runtime component of Pivotal CF.</div>
+        <div class="docs-module-description">A guide to running the Elastic Runtime component of PCF.</div>
     </li>
     <li>
         <a class="title" href="../adminguide/index.html">Administering Elastic Runtime</a>
@@ -41,8 +41,8 @@ title: Pivotal CF Documentation
         <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
     </li>
 	<li>
-        <a class="title" href="../packaging/">Packaging Pivotal CF</a>
-        <div class="docs-module-description">A guide to packaging Pivotal CF products.</div>
+        <a class="title" href="../packaging/">Packaging Pivotal Cloud Foundry</a>
+        <div class="docs-module-description">A guide to packaging PCF products.</div>
     </li>
     <li>
         <a class="title" href="../pcf-release-notes/">Release Notes</a>

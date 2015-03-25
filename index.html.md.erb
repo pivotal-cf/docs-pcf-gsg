@@ -1,17 +1,17 @@
 ---
-breadcrumb: Pivotal CF Documentation
+breadcrumb: Pivotal Cloud Foundry Documentation
 title: Getting Started with Pivotal Cloud Foundry
 ---
 
 Welcome to Pivotal Cloud Foundry!
 
 This guide is intended to walk you through deploying the installation virtual
-machine, setting up your PaaS, targeting Elastic Runtime, and pushing your first
+machine, setting up your PaaS, targeting Pivotal Cloud Foundry Elastic Runtime, and pushing your first
 app.
 If you experience a problem while following the steps below, try checking the
 Known Issues, or refer to the Troubleshooting Guide for more tips.
 Once you have completed the steps in this guide, explore the documentation on
-[docs.pivotal.io](http://docs.pivotal.io) to learn more about Pivotal Cloud Foundry (PCF)
+[docs.pivotal.io](http://docs.pivotal.io) to learn more about [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF)
 and the Pivotal product suite.
 
 ## <a id='system'></a>Step 1: Confirm System Requirements ##
@@ -114,7 +114,7 @@ using your own load balancer or the HAProxy load balancer.
     * **HAProxy load balancer**: Enter at least one HAProxy IP address. Point
 	your DNS to this address.
 
-    For more information, refer to the [Configuring Pivotal CF SSL 	Termination](../opsguide/ssl-term.html) topic.
+    For more information, refer to the [Configuring PCF SSL 	Termination](../opsguide/ssl-term.html) topic.
 	For help understanding the Elastic Runtime architecture, refer to the
 	[Architecture](../concepts/architecture/) topic.
 
@@ -148,9 +148,9 @@ Click **Save**.
 1. Select **Router IPs**.
 The value you enter in the **Router IPs** field depends on whether you are
 using your own load balancer or the HAProxy load balancer.
-    * **Your own load balancer**: Enter the IP address(es) for Pivotal CF that
+    * **Your own load balancer**: Enter the IP address(es) for PCF that
 	you registered with your load balancer. Refer to the [Using Your Own Load Balancer](../customizing/custom-load-balancer.html) topic for help using your
-	own load balancer with Pivotal CF.
+	own load balancer with PCF.
     * **HAProxy load balancer**: Leave this field blank.
 
 1. Click **Save**.
@@ -177,7 +177,7 @@ and application domains.
 
     Enter your Cloud Controller database encryption key only if these conditions
 	apply.
-	See [Backing Up Pivotal CF](../customizing/backup-settings.html) for more
+	See [Backing Up Pivotal Cloud Foundry](../customizing/backup-settings.html) for more
 	information.
 
 1. Enter your intended maximum file upload size.
@@ -189,7 +189,7 @@ To do so, they use the `-b` option to provide a custom buildpack URL with the
 `cf push` command.
 The **Disable Custom Buildpacks** checkbox disables the `-b` option.
 For more information about custom buildpacks, refer to the
-[buildpacks](../buildpacks/) section of the Pivotal CF documentation.
+[buildpacks](../buildpacks/) section of the PCF documentation.
 
 1. Click **Save**.
 
