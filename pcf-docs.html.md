@@ -5,7 +5,7 @@ title: Pivotal Cloud Foundry Documentation
 <ol class="class-list">
     <li>
         <a class="title" href="./index.html">Getting Started</a>
-        <div class="docs-module-description">A quick guide to installing and getting started with [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF). If you are new to PCF, start here.</div>
+        <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry</a> (PCF). If you are new to PCF, start here.</div>
     </li>
     <li>
         <a class="title" href="../customizing/index.html">Using Ops Manager</a>
