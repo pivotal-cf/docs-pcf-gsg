@@ -6,10 +6,10 @@ title: Getting Started with Pivotal Cloud Foundry
 Welcome to Pivotal Cloud Foundry!
 
 This guide is intended to walk you through deploying the installation virtual
-machine, setting up your PaaS, targeting Pivotal Cloud Foundry Elastic Runtime, and pushing your first
-app.
-If you experience a problem while following the steps below, try checking the
-Known Issues, or refer to the Troubleshooting Guide for more tips.
+machine known as Ops Manager, configuring the IaaS settings, installing PCF
+Elastic Runtime, and pushing your first app.
+
+If you experience a problem while following the steps below, check the [Known Issues](../pcf-release-notes/index.html), or refer to the [PCF Troubleshooting Guide](../customizing/troubleshooting.html).
 Once you have completed the steps in this guide, explore the documentation on
 [docs.pivotal.io](http://docs.pivotal.io) to learn more about [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF)
 and the Pivotal product suite.
@@ -23,23 +23,32 @@ deployment, a supported version of the cf command line interface tool, and
 certain user privileges.
 Refer to the [Prerequisites to Deploying Operations Manager and Elastic Runtime](../customizing/requirements.html) topic for the complete list.
 
-## <a id='deploy'></a>Step 2: Deploy PCF Installation Virtual Machine ##
+## <a id='deploy'></a>Step 2: Deploy PCF Installation Virtual Appliance ##
 
-Download the PCF .ova file and deploy it.
-The procedure you follow depends on the IaaS you use:
+The PCF Installation Virtual Appliance is known as Ops Manager.
+Log in to [Pivotal Network](https://network.pivotal.io) and download the Ops
+Manager virtual appliance file that matches your infrastructure.
+
+<p class='note'><strong>Note</strong>: For AWS, the Ops Manager virtual
+appliance file is a PDF containing a reference to an Amazon Machine Identifier
+(AMI).</p>
+
+Deploy Ops Manager using the procedure that corresponds to the IaaS that you
+use:
 
 * [Deploying Operations Manager to vSphere](../customizing/deploying-vm.html)
 * [Deploying Operations Manager to vCloud Air and vCloud](../customizing/pcf-vchs-vcloud.html)
-* [Deploying Operations Manager to Amazon Web Services](../customizing/pcf-aws-component-config.html)
+* [Deploying Ops Manager Director on AWS CloudFormation](../customizing/cloudform-om-deploy.html)
+* [Deploying Operations Manager to OpenStack](../customizing/openstack.html)
 
-## <a id='paas'></a>Step 3: Set Up Your PaaS ##
+## <a id='paas'></a>Step 3: Configure and Install PCF ##
 
 **Goal**: Configure and install Ops Manager Director (included), Elastic
 Runtime, and MySQL for PCF.
 Skip the import steps for Elastic Runtime or MySQL for PCF if you do not
 want to import these products.
 
-1. Browse to the interface IP address you specified in Step 2.
+1. Browse to the interface IP address that you specified in Step 2.
 
     <%= image_tag("guide/pivotal-cf.png") %>
 
@@ -120,7 +129,6 @@ Dashboard.
 
 You now have a fully functional installation of PCF and Pivotal MySQL
 Service.
-The following sections will help you start using your PaaS.
 
 ## <a id='new-users'></a>Step 4: Create New User Accounts ##
 
@@ -131,11 +139,11 @@ Refer to the [Creating New Elastic Runtime User Accounts](../customizing/creatin
 
 The next step is to use the cf CLI tool to target your Elastic Runtime
 installation.
-Make sure you have [installed the cf CLI tool](../devguide/installcf/install-go-cli.html).
+Make sure that you have [installed the cf CLI tool](../devguide/installcf/install-go-cli.html).
 Refer to the PCF documentation for more information about [using the cf
 command line tool](../devguide/installcf/whats-new-v6.html).
 
-<p class="note"><strong>Note</strong>: In Pivotal Operations Manager, refer to
+<p class="note"><strong>Note</strong>: In Pivotal Ops Manager, refer to
 	<strong>Elastic Runtime > Credentials</strong> for the UAA admin name and
 	password. You can also use the user that you created in Apps Manager, or
 	create another user with the <code>create-user</code> command.</p>
