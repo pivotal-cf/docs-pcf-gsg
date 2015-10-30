@@ -1,7 +1,7 @@
 Getting Started
 ====
 
-This a quickstart guide for preparing your VMware vSphere or vCloud Air /vCloud environment and standing up Pivotal Cloud Foundry Elastic Runtime using [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF). It is just one of the guides associated with the PCF release. The full doc set is:
+This a quickstart guide for preparing your VMware vSphere or vCloud Air /vCloud environment and standing up Pivotal Cloud Foundry&reg; Elastic Runtime using [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf)&reg; (PCF). It is just one of the guides associated with the PCF release. The full doc set is:
 
 *  [Getting Started](https://github.com/pivotal-cf/docs-pcf-gsg): "Quick start" guide for preparing your VMware vSphere or vCloud Air / vCloud environment and standing up Elastic Runtime using PCF
 *  [Pivotal Cloud Foundry Installation Guide](https://github.com/pivotal-cf/pcf-docs): How to use PCF to install and manage components

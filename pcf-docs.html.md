@@ -1,19 +1,19 @@
 ---
-title: Pivotal Cloud Foundry Documentation
+title: Pivotal Cloud Foundry&reg; Documentation
 ---
 
 <ol class="class-list">
     <li>
         <a class="title" href="./index.html">Getting Started</a>
-        <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry</a> (PCF). If you are new to PCF, start here.</div>
+        <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> (PCF). If you are new to PCF, start here.</div>
     </li>
     <li>
         <a class="title" href="../customizing/index.html">Using Ops Manager</a>
-        <div class="docs-module-description">A guide to using the Pivotal Cloud Foundry Operations Manager interface to manage your PCF PaaS.</div>
+        <div class="docs-module-description">A guide to using the Pivotal Cloud Foundry&reg; Operations Manager interface to manage your PCF PaaS.</div>
     </li>
     <li>
         <a class="title" href="../concepts/index.html">Elastic Runtime Concepts</a>
-        <div class="docs-module-description">An explanation of the components in Pivotal Cloud Foundry Elastic Runtime and how they work.</div>
+        <div class="docs-module-description">An explanation of the components in Pivotal Cloud Foundry&reg; Elastic Runtime and how they work.</div>
     </li>
     <li>
         <a class="title" href="../opsguide/index.html">Operating Elastic Runtime</a>
@@ -41,7 +41,7 @@ title: Pivotal Cloud Foundry Documentation
         <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
     </li>
 	<li>
-        <a class="title" href="../packaging/">Packaging Pivotal Cloud Foundry</a>
+        <a class="title" href="../packaging/">Packaging Pivotal Cloud Foundry&reg;</a>
         <div class="docs-module-description">A guide to packaging PCF products.</div>
     </li>
     <li>
