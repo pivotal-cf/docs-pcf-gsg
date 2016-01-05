@@ -41,7 +41,7 @@ title: Pivotal Cloud Foundry&reg; Documentation
         <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
     </li>
 	<li>
-        <a class="title" href="../packaging/">Packaging Pivotal Cloud Foundry&reg;</a>
+        <a class="title" href="../partners/">Packaging Pivotal Cloud Foundry&reg;</a>
         <div class="docs-module-description">A guide to packaging PCF products.</div>
     </li>
     <li>
