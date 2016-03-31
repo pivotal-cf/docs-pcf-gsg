@@ -4,8 +4,8 @@ title: Pivotal Cloud Foundry&reg; Documentation
 
 <ol class="class-list">
   <li>
-    <a class="subnav" href="./index.html">Getting Started</a>
-    <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> (PCF). If you are new to PCF, start here.</div>
+    <a class="subnav" href="./index.html">Installing Pivotal Cloud Foundry®</a>
+    <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> (PCF).</div>
   </li>
   <li>
     <a class="subnav" href="../customizing/index.html">Using Ops Manager</a>
@@ -36,11 +36,11 @@ title: Pivotal Cloud Foundry&reg; Documentation
     <div class="docs-module-description">A guide to using system buildpacks and extending your Elastic Runtime with custom buildpacks.</div>
   </li>
   <li>
-    <a class="subnav" href="../services/">Custom Services</a>
+    <a class="subnav" href="../services/index.html">Custom Services</a>
     <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
   </li>
   <li>
-    <a class="subnav" href="../pcf-release-notes/">Release Notes</a>
+    <a class="subnav" href="../pcf-release-notes/index.html">Release Notes</a>
     <div class="docs-module-description">Release notes and known issues for Pivotal Operations Manager, Pivotal Elastic Runtime, and Pivotal Ops Metrics.</div>
   </li>
 </ol>
