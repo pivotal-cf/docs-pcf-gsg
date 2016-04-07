@@ -43,4 +43,8 @@ title: Pivotal Cloud Foundry&reg; Documentation
     <a class="subnav" href="../pcf-release-notes/index.html">Release Notes</a>
     <div class="docs-module-description">Release notes and known issues for Pivotal Operations Manager, Pivotal Elastic Runtime, and Pivotal Ops Metrics.</div>
   </li>
+  <li>
+    <a class="subnav" href="../../pcf-dev/index.html">PCF Dev</a>
+    <div class="docs-module-description">A guide to PCF Dev, a lightweight Pivotal Cloud Foundry&reg; (PCF) installation that runs on a single virtual machine (VM) on your workstation. PCF Dev is intended for application developers who want to develop and debug their applications locally on a PCF deployment.</div>
+  </li>
 </ol>
