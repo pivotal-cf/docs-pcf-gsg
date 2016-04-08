@@ -28,6 +28,10 @@ title: Pivotal Cloud Foundry&reg; Documentation
     <div class="docs-module-description">A guide to using the web-based Apps Manager application for managing users, organizations, spaces, and applications.</div>
   </li>
   <li>
+    <a class="subnav" href="../cf-cli/index.html">Using the Cloud Foundry Command Line Interface (cf CLI)</a>
+    <div class="docs-module-description">A guide to the Cloud Foundry Command Line Interface (cf CLI) to deploy and manage your applications.</div>
+  </li>
+  <li>
     <a class="subnav" href="../devguide/index.html">Deploying Applications</a>
     <div class="docs-module-description">A guide for developers on deploying and troubleshooting applications running in Elastic Runtime (Cloud Foundry).</div>
   </li>
@@ -38,6 +42,10 @@ title: Pivotal Cloud Foundry&reg; Documentation
   <li>
     <a class="subnav" href="../services/index.html">Custom Services</a>
     <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
+  </li>
+  <li>
+    <a class="subnav" href="../loggregator/index.html">Logging and Metrics</a>
+    <div class="docs-module-description">A guide to using Loggregator, the next generation system for aggregating and streaming logs and metrics from all of the user apps and system components in Elastic Runtime.</div>
   </li>
   <li>
     <a class="subnav" href="../pcf-release-notes/index.html">Release Notes</a>
