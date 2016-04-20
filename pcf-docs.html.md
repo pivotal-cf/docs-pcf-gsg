@@ -52,7 +52,7 @@ title: Pivotal Cloud Foundry&reg; Documentation
     <div class="docs-module-description">A guide to using Loggregator, the next generation system for aggregating and streaming logs and metrics from all of the user apps and system components in Elastic Runtime.</div>
   </li>
   <li>
-    <a class="subnav" href="../pcf-release-notes/index.html">Release Notes</a>
+    <a class="subnav" href="../pcf-release-notes/index.html">Release Notes and Known Issues</a>
     <div class="docs-module-description">Release notes and known issues for Pivotal Operations Manager, Pivotal Elastic Runtime, and Pivotal Ops Metrics.</div>
   </li>
 </ol>
