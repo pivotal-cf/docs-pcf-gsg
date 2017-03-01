@@ -1,0 +1,99 @@
+---
+breadcrumb: PCF PRE-RELEASE DOCUMENTATION
+title: Reporting Pre-release Issues
+---
+
+This topic describes how to report and address issues related to Pre-Release, Release Candidate, or Beta versions of products for members of the Pivotal Early Access Program (EAP). Our goal is to get the most relevant information to the Pivotal EAP team so they can address your issue in the quickest and most efficient manner possible.
+
+<p class='note'><strong>Note</strong>: These early access issues should not be routed through Pivotal Support.</p>
+
+## <a id="prerequisites"></a>Prerequisites ##
+
+Before reporting an issue, we recommend you take the following steps:
+
+1. Check the [Early Access product documentation](http://docs-pcf-staging.cfapps.io/pivotalcf/1-10/installing/pcf-docs.html). To access this documentation, you'll need a username and password we give to EAP participants. 
+
+Make sure you're looking at the proper release version. We continuously update those documents throughout the release process.
+
+Not finding what you need? You might also want to see if there is anything in our standard product documentation as well. Try searching for the specific topic that is related to your issue. Our documentation has search built-in to help you more quickly find what you require.
+
+2. Check our [Knowledge Base](https://discuss.pivotal.io/hc/en-us/categories/200072648-Pivotal-CF-Knowledge-Base). Our Knowledge Base contains articles written by Pivotal Support Engineers, and addresses many of the common issues we've discovered while working with PCF customers. You can browse or search the KB articles at the link above.
+
+1. Go to your customer Pivotal Tracker project to log an issue. If you do not have a Tracker project, reach out to your EAP contact to get one.
+
+## <a id="open-issue"></a>Open an Issue ##
+
+When opening an issue, we recommend the following tips to help us understand and address your issue as quickly and effectively as possible:
+
+### <a id="title"></a>Create a Well-Formed Title ###
+
+We recommend that you use a clear and specific one-sentence summary of your issue as the **Title** of your Tracker story. For example. "Using Elastic Runtime 1.10.0.alpha2, the API calls return `0` values for running apps metrics."
+
+Like the subject line of an email, or the title of a shared document, a simple but clear title can help people identify and recognize the point of a tracker story, while a complicated or unclear title can make things harder than they need to be. 
+
+### <a id="template"></a>Provide Specific Details ###
+
+We recommend that you use the following template to provide specific details about your issue in the the **Details** section of your Tracker story: 
+
+<pre>
+OM version (if applicable): 
+ERT version: 
+Other Product(s) and Version(s): 
+Enhancement or Bug: 
+Summary of the Issue or Situation (attach screenshots as needed): 
+Details to reproduce (if needed): 
+Additional supporting details: 
+IaaS (AWS, Azure, GCP, vSphere or OpenStack): 
+Output from running <code>bosh vms</code>: 
+Output from running <code>bosh instances</code>: 
+Logs (if applicable and you have them): 
+</pre>
+
+#### Define the Problem or Enhancement ####
+
+It's critical for the Pivotal EAP team to understand the nature and scope of the problem that you are experiencing, so, when opening an issue, please provide a detailed and complete description of the problem. We suggest that you include as much of the following information as possible.  
+
+* A brief description of the problem or enhancement request. Try to describe the symptoms clearly, carefully, and using proper terminology.
+
+* Include details about any relevant recent changes to the platform, like job settings, IaaS changes, etc.
+
+* Indicate any articles that you have already read and any troubleshooting steps that you have already taken.
+
+* Indicate the impact and scope of this issue on your platform or the enhancement request you’d like to make.
+  * If this is an issue, is the whole platform down or just part of it? Is one application failing or are all applications failing? Is one app failing to push or are multiple? 
+  * If this is an enhancement request, can you describe what the goal of the enhancement is? What’s the ideal workflow you’d like to see?
+
+Properly conveying the impact and scope of the problem you’re seeing or the 
+exact enhancement you’re looking for will help the Pivotal EAP team to focus in on the specific issue more quickly.
+
+#### Include Supporting Information ####
+
+Please include the following information when relevant:
+
+* List the software and full version numbers (x.y.z) being used. For PCF, this minimally includes the version of Ops Manager & Elastic Runtime, but should also include any installed Service tiles and their versions, too.
+
+* List the IaaS you're using and it's version information.
+
+* Provide any relevant details about the environment where you see the issue. For example, tell us about the load balancer you're using, describe your network layout, provide details about your hardware and storage, and let us know about any non-standard or unsupported changes that have been made to the platform, such as running OSS CF, running without Ops Manager, or running custom tiles.
+
+  <p class='note'><strong>Note</strong>: This should always be a sandbox, testing, or pre-prod environment.</p>
+  
+* Include the **exact** message for any errors that you are seeing. Either copy and paste the message, or include a screenshot of it.
+
+* Post screenshots of the Status page for each tile deployed in Ops Manager or the output of `bosh vms --details`. For more information about the `bosh vms` command, see the [Advanced Troubleshooting with the BOSH CLI](https://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html#vms) topic.
+
+* If any VMs on the Status pages are listed in red or if `bosh vms` lists any VMs as **failing**, obtain and attach logs from the problem VMs. You can find instructions for obtaining logs in the [How to obtain logs from PCF](https://discuss.pivotal.io/hc/en-us/articles/228543268) KB article.
+
+* Specifically, do the following if you are having installation or upgrade problems:
+  * Attach a copy of the most recent installation log.
+  * If the installation fails to indicate that a particular bosh task failed, run`bosh task <number> --debug` and attach the output.
+
+* Please also include the label **EAP** and a label for the most likely product of concern, for example **elastic-runtime**, **redis**, **ops-manager**, etc.
+
+## <a id="information"></a>Additional Information ##
+
+Additional pointers for interacting with the Pivotal EAP Team Tracker projects:
+
+* You can attach files up to 20M in sise directly to an issue. You can attach files over 20M if you split them into 20M chunks, or, if you feel comfortable with it, you can add a link to a Google doc. If you are concerned about adding log files to your issue, leave them out and mention you can provide them in the issue.
+
+* Use standard formats when sending information to Pivotal. Upload files as plain text, and screenshots in PNG, JPG, or PDF form. Whenever possible, do not use RTF or Microsoft Word documents.
