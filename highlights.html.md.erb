@@ -8,13 +8,21 @@ This topic highlights new features included in Pivotal Cloud Foundry (PCF) v1.11
 
 Ops Manager v1.11 includes the following features:
 
-- NSX Security Group Integration
-- CredHub Integration
-- Syslog transport for BOSH Director logs
+- **NSX Security Group Integration**: Operators can configure Ops Manager 1.11 to communicate with VMware NSX. For more information,
+see Step 5 in the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
+- **CredHub Integration**:
+- **Syslog transport for BOSH Director logs**: Ops Manager 1.11 enables operators to send BOSH Director syslogs to a remote server. For more information,
+see the Ops Manager Director configuration topic for your IaaS:
+  - [Configuring Ops Manager Director on AWS](../customizing/cloudform-om-config.html#syslog)
+  - [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html#syslog)
+  - [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#syslog)
+  - [Configuring Ops Manager Director for OpenStack](../customizing/cloudform-om-config.html#syslog)
+  - [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#syslog)
 - Ops Mgr User Interaction Logging
 - Support for Azure Managed Disks
 - Secured BOSH Metrics Paths
-- Ops Manager VM hardening
+- **Ops Manager VM hardening**: Ops Manager 1.11 inherits the security configuration of its stemcell. For more information about stemcell hardening,
+see the [Stemcell Hardening FAQ](../security/pcf-infrastructure/stemcell-hardening.html) topic.
 - Apply changes to BOSH Director only
 - Improved collection of logs from multiple VMs
 
@@ -47,7 +55,7 @@ Apps Manager v1.11 includes the following features:
 - **Route Services**: You can now manage route services from Apps Manager. For more information, see the [Manage Route Services](../console/manage-apps.html#manage-route-services) section of the <em>Managing Apps and Service Instances Using Apps Manager</em> topic.
 - **Custom Health Checks**: You can now view custom application health checks in Apps Manager. For more information, see the [View Health Checks](../console/manage-apps.html#health-checks) section of the <em>Managing Apps and Service Instances Using Apps Manager</em> topic.
 - **Tasks in the Usage Report**: The Usage Report now includes information about task usage. For more information, see the [View the Usage Report](../opsguide/accounting-report-apps-man.html#usage-report) section of the <em>Monitoring Instance Usage with Apps Manager</em> topic.
-- **Last login notice**: Apps Manaer v1.11 displays the date and time of the last login in the bottom right of the footer.
+- **Last login notice**: Apps Manager v1.11 displays the date and time of the last login in the bottom right of the footer.
 - **Section 508a compliance improvements**: Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/) of the Rehabilitation Act. Customers can now receive an approved Voluntary Product Accessibility Template (VPAT) for Apps Manager.
 
 For more information, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
