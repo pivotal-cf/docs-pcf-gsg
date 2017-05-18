@@ -8,10 +8,11 @@ This topic highlights new features included in Pivotal Cloud Foundry (PCF) v1.11
 
 Ops Manager v1.11 includes the following features:
 
-- **NSX Security Group Integration**: Operators can configure Ops Manager 1.11 to communicate with VMware NSX. For more information,
+- **NSX Security Group Integration**: Operators can configure Ops Manager v1.11 to communicate with VMware NSX. For more information,
 see Step 5 in the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
-- **CredHub Integration**:
-- **Syslog transport for BOSH Director logs**: Ops Manager 1.11 enables operators to send BOSH Director syslogs to a remote server. For more information,
+- **CredHub Integration**: CredHub centralizes and secures credential generation, storage, lifecycle management, and access. 
+For more information, see our [CredHub](http://docs-pcf-staging.cfapps.io/pivotalcf/1-11/credhub/index.html) topics.
+- **Syslog transport for BOSH Director logs**: Ops Manager v1.11 enables operators to send BOSH Director syslogs to a remote server. For more information,
 see the Ops Manager Director configuration topic for your IaaS:
   - [Configuring Ops Manager Director on AWS](../customizing/cloudform-om-config.html#syslog)
   - [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html#syslog)
@@ -21,7 +22,7 @@ see the Ops Manager Director configuration topic for your IaaS:
 - Ops Mgr User Interaction Logging
 - Support for Azure Managed Disks
 - Secured BOSH Metrics Paths
-- **Ops Manager VM hardening**: Ops Manager 1.11 inherits the security configuration of its stemcell. For more information about stemcell hardening,
+- **Ops Manager VM hardening**: Ops Manager v1.11 inherits the security configuration of its stemcell. For more information about stemcell hardening,
 see the [Stemcell Hardening FAQ](../security/pcf-infrastructure/stemcell-hardening.html) topic.
 - Apply changes to BOSH Director only
 - Improved collection of logs from multiple VMs
@@ -32,15 +33,16 @@ For more information, see the [Pivotal Cloud Foundry Ops Manager v1.11 Release N
 
 Elastic Runtime v1.11 includes the following features:
 
-- **Container to Container Networking**: Container to Container Networking is generally available in ERT 1.11. For more information, see the [Administering Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
-- **NFS v3 Volume Services**: NFS v3 Volume Services is generally available in ERT 1.11. Additionally, Elastic Runtime ships with an NFS Volume Service Broker. For more information, see the [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html) topics.
+- **Container to Container Networking**: Container to Container Networking is generally available in ERT v1.11. 
+For more information, see the [Administering Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
+- **NFS v3 Volume Services**: NFS v3 Volume Services is generally available in ERT v1.11. Additionally, Elastic Runtime ships with an NFS Volume Service Broker. For more information, see the [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html) topics.
 - Intermediate retention of larger SCDF datasets
 - UAADB and CCDB migration from PostgreSQL to MySQL
 - SHA2 checksums
-- **Private Docker Repositories**: ERT 1.11 enables developers to push Docker images from private registries that require authentication. For more information, see the [Push a Docker Image with Authentication](../opsguide/docker-registry.html#docker-auth) section of the <em>Using Docker Registries</em> topic.
+- **Private Docker Repositories**: ERT v1.11 enables developers to push Docker images from private registries that require authentication. For more information, see the [Push a Docker Image with Authentication](../opsguide/docker-registry.html#docker-auth) section of the <em>Using Docker Registries</em> topic.
 - App syslog drain improvements
 - TLS-based syslog of component logs
-- **ERT defaults to highly available configuration**: In PCF 1.11 and later, Elastic Runtime defaults to a highly available resource configuration. However, you may need to complete additional procedures to make your deployment highly available. For more information, see the topic on configuring Elastic Runtime for your IaaS.
+- **ERT defaults to highly available configuration**: In PCF v1.11 and later, Elastic Runtime defaults to a highly available resource configuration. However, you may need to complete additional procedures to make your deployment highly available. For more information, see the topic on configuring Elastic Runtime for your IaaS.
 - Mutual auth and encryption of intra-component communication
 - Java Buildpack 4.0
 
