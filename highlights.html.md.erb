@@ -19,16 +19,18 @@ The initial release removes credentials from BOSH deployment manifests. For more
 
 ### <a id='nsx'></a>NSX Security Group Integration  
 
-Operators can now configure Ops Manager v1.11 to communicate with VMware NSX. Ops Manager 1.11 supports NSX-V 6.2+. 
+Operators can now configure Ops Manager v1.11 to communicate with VMware NSX. Ops Manager v1.11 supports NSX-V 6.2+. 
 
 This integration makes it easier for operators to define granular firewall access to VMs and apply company networking policies to cloud-native apps. You can use Ops Manager API endpoints to manage the NSX security groups for all your PCF VMs. See [vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) for more information about the new **NSX Networking** fields in Ops Manager. 
 
-### <a id='azure'></a>Support for Azure Managed Disks 
+### <a id='azure'></a>Azure Managed Disks Support 
 PCF v1.11 supports [Azure Managed Disks](https://azure.microsoft.com/en-us/services/managed-disks/) for PCF deployments on Azure.
 
 ### <a id='opsman'></a>Other Features
 
-For information on other new features in Ops Manager v1.11, see the [Pivotal Cloud Foundry Ops Manager v1.11 Release Notes](../pcf-release-notes/opsmanager-rn.html).
+For information about other new features in Ops Manager v1.11, see the [Pivotal Cloud Foundry Ops Manager v1.11 Release Notes](../pcf-release-notes/opsmanager-rn.html).
+
+<hr>
 
 ## <a id='ert'></a>Elastic Runtime Highlights
 
@@ -40,11 +42,14 @@ No longer a beta feature, Container Networking is now generally available in ERT
 ### <a id='nfs3'></a>NFS v3 Volume Services
 No longer a beta feature, NFS v3 Volume Services is now generally available in ERT v1.11. Additionally, Elastic Runtime ships with an NFS Volume Service Broker. For more information, see the [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html) topics.
 
-### <a id='private-doceker'></a>Private Docker Repositories 
+### <a id='private-docker'></a>Private Docker Repositories 
 With Elastic Runtime v1.11, developers can now push Docker images from private registries that require authentication. For more information, see the [Push a Docker Image with Authentication](../opsguide/docker-registry.html#docker-auth) section of the <em>Using Docker Registries</em> topic.
 
 ### <a id='ert'></a>Other Features
-For more information on other new features in Elastic Runtime v1.11, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
+
+For information about other new features in Elastic Runtime v1.11, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
+
+<hr>
 
 ## <a id='apps-man'></a>Apps Manager Highlights
 
@@ -73,15 +78,19 @@ Apps Manager has improved its compliance with [Section 508](https://www.section5
 
 For more information, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
 
+<hr>
+
 ## <a id='pcf-is'></a>PCF Isolation Segment Highlights
 
 The PCF Isolation Segment v1.11 tile includes the following features:
 
-* Container to Container Networking
-* NFSv3 Volume Services
-* System Logging
+* <a id='c2c'></a>Container to Container Networking
+* <a id='nfs3vs'></a>NFSv3 Volume Services
+* <a id='system-logging'></a> System Logging
 
 For more information, see the [PCF Isolation Segment v1.11 Release Notes](../pcf-release-notes/segment-rn.html).
+
+<hr>
 
 ## <a id='cross'></a>Cross-platform Highlights
 
@@ -91,8 +100,12 @@ BBR is a command-line tool for backing up and restoring BOSH deployments. You ca
 
 For more information, see the [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html) and [Restoring Pivotal Cloud Foundry from Backup with BBR](../customizing/backup-restore/backup-pcf-bbr.html) topics.
 
+<hr>
+
 ## <a id='services'></a>Services Highlights
 
-- **JMX Bridge v1.9**: Contains overall security improvements, support for the Firehose tagged metric format, and the addition of a new optional feature that allows you to turn off the `opentsdb.nozzle` prepend which was present in previous versions. For more information, see [JMX Bridge Release Notes and Known Issues](https://docs.pivotal.io/jmx-bridge/1-9/rn-ki.html).
+### <a id='c2c'></a>JMX Bridge v1.9
+
+JMX Bridge v1.9 contains overall security improvements, support for the Firehose tagged metric format, and the addition of a new optional feature that allows you to turn off the `opentsdb.nozzle` prepend which was present in previous versions. For more information, see [JMX Bridge Release Notes and Known Issues](https://docs.pivotal.io/jmx-bridge/1-9/rn-ki.html).
 
 
