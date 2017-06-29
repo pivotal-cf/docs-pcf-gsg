@@ -45,6 +45,17 @@ No longer a beta feature, NFS v3 Volume Services is now generally available in E
 ### <a id='private-docker'></a>Private Docker Repositories 
 With Elastic Runtime v1.11, developers can now push Docker images from private registries that require authentication. For more information, see the [Push a Docker Image with Authentication](../opsguide/docker-registry.html#docker-auth) section of the <em>Using Docker Registries</em> topic.
 
+### <a id='defaultha'></a>Highly-Available Default Configuration 
+
+The Resource Configuration defaults have been changed to streamline the path to a
+production-ready deployment. The default instance count for each VM type in the
+deployment has been set to ensure an operator can deploy a highly-available Cloud
+Foundry out of the box.
+
+This change results in larger resource requirements for a default Elastic Runtime
+deployment. Operators should take this into account when deploying environments on
+constrained resources. If your deployment does not require high availability, Pivotal recommends that you scale down jobs to the minimum required to run a functional deployment as described in [Scaling Elastic Runtime](../opsguide/scaling-ert-components.html).
+
 ### <a id='ert'></a>Other Features
 
 For information about other new features in Elastic Runtime v1.11, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
