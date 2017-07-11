@@ -1,127 +1,29 @@
 ---
-title: PCF v1.11 Feature Highlights
+title: PCF v1.12 Feature Highlights
 ---
 
 <html class="list-style-none"></html>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v1.11.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v1.12.
 
 ## <a id='om'></a>Ops Manager Highlights
 
-Ops Manager v1.11 includes the following major features:
-
-### <a id='credhub'></a>CredHub Integration 
-Introducing CredHub! 
-
-CredHub centralizes and secures credential generation, storage, lifecycle management, and access. Debuting in Ops Manager v1.11, CredHub simplifies and improves credential management in PCF. 
-
-The initial release removes credentials from BOSH deployment manifests. For more information about CredHub, see the [CredHub documentation](https://docs.cloudfoundry.org/credhub/index.html). 
-
-If you are a PCF Tile Developers, see the 
-[documentation](http://docs.pivotal.io/tiledev/credhub.html) in the PCF 
-Tile Developers Guide for more information about CredHub integration with Ops 
-Manager.
-
-### <a id='nsx'></a>NSX Security Group Integration  
-
-Operators can now configure Ops Manager v1.11 to communicate with VMware NSX. Ops Manager v1.11 supports NSX-V 6.2+. 
-
-This integration makes it easier for operators to define granular firewall access to VMs and apply company networking policies to cloud-native apps. You can use Ops Manager API endpoints to manage the NSX security groups for all your PCF VMs. See [vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) for more information about the new **NSX Networking** fields in Ops Manager. 
-
-### <a id='azure'></a>Azure Managed Disks Support 
-PCF v1.11 supports [Azure Managed Disks](https://azure.microsoft.com/en-us/services/managed-disks/) for PCF deployments on Azure.
-
-### <a id='opsman'></a>Other Features
-
-For information about other new features in Ops Manager v1.11, see the [Pivotal Cloud Foundry Ops Manager v1.11 Release Notes](../pcf-release-notes/opsmanager-rn.html).
-
-<hr>
+Ops Manager v1.12 includes the following major features:
 
 ## <a id='ert'></a>Elastic Runtime Highlights
 
-Elastic Runtime v1.11 includes the following major features:
-
-### <a id='container-networking'></a>Container Networking  
-No longer a beta feature, Container Networking is now generally available in ERT v1.11. This means that apps running on PCF can now directly communicate with each other, which greatly simplifies the task of creating networking policies. For more information, see the [Administering Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
-
-### <a id='nfs3'></a>NFS v3 Volume Services
-No longer a beta feature, NFS v3 Volume Services is now generally available in ERT v1.11. Additionally, Elastic Runtime ships with an NFS Volume Service Broker. For more information, see the [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html) topics.
-
-### <a id='private-docker'></a>Private Docker Repositories 
-With Elastic Runtime v1.11, developers can now push Docker images from private registries that require authentication. For more information, see the [Push a Docker Image with Authentication](../opsguide/docker-registry.html#docker-auth) section of the <em>Using Docker Registries</em> topic.
-
-### <a id='defaultha'></a>Highly-Available Default Configuration 
-
-The Resource Configuration defaults have been changed to streamline the path to a
-production-ready deployment. The default instance count for each VM type in the
-deployment has been set to ensure an operator can deploy a highly-available Cloud
-Foundry out of the box.
-
-This change results in larger resource requirements for a default Elastic Runtime
-deployment. Operators should take this into account when deploying environments on
-constrained resources. If your deployment does not require high availability, Pivotal recommends that you scale down jobs to the minimum required to run a functional deployment as described in [Scaling Elastic Runtime](../opsguide/scaling-ert-components.html).
-
-### <a id='ert'></a>Other Features
-
-For information about other new features in Elastic Runtime v1.11, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
-
-<hr>
+Elastic Runtime v1.12 includes the following major features:
 
 ## <a id='apps-man'></a>Apps Manager Highlights
 
-Apps Manager v1.11 includes the following features:
-
-### <a id='spring-actuator'></a>Spring Actuator 
-Apps Manager v1.11 includes Spring Actuator heap dumps, request traces, and thread dumps. For more information, see the [Using Spring Boot Actuators with Apps Manager](../console/using-actuators.html)
-
-### <a id='app-search'></a>App Search 
-You can now search for apps across all orgs and spaces by entering the name of the app in the search bar.
-
-### <a id='route-services'></a>Route Services 
-You can now manage route services from Apps Manager. For more information, see the [Manage Route Services](../console/manage-apps.html#manage-route-services) section of the <em>Managing Apps and Service Instances Using Apps Manager</em> topic.
-
-### <a id='custom-health-checks'></a>Custom Health Checks 
-You can now view custom application health checks in Apps Manager. For more information, see the [View Health Checks](../console/manage-apps.html#health-checks) section of the <em>Managing Apps and Service Instances Using Apps Manager</em> topic.
-
-### <a id='tasks'></a>Tasks in the Usage Report 
-The Usage Report now includes information about task usage. For more information, see the [View the Usage Report](../opsguide/accounting-report-apps-man.html#usage-report) section of the <em>Monitoring Instance Usage with Apps Manager</em> topic.
-
-### <a id='last-login'></a>Last Login Notice 
-Apps Manager v1.11 displays the date and time of the last login in the bottom right of the footer.
-
-### <a id='section-508a'></a>Section 508a Compliance 
-Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/) of the Rehabilitation Act. Customers can now receive an approved Voluntary Product Accessibility Template (VPAT) for Apps Manager.
-
-For more information, see the [Pivotal Elastic Runtime v1.11 Release Notes](../pcf-release-notes/runtime-rn.html).
-
-<hr>
+Apps Manager v1.12 includes the following features:
 
 ## <a id='pcf-is'></a>PCF Isolation Segment Highlights
 
-The PCF Isolation Segment v1.11 tile includes the following features:
-
-* <a id='c2c'></a>Container to Container Networking
-* <a id='nfs3vs'></a>NFSv3 Volume Services
-* <a id='system-logging'></a> System Logging
-
-For more information, see the [PCF Isolation Segment v1.11 Release Notes](../pcf-release-notes/segment-rn.html).
-
-<hr>
+The PCF Isolation Segment v1.12 tile includes the following features:
 
 ## <a id='cross'></a>Cross-platform Highlights
 
-### <a id='new-errand'></a>BOSH Backup and Restore (BBR) 
-
-BBR is a command-line tool for backing up and restoring BOSH deployments. You can use it to back up and restore PCF components. BBR is a beta feature in PCF v1.11. 
-
-For more information, see the [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html) and [Restoring Pivotal Cloud Foundry from Backup with BBR](../customizing/backup-restore/backup-pcf-bbr.html) topics.
-
-<hr>
-
 ## <a id='services'></a>Services Highlights
-
-### <a id='c2c'></a>JMX Bridge v1.9
-
-JMX Bridge v1.9 contains overall security improvements, support for the Firehose tagged metric format, and the addition of a new optional feature that allows you to turn off the `opentsdb.nozzle` prepend which was present in previous versions. For more information, see [JMX Bridge Release Notes and Known Issues](https://docs.pivotal.io/jmx-bridge/1-9/rn-ki.html).
 
 
