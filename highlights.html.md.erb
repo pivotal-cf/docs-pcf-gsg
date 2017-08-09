@@ -45,21 +45,6 @@ that you can copy and paste to log in to the `bosh2` CLI.
 
 For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
 
-### <a id='commit'></a>Commit GET and DELETE Endpoints
-
-Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
-If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
-the `/commit` endpoint fails when a tile upgrade contains credential variables.
-
-Use the `GET api/v0/staged/products/credhub_credentials` endpoint to retrieve a file
-that contains the credentials that you must migrate to CredHub before upgrading a particular tile.
-
-After you migrate the credentials, use `DELETE api/v0/staged/products/credhub_credentials`
-to delete the credentials staged in installation.yml.
-
-For more information about this feature, see [Manually Upgrading a Tile that Contains Variable Migrations](https://docs.pivotal.io/tiledev/manual-tile-upgrade.html)
-in the Tile Developers Guide.
-
 ### <a id='om-other'></a>Other Features
 
 For information about other new features in Ops Manager v.1.12, see the [Pivotal Cloud Foundry Ops Manager v1.12 Release Notes](../pcf-release-notes/opsmanager-rn.html).
