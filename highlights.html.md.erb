@@ -14,14 +14,15 @@ Ops Manager v1.12 includes the following major features:
 
 Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Project Networking (XPN), enables you to assign GCP resources
 to individual projects within an organization but allows communication and shared services between projects.
+
 For more information about this feature, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html).
 
 ### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
 
 Tile Authors can write a JavaScript migration to move their existing non-configurable secrets into CredHub.
-Ops Manager v1.12 supports migrating `secret`, `simple_credential`, and `rsa_pkey_credential` types.
-For more information about this feature, see [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html)
-in the PCF Tile Developers Guide.
+Ops Manager v1.12 supports migrating `secret`, `simple_credential`, `rsa_pkey_credential`, and `salted_credential` types.
+
+For more information about this feature, see [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html) in the PCF Tile Developers Guide.
 
 ### <a id='aws-govcloud'></a>AWS GovCloud (US)
 
@@ -34,14 +35,8 @@ For more information about deploying AWS GovCloud (US), see the following AWS in
 ### <a id='bosh2'></a>BOSH CLI v2
 
 Ops Manager v1.12.0 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
-Both versions of the BOSH CLI are installed on the Ops Manager Director VM,
-located in `/usr/local/bin/bosh-init` and `/usr/local/bin/bosh2`.
-You can use either version of the BOSH CLI to interact with your deployment,
-but Pivotal recommends using `bosh2` since the older CLI will be deprecated in
-future PCF versions.
 
-In the **Credentials** tab in Ops Manager, click the link to **Bosh2 Commandline Credentials** for a command
-that you can copy and paste to log in to the `bosh2` CLI.
+There are two major releases of the BOSH CLI, and the Ops Manager Director VM includes both versions. You can use either version of the BOSH CLI to interact with your deployment, using `bosh` commands for the old CLI and `bosh2` commands for the new CLI, but Pivotal recommends using `bosh2` for compatibility with future PCF versions.
 
 For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
 
