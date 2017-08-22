@@ -127,7 +127,9 @@ instructions for obtaining logs in the [How to obtain logs from PCF](https://dis
 * Specifically, do the following if you are having installation or upgrade 
 problems:
   * Attach a copy of the most recent installation log.
-  * If the installation fails to indicate that a particular bosh task failed, run`bosh task <number> --debug` and attach the output.
+  * If the installation fails to indicate that a particular BOSH task failed,
+  run `bosh task TASK-NUMBER --debug`. If you use BOSH CLI v2, run `bosh -e MY-ENV task TASK-NUMBER --debug`.
+  * Attach the output of the `bosh task` command.
 
 * Please also include the label **EAP** and a label for the most likely product 
 of concern, for example **elastic-runtime**, **redis**, **ops-manager**, etc.
