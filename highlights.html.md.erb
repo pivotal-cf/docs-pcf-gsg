@@ -131,6 +131,11 @@ This gives applications an easier way to assert their identity to other clients 
 
 For more information, see the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section of the <em>TLS Connections in PCF Deployments</em> topic.
 
+###<a id='haproxy-release'></a> HAProxy Release
+
+Elastic Runtime now uses the newly incubated
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement of this job allows the tile to expose new HAProxy features. 
+
 ### <a id='om-other'></a>Other Features
 
 For information about other new features in Elastic Runtime v.1.12, see the [Pivotal Cloud Foundry Elastic Runtime v1.12 Release Notes](../pcf-release-notes/runtime-rn.html).
@@ -157,7 +162,14 @@ The PCF Isolation Segment v1.12 tile includes the following features:
 
 ### <a id='sharded-routers'></a>Sharded Routers 
 
-Operators can now configure sharding mode for routers. For more information, see the [Installing PCF Isolation Segment](../opsguide/installing-pcf-is.html) topic.
+Operators can now configure sharding mode for routers. For more information, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.
+
+###<a id='haproxy'></a> HAProxy
+
+You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. 
+
+The Isolation Segment tile includes its own HAProxy VM, which uses the 
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For more information, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.
 
 ---
 
