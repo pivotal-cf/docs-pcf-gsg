@@ -89,7 +89,7 @@ For more information about this feature, see [Configuring a Shared VPC on GCP](.
 
 Ops Manager v1.12.0 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
 
-There are two major releases of the BOSH CLI, and the Ops Manager Director VM includes both versions. You can use either version of the BOSH CLI to interact with your deployment, using `bosh` commands for the old CLI and `bosh2` commands for the new CLI. Pivotal recommends using `bosh2` for compatibility with future PCF versions.
+There are two major releases of the BOSH CLI, and the Ops Manager Director VM includes both versions. You can `bosh` commands for the old CLI and `bosh2` commands for the new CLI, but many old CLI commands are incompatible with the BOSH Director. See the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012374148-Permissions-error-when-running-BOSH-commands-on-the-Director) article for more information.
 
 For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
 
