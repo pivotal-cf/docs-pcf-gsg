@@ -25,11 +25,13 @@ Ops Manager creates a TLS certificate and passes it to BOSH. This facilitates mu
 
 Ops Manager decreases the time required to upgrade by reducing the size of the file produced by **Export Installation Settings** by several orders of magnitude. 
 
-For upgrade instructions, see the [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
+For upgrade instructions, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
 
-The exported installation file is smaller because Ops Manager no longer retains releases between upgrades if it has already uploaded them to BOSH. When backing up PCF, you must take this into account by backing up the BOSH blobstore that contains the uploaded releases. BOSH Backup and Restore (BBR) backs up the BOSH blobstore. For more information, see the [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html) topic.
+The exported installation file is smaller because Ops Manager no longer retains releases between upgrades if it has already uploaded them to BOSH. When backing up PCF, you must take this into account by backing up the BOSH blobstore that contains the uploaded releases. BOSH Backup and Restore (BBR) backs up the BOSH blobstore.
+For more information, see [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html).
 
-<p class="note warning"><strong>WARNING</strong>: CFOps assumed that the Ops Manager installation settings artifact contained all necessary releases, which is no longer the case in PCF 1.12. CFOps should not be used to back up and restore PCF 1.12.</p>
+<p class="note warning"><strong>WARNING</strong>: CFOps assumed that the Ops Manager installation settings artifact contained all necessary releases, which is no longer the case in PCF v1.12.
+   CFOps should not be used to back up and restore PCF v1.12.</p>
 
 ### <a id='manifest-credhub'></a>Manifest-only Workflow with CredHub
 
@@ -41,7 +43,7 @@ Older Ops Manager-generated manifests contained credentials in plain text. But a
 
 The new Ops Manager API generates a file used by CredHub to bulk load credentials from Ops Manager. Subsequent BOSH deployments result in existing credentials continuing to be supplied. The new API also includes an additional endpoint that operators can use to delete credentials from Ops Manager if needed.
 
-For more information about using the Ops Manager API, see the [Using the Ops Manager API](../customizing/ops-man-api.html) topic. For the complete Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
+For more information about using the Ops Manager API, see [Using the Ops Manager API](../customizing/ops-man-api.html). For the complete Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
 
 ### <a id='multiple-runtime'></a>BOSH Director Supports Multiple Runtime Configs
 
@@ -95,7 +97,7 @@ For more information about the differences between the old and new versions of t
 
 ### <a id='om-other'></a>Other Features
 
-For information about other new features in Ops Manager v.1.12, see the [Pivotal Cloud Foundry Ops Manager v1.12 Release Notes](../pcf-release-notes/opsmanager-rn.html).
+For information about other new features in Ops Manager v1.12, see the [Pivotal Cloud Foundry Ops Manager v1.12 Release Notes](../pcf-release-notes/opsmanager-rn.html).
 
 ---
 
@@ -138,7 +140,7 @@ Elastic Runtime now uses the newly incubated
 
 ### <a id='om-other'></a>Other Features
 
-For information about other new features in Elastic Runtime v.1.12, see the [Pivotal Cloud Foundry Elastic Runtime v1.12 Release Notes](../pcf-release-notes/runtime-rn.html).
+For information about other new features in Elastic Runtime v1.12, see the [Pivotal Cloud Foundry Elastic Runtime v1.12 Release Notes](../pcf-release-notes/runtime-rn.html).
 
 ---
 
@@ -162,14 +164,15 @@ The PCF Isolation Segment v1.12 tile includes the following features:
 
 ### <a id='sharded-routers'></a>Sharded Routers 
 
-Operators can now configure sharding mode for routers. For more information, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.
+Operators can now configure sharding mode for routers. For more information, see [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html).
 
 ###<a id='haproxy'></a> HAProxy
 
 You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. 
 
 The Isolation Segment tile includes its own HAProxy VM, which uses the 
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For more information, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
+For more information, see [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html).
 
 ---
 
@@ -179,11 +182,12 @@ The PCF Runtime for Windows v1.12 tile includes the following features:
 
 ### <a id='manage-windows-admin'></a>Operators Can Manage the Windows Admin Password
 
-Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows 1.12 tile. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
+Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows v1.12 tile. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see [Deploying PCF Runtime for Windows](../windows/deploy-windows.html).
 
 ### <a id='windows-logs'></a>Windows Event Logs Consumable via Syslog
 
-Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows 1.12 tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
+Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows v1.12 tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications.
+For more information, see [Deploying PCF Runtime for Windows](../windows/deploy-windows.html).
 
 ---
 
@@ -191,7 +195,7 @@ Operators can now configure a syslog endpoint for Windows Event Logs in the PCF 
 
 ### <a id='pcf-metrics'></a>PCF Metrics
 
-The v1.4 PCF Metrics tile releases alongside PCF 1.12 and includes the following major features:
+The v1.4 PCF Metrics tile releases alongside PCF v1.12 and includes the following major features:
 
 * Support for Spring Boot Actuator metrics
 * Support for custom app metrics
@@ -202,7 +206,7 @@ For more information, see the [PCF Metrics v1.4 documentation](http://docs.pivot
 
 ### <a id='sso'></a> Single Sign-On v1.5
 
-The v1.5 Single Sign-On (SSO) tile releases alongside PCF 1.12 and includes the following major features:
+The v1.5 Single Sign-On (SSO) tile releases alongside PCF v1.12 and includes the following major features:
 
 * Support for enterprise SSO with Azure Active Directory using OpenID Connect (OIDC)
 * Improved framework support for SSO and the SSO connector for app developers using Spring Boot on PCF
@@ -211,9 +215,9 @@ The v1.5 Single Sign-On (SSO) tile releases alongside PCF 1.12 and includes the 
 
 For more information, see the [SSO v1.5 documentation](https://docs.pivotal.io/p-identity/1-5/).
 
-### <a id='rabbit'></a>RabbitMQ for PCF
+### <a id='rabbit'></a>RabbitMQ for PCF v1.10
 
-RabbitMQ for PCF version 1.10 offers an on-demand cluster plan. So now operators can offer three types of plans:
+RabbitMQ for PCF v1.10 offers an on-demand cluster plan. So now operators can offer three types of plans:
 
 * Pre-provisioned
 * On-demand single node
@@ -221,9 +225,11 @@ RabbitMQ for PCF version 1.10 offers an on-demand cluster plan. So now operators
 
 For application teams that require more isolation, on-demand plans empower them to self-serve their own RabbitMQ on a single node or cluster. 
 
-Release 1.10 also provides smoke tests for the on-demand plans so that operations teams can validate the application developer workflow for on-demand services.
+Release v1.10 also provides smoke tests for the on-demand plans so that operations teams can validate the application developer workflow for on-demand services.
 
-### <a id='redis'></a>Redis for PCF
+### <a id='redis'></a>Redis for PCF v1.10
+
+The Redis for PCF v1.10 tile includes the following major features:
 
 * General metrics enhancements for on-demand services
 * Syslog enablement with or without TLS encryption
