@@ -193,7 +193,7 @@ For more information, see [Deploying PCF Runtime for Windows](../windows/deploy-
 
 ## <a id='services'></a>Services Highlights
 
-### <a id='pcf-metrics'></a>PCF Metrics
+### <a id='pcf-metrics'></a>PCF Metrics v1.4
 
 The PCF Metrics v1.4 tile releases alongside PCF v1.12 and includes the following major features:
 
@@ -240,3 +240,14 @@ The Redis for PCF v1.10 tile includes the following major features:
 * Syslog enablement with or without TLS encryption
 
 For more information, see the [RabbitMQ for PCF v1.10 documentation](https://docs.pivotal.io/rabbitmq-cf/1-10/index.html).
+
+### <a id='p-mysql'></a>MySQL for PCF v2.1
+
+The MySQL for PCF v2.1 tile includes the following major features:
+
+* Provides a new restore utility on each service instance to make restoring from a backup artifact easier
+* Adds the ability to enable or disable `lower_case_table_names` for all MySQL service instances or only specific service instances, which helps when migrating from legacy systems that need case insensitivity
+* Changes several MySQL server default configurations to provide better consistency and expected behavior when migrating
+  from the MySQL for PCF v1 series 
+
+For more information, see the [MySQL for PCF v2.1 documentation](https://docs.pivotal.io/p-mysql/2-1/).
