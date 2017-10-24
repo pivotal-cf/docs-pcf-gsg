@@ -1,82 +1,52 @@
 ---
-title: Pivotal Cloud Foundry Documentation Table of Contents
+title: Pivotal Cloud Foundry Documentation
+owner: Ops Manager
 ---
 
+Welcome to Pivotal Cloud Foundry Documentation!
 
-<ul class="class-list">
-  <li>
-    <a class="subnav" href="../installing/highlights.html">PCF v1.11 Feature Highlights</a>
-    <div class="docs-module-description">New features included in the Pivotal Cloud Foundry v1.11 release, including Pivotal Operations Manager, Pivotal Elastic Runtime, Apps Manager, PCF Isolation Segments, Cross-platform, and PCF Services.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../pcf-release-notes/index.html">Release Notes</a>
-    <div class="docs-module-description">Release notes for Pivotal Operations Manager, Pivotal Elastic Runtime, and PCF Services. Release notes describe new features, bug fixes and known issues.</div>
-  </li>
-  <li>
-    <a class="subnav" href="./index.html">Installing Pivotal Cloud Foundry</a>
-    <div class="docs-module-description">A quick guide to installing and getting started with <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry</a> (PCF).</div>
-  </li>
-  <li>
-    <a href="../customizing/upgrading-pcf.html" class="subnav">Upgrading Pivotal Cloud Foundry</a>
-    <div> A guide to upgrading Pivotal Cloud Foundry Operations Manager (Ops Manager), Pivotal Elastic Runtime, and product tiles.</div>
-  </li>
-  <li><a href="../refarch/index.html" class="subnav">Reference Architecture</a>
-    <div class="docs-module-description">A guide that describes a deployment model for Pivotal Cloud Foundry on a specific IaaS platform, such as AWS, Azure, GCP, and vSphere.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../../../pcf-dev/index.html">PCF Dev</a>
-    <div class="docs-module-description">A guide to PCF Dev, a lightweight Pivotal Cloud Foundry (PCF) installation that runs on a single virtual machine (VM) on your workstation. PCF Dev is intended for application developers who want to develop and debug their applications locally on a PCF deployment.</div>
-  </li>
-  <li>
-    <a href="../monitoring/index.html" class="subnav">Monitoring Pivotal Cloud Foundry</a>
-    <div> A guide to monitoring your PCF deployment.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../customizing/index.html">Using Ops Manager</a>
-    <div class="docs-module-description">A guide to using the Pivotal Cloud Foundry Operations Manager interface to manage your PCF PaaS.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../concepts/index.html">Elastic Runtime Concepts</a>
-    <div class="docs-module-description">An explanation of the components in Pivotal Cloud Foundry Elastic Runtime and how they work.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../opsguide/index.html">Operating Elastic Runtime</a>
-    <div class="docs-module-description">A guide to running the Elastic Runtime component of PCF.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../adminguide/index.html">Administering Elastic Runtime</a>
-    <div class="docs-module-description">A guide to managing Elastic Runtime at the administrator level.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../windows/index.html">Using PCF Runtime for Windows</a>
-    <div class="docs-module-description">A guide to using Windows cells with PCF Runtime for Windows.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../console/index.html">Using Apps Manager</a>
-    <div class="docs-module-description">A guide to using the web-based Apps Manager application for managing users, organizations, spaces, and applications.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../cf-cli/index.html">Using the Cloud Foundry Command Line Interface (cf CLI)</a>
-    <div class="docs-module-description">A guide to the Cloud Foundry Command Line Interface (cf CLI) to deploy and manage your applications.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../devguide/index.html">Deploying Applications</a>
-    <div class="docs-module-description">A guide for developers on deploying and troubleshooting applications running in Elastic Runtime (Cloud Foundry).</div>
-  </li>
-  <li>
-    <a class="subnav" href="../security/index.html">Security</a>
-    <div class="docs-module-description">A guide for security professionals with a cross-sectional security focus that addresses concepts, identity management, networking, PCF tiles, and best practices.</div>
-  </li>
-  <li>
-    <a class="subnav" href="../buildpacks/index.html">Buildpacks</a>
-    <div class="docs-module-description">A guide to using system buildpacks and extending your Elastic Runtime with custom buildpacks.</div>
-  </li>
-  <li>
-     <a class="subnav" href="../services/index.html">Custom Services</a>
-     <div class="docs-module-description">A guide to extending your Elastic Runtime with custom services.</div>
-    </li>
-    <li>
-      <a class="subnav" href="../loggregator/index.html">Logging and Metrics</a>
-      <div class="docs-module-description">A guide to using Loggregator, the next generation system for aggregating and streaming logs and metrics from all of the user apps and system components in Elastic Runtime.</div>
-    </li>
-  </ul>
+Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating apps. Some people install and run the platform, others develop apps on it, and others manage the development teams or make sure that the platform is secure.
+
+The guides linked below explain how you can do what you want with Pivotal Cloud Foundry (PCF) based on your role. Or see [Getting Started with PCF](../concepts/overview.html) for a general introduction to PCF and how it works.
+
+## PCF Guides
+
+<table id='guides' border="1" class="nice" >
+  <tr>
+    <th>I want to...</th>
+    <th>...which means my role is...</th>
+    <th>...so I should see...</th>
+  </tr><tr>
+    <td>Read about PCF and its main features and try a simple deployment on my own local machine</td>
+    <td>New User</td>
+    <td><a href="../concepts/overview.html">Getting Started with PCF</a></td>
+  </tr><tr>
+    <td>Assess PCF, plan a PCF deployment, install and configure a new PCF deployment</td>
+    <td>Architect</td>
+    <td><a href="../installing/index.html">PCF Architecture and Installation Guide</a></td>
+  </tr><tr>
+    <td>Upgrade, monitor, back up, troubleshoot, and generally maintain an existing PCF deployment</td>
+    <td>Operator</td>
+    <td><a href="../opsguide/index.html">PCF Operator Guide</a></td>
+  </tr><tr>
+    <td>Build applications that I can deploy, manage, and scale using the PCF platform.</td>
+    <td>Developer</td>
+    <td><a href="../devguide/index.html">PCF Developer Guide</a></td>
+  </tr><tr>
+    <td>Make sure that my enterprise’s PCF installation is secure and up-to-date with the latest security best practices.</td>
+    <td>Security Professional</td>
+    <td><a href="../security/index.html">PCF Security Guide</a></td>
+  </tr><tr>
+    <td>Manage Pivotal Application Service (PAS) users, orgs, and spaces.</td>
+    <td>PAS Org, Space, and Billing Managers</td>
+    <td><a href="../adminguide/index.html">Managing PAS Orgs and Spaces</a></td>
+  </tr><tr>
+    <td>Build a “tile” that lets PCF developers use my software services in their apps.</td>
+    <td>PCF Tile Developer</td>
+    <td><a href="http://docs.pivotal.io/tiledev">PCF Tile Developers Guide</a></td>
+  </tr>
+</table>
+
+
+
+
