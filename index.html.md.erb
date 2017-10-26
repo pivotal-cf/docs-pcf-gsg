@@ -1,7 +1,62 @@
 ---
 breadcrumb: Pivotal Cloud Foundry Documentation
-title: Installing Pivotal Cloud Foundry
-owner: Ops Manager
+title: Architecture and Installation Guide Overview
+owner: PCF Documentation
 ---
 
-TK
+##<a id='who'></a>For PCF Architects and Operators
+
+This guide shows you how to design a PCF platform and install it on an IaaS. If you are doing this, you have one or both of the following roles:
+
+* **Architects** design a PCF platform. They know the IaaS that they will deploy it to, and what other relevant resources they have. In their design, they consider needs for the platform's capacity, availability, security, geography, budget, and other factors. If they do not install PCF themselves, they provide the architectural specifications to whoever does.
+
+* **Operators** run a PCF platform, keep it up-to-date, monitor its health and performance, and fix any problems. They may also install the platform, or perform "Day 2" configurations that expand its functionality and integrate it with external systems.
+
+This guide helps people in both roles create a PCF platform that does what they want it to.  The contents of this guide follow the phases of a typical PCF planning and installation effort.
+
+##<a id='contents'></a>Guide Contents
+
+This guide has two parts. The first part explains the PCF planning and installation process, and the second describes the main tools that operators use when installing PCF.
+
+### Planning and Installation
+
+PCF is a suite of products that runs on multiple IaaSes. Planning and installing PCF means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running PCF deployment.
+
+The first part of this guide follows this bottom-up progression:
+
+* <a href="/pivotalcf/2-0/customizing/plan.html">Planning PCF</a> - Design a PCF platform that runs on your IaaS and fits your needs.
+
+* <a href="/pivotalcf/2-0/customizing/deploy-bosh-om">Deploying BOSH and Ops Manager</a> - Build the foundation of PCF.
+
+* <a href="/pivotalcf/2-0/customizing/add-ons.html">Deploying BOSH Add-Ons</a> - Use BOSH to extend foundation-level PCF capabilities.
+
+* <a href="/pivotalcf/2-0/customizing/runtimes.html">Installing Runtimes</a> - Install the application and container runtimes that PCF exists for.
+
+* <a href="/pivotalcf/2-0/customizing/platform-tiles.html">Installing Platform Extension Tiles</a> - Use Ops Manager to extend PCF platform capabilities.
+
+* <a href="/pivotalcf/2-0/customizing/day2.html">"Day 2" Configurations</a> - Set up internal operations and external integrations for PCF.
+
+After installing PCF, Operators install the software services that PCF developers use in their apps. These PCF services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
+
+Installing and managing software services on PCF is an ongoing process, and is covered in the [PCF Operator Guide](../opsguide/index.html).
+
+### Tools and Reference
+
+The second part of this guide explains the main PCF tools that operators use when installing PCF:
+
+* <a href="/pivotalcf/2-0/customizing/ops-man.html">Using Ops Manager</a>
+
+* <a href="/pivotalcf/2-0/cf-cli/index.html">Using the Cloud Foundry Command Line Interface (cf CLI)</a>
+
+* <a href="/pivotalcf/2-0/customizing/troubleshooting-diagnostics.html">Troubleshooting and Diagnostics</a>
+
+##<a id='pcf-docs'></a>Related Documentation
+
+The [PCF Operator Guide](../opsguide/index.html) explains how to maintain a running PCF platform, including monitoring, tuning, troubleshooting, and upgrading.
+
+The [PCF Security Guide](../security/index.html) explains how PCF security sytems work and how to keep your PCF platform secure.
+
+[Getting Started with PCF](../concepts/overview.html) gives a high-level overview of how PCF works and explains how you can try a 
+a simple deployment on your own local machine.
+
+See [Pivotal Cloud Foundry Documentation](./pcf-docs.html) for all PCF documentation.
