@@ -25,13 +25,24 @@ In Ops Manager 2.0, operators can set a custom banner that every user sees when 
 To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
 See the Director configuration topic for your IaaS for more information.
-For example, see [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#dir-config).
+For example, see [Configuring Ops Manager on GCP](../customizing/gcp-om-config.html#director-config).
 
 ### <a id='azure-stack'></a>Azure Stack Support (Beta)
 
 Operators can deploy Ops Manager 2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
 
 See [Launching an Ops Manager Director Instance on Azure without an ARM Template](../customizing/azure-om-deploy.html) for more information.
+
+### <a id='nsx'></a>VMware NSX-T Networking Support
+
+Ops Manager 2.0.0 adds support for VMware NSX-T networking.
+NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF.
+NSX-T is a new version of NSX-V, which was supported in previous versions of Ops Manager.
+
+When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V networking.
+You can enable NSX-T networking by selecting **NSX-T** in the new **NSX Mode** dropdown menu of the **vCenter Config** pane.
+
+See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) and [vSphere Reference Architecture](../refarch/vsphere/vsphere_ref_arch.html#base-arch) for more information.
 
 ---
 
