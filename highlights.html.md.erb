@@ -40,7 +40,11 @@ Operators can deploy Ops Manager 2.0 to Microsoft Azure in their own local datac
 
 See [Launching an Ops Manager Director Instance on Azure without an ARM Template](../customizing/azure-om-deploy.html) for more information.
 
-### <a id='nsx'></a>VMware NSX-T Networking Support
+### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
+
+PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components).
+
+### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
 
 Ops Manager 2.0.0 adds support for VMware NSX-T networking.
 NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF.
