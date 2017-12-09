@@ -44,6 +44,23 @@ See [Launching an Ops Manager Director Instance on Azure without an ARM Template
 
 PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components).
 
+### <a id='bosh-cli'></a>BOSH CLI Renamed
+
+Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
+In Ops Manager 2.0.0, both versions of the BOSH CLI have been renamed.
+
+If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
+In Ops Manager 2.0.0, run the same commands using `bosh`.
+For example, see the following table to compare the changes to the `bosh vms` command:
+
+| **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
+|----------------------|---------------|--------------|
+| **BOSH CLI v1** | `bosh vms` | `bosh-old vms` |
+| **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
+
+Many BOSH CLI v1 commands are incompatible with the BOSH Director.
+Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
+
 ### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
 
 Ops Manager 2.0.0 adds support for VMware NSX-T networking.
@@ -59,8 +76,35 @@ See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcen
 
 ## <a id='ert'></a>Pivotal Application Service (PAS) Highlights
 
-<!-- PAS includes the following major features: -->
+### <a id='nsx'></a>VMware NSX-T Networking Support
 
+PAS 2.0 adds support for VMware NSX-T networking.
+Previous versions of PAS supported NSX-V networking.
+
+To enable NSX-T networking for your PCF installation, you must perform the following steps:
+
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+
+1. Install the NSX-T tile. 
+  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
+  - You must install the NSX-T tile before you install or upgrade the PAS tile.
+
+1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
+
+See the [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
+
+###<a id='pas-credhub'></a> Secure Service Instance Credentials
+
+The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials.
+
+### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
+
+PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+
+### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
+
+The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
 
 ---
 
@@ -70,11 +114,11 @@ See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcen
 
 Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click *Add a Service*.
 
-### <a id="metrics-forwarding"></a> Option to Enable PCF Scheduler on Apps Manager
+### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
 
 Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click *Add a Service*.
 
-### <a id='one-click'></a> Option to Enable App Autoscaler
+### <a id='app-autoscaler'></a> Option to Enable App Autoscaler
 
 Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
 
@@ -86,7 +130,27 @@ Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This 
 
 ## <a id='pcf-is'></a>PCF Isolation Segment Highlights
 
-<!-- The PCF Isolation Segment tile includes the following features: -->
+### <a id='nsx-is'></a>VMware NSX-T Networking Support
+
+PCF Isolation Segment 2.0 adds support for VMware NSX-T networking.
+Previous versions of PCF Isolation Segment supported NSX-V networking.
+
+To enable NSX-T networking for your PCF installation, you must perform the following steps:
+
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+
+1. Install the NSX-T tile. 
+  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
+  - You must install the NSX-T tile before you install or upgrade the PAS tile.
+
+1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
+
+See the [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
+
+### <a id='multiple-cert-is'></a> Gorouter and HAProxy Support Multiple Certificates
+
+You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ---
 
