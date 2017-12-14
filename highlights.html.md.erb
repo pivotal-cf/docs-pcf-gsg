@@ -18,21 +18,25 @@ Ops Manager v2.0 introduces support for role-based access control (RBAC).
 
 You can assign the following roles to determine which operators in your organization make deployment changes, view credentials, and manage user roles in Ops Manager:
 
-* **Ops Manager Administrator**: full control over all Ops Manager configuration and settings, including assigning user roles and managing authentication.
-* **Full Control**: write access to Ops Manager, including credentials.
-* **Restricted Control**: write access to Ops Manager with no access to credentials.
-* **Full View**: read-only access to Ops Manager UI and API endpoints, including credentials.
-* **Restricted View**: read-only access to Ops Manager UI and API endpoints with no access to credentials.
+* **Ops Manager Administrator**: Full control over all Ops Manager configuration and settings, including assigning user roles and managing authentication
+* **Full Control**: Write access to Ops Manager, including credentials
+* **Restricted Control**: Write access to Ops Manager with no access to credentials
+* **Full View**: Read-only access to Ops Manager UI and API endpoints, including credentials
+* **Restricted View**: Read-only access to Ops Manager UI and API endpoints with no access to credentials
 
 See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/config-rbac.html) for more information.
 
-### <a id='ssh-banner'></a> Custom Director Login Banner
+### <a id='ssh-banner'></a> Custom Login Banner
 
 In Ops Manager v2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director.
 To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
-See the Director configuration topic for your IaaS for more information.
-For example, see [Configuring Ops Manager on GCP](../customizing/gcp-om-config.html#director-config).
+See the Configuring Ops Manager topic for your IaaS for more information.
+  * [Amazon Web Services](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
+  * [Google Cloud Platform](.customizing/gcp-om-config.html#director-config)
+  * [Microsoft Azure](../customizing/azure-om-config.html#director-config)
+  * [OpenStack](../customizing/openstack-om-config.html#director-config)
+  * [vSphere](../customizing/vsphere-config.html#dir-config)
 
 ### <a id='azure-stack'></a> Azure Stack Support (Beta)
 
@@ -120,7 +124,7 @@ The PAS tile now includes its own CredHub VM to support the secure storage of se
 
 ### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
 
-PAS v2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
 
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
@@ -132,15 +136,15 @@ The PAS tile no longer includes individual errand VMs. Instead, the errand jobs 
 
 ### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
 
-Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To bind the Metrics Forwarder service to an application, open **Services** and click *Add a Service*.
 
 ### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
 
-Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the PCF Scheduler service to an application. To bind the PCF Scheduler service to an application, open **Services** and click *Add a Service*.
 
 ### <a id='app-autoscaler'></a> Option to Enable App Autoscaler on Apps Manager
 
-Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
+Apps Manager includes a new option to bind the App Autoscaler service to an application. To bind the App Autoscaler service to an application, open **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
 
 ### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
 
@@ -215,7 +219,7 @@ Five configurable on-demand plans in the RabbitMQ tile enable operators to creat
 
 ### <a id='redis'></a> Redis for PCF v1.11
 
-Redis for PCF v1.11 is compatible with PCF v2.0 while taking advantage of the newest BOSH/Ops Manager features.
+Redis for PCF v1.11 is compatible with PCF v2.0 while taking advantage of the newest BOSH and Ops Manager features.
 
 The Redis for PCF tile now uses SHA2 checksums for all releases.
 
