@@ -27,12 +27,6 @@ Ops Manager decreases the time required to upgrade by reducing the size of the f
 
 For upgrade instructions, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
 
-The exported installation file is smaller because Ops Manager no longer retains releases between upgrades if it has already uploaded them to BOSH. When backing up PCF, you must take this into account by backing up the BOSH blobstore that contains the uploaded releases. BOSH Backup and Restore (BBR) backs up the BOSH blobstore.
-For more information, see [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html).
-
-<p class="note warning"><strong>WARNING</strong>: CFOps assumed that the Ops Manager installation settings artifact contained all necessary releases, which is no longer the case in PCF v1.12.
-   CFOps should not be used to back up and restore PCF v1.12.</p>
-
 ### <a id='manifest-credhub'></a>Manifest-only Workflow with CredHub
 
 This feature is relevant for operators who use Ops Manager only for manifest generation and do not click **Apply Changes**. 
