@@ -1,241 +1,35 @@
 ---
-title: PCF v2.0 Feature Highlights
+title: PCF v2.1 Feature Highlights
 ---
 
 <html class="list-style-none"></html>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.0.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.1.
 
-<p class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</p>
 
 ## <a id='om'></a> Ops Manager Highlights
 
-Ops Manager v2.0 includes the following major features:
+Ops Manager v2.1 includes the following major features:
 
-### <a id='rbac'></a> RBAC Support
+### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
-Ops Manager v2.0 introduces support for role-based access control (RBAC).
-
-![Ops Manager user roles diagram](images/roles-diagram.png)
-
-You can assign the following roles to determine which operators in your organization make deployment changes, view credentials, and manage user roles in Ops Manager:
-
-* **Ops Manager Administrator**: Full control over all Ops Manager configuration and settings, including assigning user roles and managing authentication
-* **Full Control**: Write access to Ops Manager, including credentials
-* **Restricted Control**: Write access to Ops Manager with no access to credentials
-* **Full View**: Read-only access to Ops Manager UI and API endpoints, including credentials
-* **Restricted View**: Read-only access to Ops Manager UI and API endpoints with no access to credentials
-
-See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/config-rbac.html) for more information.
-
-### <a id='ssh-banner'></a> Custom Login Banner
-
-In Ops Manager v2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director.
-To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
-
-See the Configuring Ops Manager topic for your IaaS for more information.
-
-* [Amazon Web Services](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
-* [Google Cloud Platform](../customizing/gcp-om-config.html#director-config)
-* [Microsoft Azure](../customizing/azure-om-config.html#director-config)
-* [OpenStack](../customizing/openstack-om-config.html#director-config)
-* [vSphere](../customizing/vsphere-config.html#dir-config)
-
-### <a id='azure-stack'></a> Azure Stack Support (Beta)
-
-Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
-
-See [Deploying BOSH and Ops Manager to Azure Manually](../customizing/azure-om-deploy.html) for more information.
-
-### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
-
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components).
-
-### <a id='bosh-cli'></a> BOSH CLI Renamed
-
-Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
-In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
-
-If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
-In Ops Manager v2.0, run the same commands using `bosh`.
-For example, see the following table to compare the changes to the `bosh vms` command:
-
-| **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
-|----------------------|---------------|--------------|
-| **BOSH CLI v1** | `bosh vms` | `bosh-old vms` |
-| **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
-
-Many BOSH CLI v1 commands are incompatible with the BOSH Director.
-Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
-
-### <a id='nsx-om'></a> VMware NSX-T Networking Support
-
-Ops Manager v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
-Previous versions of Ops Manager supported NSX-V.
-
-When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V. The NSX-T integration is only for fresh installs of PCF.
-You can enable NSX-T networking by selecting **NSX-T** in the new **NSX Mode** dropdown menu of the **vCenter Config** pane.
-
-See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) for more information.
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
-
-<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
-
-<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
-
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="../pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP).
 
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
-Pivotal Application Service (PAS) is the new name for Elastic Runtime. 
-
-### <a id='nsx-pas'></a> VMware NSX-T Networking Support
-
-PAS v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
-Previous versions of PAS supported NSX-V networking.
-
-To use NSX-T networking, you must install the NSX-T tile.
-
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
-
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
-
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
-
-1. Install the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t). 
-  - You must install the NSX-T tile after you install the Ops Manager Director tile.
-  - You must install the NSX-T tile before you install the PAS tile.
-
-1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
-
-<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
-
-<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
-
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="../pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
-
-###<a id='pas-credhub'></a> Secure Service Instance Credentials
-
-The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials.
-
-### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
-
-PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
-
-### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
-
-The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
 
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
-
-Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To bind the Metrics Forwarder service to an application, open **Services** and click *Add a Service*.
-
-### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
-
-Apps Manager includes a new option to bind the PCF Scheduler service to an application. To bind the PCF Scheduler service to an application, open **Services** and click *Add a Service*.
-
-### <a id='app-autoscaler'></a> Option to Enable App Autoscaler on Apps Manager
-
-Apps Manager includes a new option to bind the App Autoscaler service to an application. To bind the App Autoscaler service to an application, open **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
-
-### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
-
-Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
 ---
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
-### <a id='nsx-is'></a> VMware NSX-T Networking Support
-
-PCF Isolation Segment v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
-Previous versions of PCF Isolation Segment supported NSX-V networking.
-
-To use NSX-T networking, you must install the NSX-T tile.
-
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
-
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
-
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
-
-1. Install the NSX-T tile. 
-  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
-  - You must install the NSX-T tile before you install or upgrade the PAS tile.
-
-1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
-
-<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
-
-<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
-
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="../pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
-
-### <a id='multiple-cert-is'></a> Gorouter and HAProxy Support Multiple Certificates
-
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
-
 ---
 
 ## <a id='services'></a> Services Highlights
-
-### <a id='healthwatch'></a> PCF Healthwatch v1.1
-
-PCF v2.0 introduces PCF Healthwatch, a service for monitoring the current health, performance, and capacity of PCF. To help operators understand the operational state of their PCF deployment, PCF Healthwatch does the following:
-
-* Stores and visualizes metrics from core PCF components, including BOSH-reported VM metrics. The 1.1 version of the service covers the recommended [Key Performance Indicators](../monitoring/kpi.html) and [Key Scaling Indicators](../monitoring/key-cap-scaling.html) for PCF v2.0.
-* Executes health checks as continuous validation tests and creates super metrics. For more information about the super metrics created by PCF Healthwatch, see [PCF Healthwatch Metrics](http://docs.pivotal.io/pcf-healthwatch/metrics.html). The service stores, displays, and forwards this data into the Loggregator Firehose for external consumption by existing customer solutions.
-
-For more information, see the [PCF Healthwatch documentation](http://docs.pivotal.io/pcf-healthwatch/index.html).
-
-### <a id='spring-cloud'></a> Spring Cloud Services v1.5
-
-Configurable data services allow you more control over where Spring Cloud Services (SCS) data resides. SCS now allows you to configure a service name and plan for creating a service broker MySQL database and RabbitMQ queues.
-
-Configured server backend enhancements add support for `pattern` and `searchPaths` to Git backend properties.
-
-The SCS service broker stores service instance credentials in CredHub. Client applications with updated SCS Connectors automatically resolve credentials stored in CredHub.
-
-Spring Cloud Edgware builds on Spring Boot v1.5.x.
-
-### <a id='mysql'></a> MySQL for PCF v2.2
-
-MySQL for PCF v2.2 now offers the ability to create leader-follower, multi-AZ instances. Operators can monitor leader-follower instances with replication metrics.
-
-Developers can configure MySQL for read/write/mixed workloads.
-
-Developers can customize MySQL usernames in service bindings and service keys.
-
-Developers and operators can create read-only access credentials.
-
-### <a id='rabbitmq'></a> RabbitMQ for PCF v1.11
-
-RabbitMQ for PCF v1.11 is compatible with PCF v2.0.
-
-Five configurable on-demand plans in the RabbitMQ tile enable operators to create customized plans to match developer demands.
-
-### <a id='redis'></a> Redis for PCF v1.11
-
-Redis for PCF v1.11 is compatible with PCF v2.0 while taking advantage of the newest BOSH and Ops Manager features.
-
-The Redis for PCF tile now uses SHA2 checksums for all releases.
-
-Users that require backups can use the Redis for PCF On-Demand service .
 
