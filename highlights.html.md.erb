@@ -16,7 +16,7 @@ Ops Manager v2.0 includes the following major features:
 
 Ops Manager v2.0 introduces support for role-based access control (RBAC).
 
-![Ops Manager user roles diagram](images/roles-diagram.png)
+<%= image_tag("images/roles-diagram.png", :class => "no-border", :alt => "Ops Manager Administrator with Full Control is able to make configuration changes and click apply changes in Ops Manager. With Full View permissions, operators can view credentials in the Credentials tab, view credentials using the Ops Manager API, and view configuration settings. Operators with restricted control permissions can make configuration changes and click apply changes. Operators with restricted view permissions can view configuration settings.") %>
 
 You can assign the following roles to determine which operators in your organization make deployment changes, view credentials, and manage user roles in Ops Manager:
 
@@ -87,6 +87,10 @@ Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMwa
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
 <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+
+### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
+
+For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. For more information, see [Configuring Amazon EBS Encryption](../customizing/cloudform-om-ebs-config.html). 
 
 ---
 
