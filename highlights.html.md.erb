@@ -17,9 +17,14 @@ Use the new Stemcell Library to import stemcells, stage stemcells, and view the 
 
 For more information, see [Importing and Managing Stemcells](../../opsguide/managing-stemcells.html).
 
-### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
 
-You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific properties to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](../../2-1/customizing/custom-vm-extensions.html).
+### <a id="custom-kms"></a> AWS KMS Encryption Available for BOSH and Ops Manager VMs
+
+Operators can specify a custom AWS Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS for BOSH VMs and the Ops Manager VM. You can use this feature to meet data-at-rest encryption requirements or as a security best practice.
+
+There is no performance penalty for using encrypted EBS volumes. Pivotal advises all users of PCF on AWS to enable encryption.
+
+For more information on how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
 
 ### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
 
