@@ -66,6 +66,14 @@ Add additional subnets to your network. Now each AZ can have multiple subnets. C
 
 This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](../../2-1/customizing/add-subnets.html).
 
+### <a id="alb"></a> Associate AWS ALBs with Jobs
+
+You can now associate an AWS Application Load Balancer (ALB) to a job in an AWS installation. ALBs support features like websockets and redirected traffic from HTTP to HTTPS.
+
+For more information on ALBs, see [What Is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) in the AWS documentation.
+
+For more information on how to configure an ALB in your Ops Manager AWS installation, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem).
+
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
