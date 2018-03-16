@@ -125,7 +125,9 @@ For more information about the new feature, see [TLS to Apps and Other Back-End 
 
 ### <a id='is-hsts-haproxy'></a> HSTS Support for HAProxy
 
-You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
+You can now enable HTTP Strict Transport Security (HSTS) for HAProxy. HSTS headers force browsers to use HTTPS exclusively to contact HAProxy for a period of time you specify. This feature, which includes HSTS preloading, guarantees secure connections every time a browser contacts HAProxy by preventing protocol downgrade attacks and cookiejacking. 
+
+For more information, see [Secure Apps Domain with HAProxy](opsguide/securing-endpoints.html#load-balancer).
 
 ---
 
