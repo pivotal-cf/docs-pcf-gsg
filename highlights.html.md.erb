@@ -26,10 +26,6 @@ There is no performance penalty for using encrypted EBS volumes. Pivotal advises
 
 For more information on how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
 
-### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
-
-For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. For more information, see [Configuring Amazon EBS Encryption](../../2-1/customizing/cloudform-om-ebs-config.html). 
-
 ### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged in Simultaneously
 
 Ops Manager users with **Full View** and **Restricted View** permissions can be logged in simultaneously. Previous to this change, only one user at a time could view Ops Manager.
@@ -50,7 +46,7 @@ You now have the option to select a Google Cloud Storage (GCS) blobstore as your
 
 ### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
 
-You can associate an Azure Application Gateway as your load balancer within an Azure configuration. The Azure Application Gateway offers layer 7 load balancing capabilities, which include a web application firewall and end-to-end SSL encryption.
+You can associate an Azure Application Gateway as your load alancer within an Azure configuration. The Azure Application Gateway offers layer 7 load balancing capabilities, which include a web application firewall and end-to-end SSL encryption.
 
 To learn more about Azure Application Gateway, see [Overview of Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) in the Azure documentation.
 
