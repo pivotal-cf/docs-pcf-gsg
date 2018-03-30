@@ -24,7 +24,7 @@ Operators can specify a custom AWS Key Management Service (KMS) encryption key t
 
 There is no performance penalty for using encrypted EBS volumes. Pivotal advises all users of PCF on AWS to enable encryption.
 
-For more information about how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
+For more information about how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-ebs-config.html).
 
 ### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged in Simultaneously
 
@@ -54,13 +54,13 @@ To learn more about configuring your load balancer for Azure, see the [Resource 
 
 ### <a id="multiple-clusters"></a> Add Multiple Clusters to Availability Zones
 
-You can now add multiple clusters to a vSphere Availability Zone (AZ). For more information about configuring AZs for your vSphere installation, see [Create Availability Zone Page](../../2-1/customizing/vsphere-config.html#create-az) in the _Configuring BOSH Director on vSphere_ topic.
+You can now add multiple clusters to a vSphere Availability Zone (AZ). For more information about configuring AZs for your vSphere installation, see [Create Availability Zone Page](../../2-2/customizing/vsphere-config.html#create-az) in the _Configuring BOSH Director on vSphere_ topic.
 
 ### <a id="add-subnets"></a> Expand Your Network with Additional Subnets
 
 Add additional subnets to your network. Now each AZ can have multiple subnets. Click **Add Subnet** in the **Create Networks** pane to create a new cluster of fields. You can also click the trash bin icon to delete your additional subnets. The first subnet of a network remains required.
 
-This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](../../2-1/customizing/add-subnets.html).
+This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](../../2-2/customizing/add-subnets.html).
 
 ### <a id="alb"></a> Associate AWS ALBs with Jobs
 
@@ -68,7 +68,7 @@ You can now associate an AWS Application Load Balancer (ALB) to a job in an AWS 
 
 For more information about ALBs, see [What Is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) in the AWS documentation.
 
-For more information about how to configure an ALB in your Ops Manager AWS installation, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem).
+For more information about how to configure an ALB in your Ops Manager AWS installation, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem).
 
 ---
 
@@ -83,7 +83,7 @@ Operators can now configure PAS to use server-side encryption with AWS Key Manag
 You can now configure Gorouter to use TLS for verifying app identity and communicating with app containers.
 This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
 
-For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end), [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency), and [PAS v2.1 Release Notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency).
+For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#tls-to-back-end), [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#consistency), and [PAS v2.1 Release Notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency).
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
@@ -102,7 +102,7 @@ Container metrics can now be delivered in create-user-provided-service (CUPS) Sy
 ### <a id='json'></a> Apps Manager Introduces the Enter JSON Toggle
 
 You can now use JSON for key-value entries in the Apps Manager UI.
-For information about managing apps and service instances in Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-1/console/manage-apps.html).
+For information about managing apps and service instances in Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/console/manage-apps.html).
 
 ### <a id='view-processes'></a> View and Scale Processes in Apps Manager
 
@@ -117,7 +117,7 @@ You can now view and scale processes in the Apps Manager UI.
 You can now configure Gorouter to use TLS for verifying app identity and communicating with app containers.
 This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
 
-For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end), [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency), and [PCF Isolation Segment v2.1 Release Notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/segment-rn.html#route-consistency).
+For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#tls-to-back-end), [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#consistency), and [PCF Isolation Segment v2.1 Release Notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/segment-rn.html#route-consistency).
 
 ### <a id='is-hsts-haproxy'></a> HSTS Support for HAProxy
 
