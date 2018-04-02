@@ -11,12 +11,11 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.1 includes the following major features:
 
-### <a id="stemcell-library"></a>Stemcell Library
+### <a id="stemcell-library"></a> Stemcell Library
 
 Use the new Stemcell Library to import stemcells, stage stemcells, and view the stemcell versions associated with each product. The Stemcell Library is centrally located for all products.
 
 For more information, see [Importing and Managing Stemcells](../../opsguide/managing-stemcells.html).
-
 
 ### <a id="custom-kms"></a> AWS KMS Encryption Available for BOSH and Ops Manager VMs
 
@@ -34,11 +33,11 @@ Ops Manager users with **Full View** and **Restricted View** permissions can be 
 
 From the Ops Manager settings, you can now create a custom banner to communicate important messages to operators. Your custom banner appears on each page of the Ops Manager UI or when an operator shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](../customizing/pcf-interface.html#settings).
 
-### <a id="credhub-hsm"></a> Configure an External CredHub Encryption Provider
+### <a id="credhub-hsm"></a> Configure an External BOSH CredHub Encryption Provider
 
 You now have the option to select an external **CredHub Encryption Provider** to store your encryption keys in a secure hardware module. For Ops Manager v2.1, you only have the option to select Luna Hardware Security Module (HSM) as an external provider.
 
-For more information about configuring your CredHub encryption provider, see [Director Config Page](../../customizing/gcp-om-config.html#director-config).
+For more information about configuring your BOSH CredHub encryption provider, see [Director Config Page](../../customizing/gcp-om-config.html#director-config).
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
@@ -124,4 +123,3 @@ For more information about the new feature, see [TLS to Apps and Other Back-End 
 You can now enable HTTP Strict Transport Security (HSTS) for HAProxy. HSTS headers force browsers to use HTTPS exclusively to contact HAProxy for a period of time you specify. This feature, which includes HSTS preloading, guarantees secure connections every time a browser contacts HAProxy by preventing protocol downgrade attacks and cookiejacking. 
 
 For more information, see [Secure Apps Domain with HAProxy](../opsguide/securing-endpoints.html#load-balancer).
-
