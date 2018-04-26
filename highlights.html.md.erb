@@ -43,7 +43,13 @@ In the BOSH Director tile, you can now enter a comma-separated list of IPs and p
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
-No new highlights.
+### <a id="timestamp"></a> New Format for Diego Timestamps
+
+Diego timestamps in logs are now in both a human- and machine-readable format. The new format also prevents the need for metrics tools or other services to convert the timestamp to a human-readable format.
+
+PAS, Windows, and Isolation Segment tiles now default to a human-readable timestamp with an option to opt out in the tile configuration.
+
+<p class="note breaking"><strong>Breaking Change:</strong> Services like metrics tools may not anticipate the timestamp format change and may result in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
 
 ---
 
@@ -55,5 +61,7 @@ No new highlights.
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
-No new highlights.
+### <a id="is-timestamp"></a> New Format for Diego Timestamps
+
+See [Pivotal Application Service (PAS) Highlights](#ert) above.
 
