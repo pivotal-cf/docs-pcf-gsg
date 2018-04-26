@@ -45,11 +45,11 @@ In the BOSH Director tile, you can now enter a comma-separated list of IPs and p
 
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
-Diego timestamps in logs are now in both a human- and machine-readable format. The new format also prevents the need for metrics tools or other services to convert the timestamp to a human-readable format.
+Diego timestamps in logs are now in both a human- and machine-readable format. The new format also prevents the need for metrics tools or other services to parse a complex timestamp.
 
-PAS, Windows, and Isolation Segment tiles now default to a human-readable timestamp with an option to opt out in the tile configuration.
+PAS, Windows, and Isolation Segment tiles now default to a RFC3339-format timestamp. You have an option to opt out of this format in the tile configuration.
 
-<p class="note breaking"><strong>Breaking Change:</strong> Services like metrics tools may not anticipate the timestamp format change and may result in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> Services like metrics tools may not anticipate the timestamp format change and parse the Diego logs assuming the previous format. The new timestamp format can result in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
 
 ---
 
