@@ -96,7 +96,7 @@ For more information, see the **Configure Application Containers** section of an
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
-### <a id="log-cache"></a> 
+### <a id="log-cache">Loggregator Introduces Log Cache</a> 
 
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
 
