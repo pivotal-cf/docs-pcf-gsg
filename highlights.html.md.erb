@@ -101,6 +101,11 @@ For more information, see the **Configure Application Containers** section of an
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
 
 <p class="note breaking"><strong>Breaking Change:</strong> If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache">Loggregator Introduces Log Cache</a>.</p>
+
+### <a id="unversioned-s3"></a>Unversioned S3 Buckets for Backups
+
+PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
