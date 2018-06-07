@@ -21,9 +21,15 @@ For more information about how to add, edit, and delete vCenters, see [Managing 
 
 ### <a id="selective-deploy"></a> (Beta) Selectively Deploy Ops Manager Tiles
 
-You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. You can drastically reduce the time to deploy and apply changes. This feature is ideal for operators who have tracked their changes to specific tiles and want to avoid unnecessary tile deployments.
+You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. You can drastically reduce the time to deploy and apply changes. This feature is ideal for operators who have tracked their changes to specific tiles and want to break up their deployments.
 
-<p class="note"><strong>Note: </strong>Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
+<p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
+
+### <a id="azure-stack"></a> Azure Stack is Generally Available
+
+Pivotal officially supports Azure Stack.
+
+Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your own on-premise datacenter. For more information about Azure Stack, see [What is Azure Stack?](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-poc) from the Microsoft Azure documentation.
 
 ### <a id="azure-china"></a> Ops Manager Supports Azure China
 
@@ -65,15 +71,19 @@ To enable internal blobstore TLS communications, all of your tiles must have ste
 
 Ops Manager now allows you to configure a custom TLS certificate for an external MySQL database.
 
-To configure a custome TLS certificate, navigate to **Director Config > Database Location** and select **External MySQL Database** to see the **Enable TLS** checkbox and the **TLS CA**, **TLS Certificate**, **TLS Private Key**, and **Advanced DB Connection Options** fields.
+To configure a custom TLS certificate, navigate to **Director Config > Database Location** and select **External MySQL Database** to see the **Enable TLS** checkbox and the **TLS CA**, **TLS Certificate**, **TLS Private Key**, and **Advanced DB Connection Options** fields.
 
-<p class=‘note’><strong>Note:</strong> You can only configure the TLS-related field if you check the <strong>Enable TLS for Director Database</strong> checkbox. Otherwise, all the other fields will remain greyed out.</p>
+<p class='note'><strong>Note:</strong> You can only configure the TLS-related field if you check the <strong>Enable TLS for Director Database</strong> checkbox. Otherwise, all the other fields will remain greyed out.</p>
 
 For more information, see the **Director Config Page** section of any IaaS-specific Ops Manager configuration topic, such as [Configuring BOSH Director on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
 
 ### <a id="excluded-recursors"></a> Specify Excluded Recursors
 
 In the BOSH Director tile, you can now enter a comma-separated list of IPs and ports you want to exclude from the DNS server.
+
+### <a id="identification-tags"></a> Custom Identification Tags Supported
+
+If you have more than one PCF foundation, identification tags allow you to easily identify which foundation your VMs belong to when viewing your IaaS. You are able to set custom **Identification Tags** in the **Director Config** pane of your BOSH Director tile.
 
 ---
 
@@ -96,17 +106,30 @@ For more information, see the **Configure Application Containers** section of an
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
+
 ### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
 
 In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
 
 For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
 
+### <a id="log-cache"></a> Loggregator Introduces Log Cache 
+
+Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
+
+<p class="note breaking"><strong>Breaking Change:</strong> If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache">Loggregator Introduces Log Cache</a>.</p>
+
+For more information, see [Enable Log Cache](../../opsguide/logging-config-opsman.html#log-cache).
+
+### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
+
+PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated in Apps Manager
+### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated into Apps Manager
 
 The App Autoscaler UI is now integrated into Apps Manager.
 This enables users to configure autoscaling for their apps through Apps Manager.
