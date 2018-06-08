@@ -85,6 +85,12 @@ If you have more than one PCF foundation, identification tags allow you to easil
 
 For greater security, the SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges when you call `cf ssh` from the CF CLI.
 
+### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
+
+You can now disable logging of client IP addresses in Gorouter to comply with the General Data Protection Regulation (GDPR).
+
+For more information about this feature, see [Gorouter Logging Changes for GDPR Compliance](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#gdpr-compliance) in _Pivotal Application Service v2.2 Release Notes_.
+
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
 You can now use a human- and machine-readable format, RFC 3339, for Diego timestamps in logs. RFC 3339 format also prevents the need for log aggregation systems to parse a complex timestamp.
@@ -131,6 +137,11 @@ For more information about scaling apps using App Autoscaler, see [Scaling an Ap
 ---
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
+
+### <a id="gdpr-compliance-ist"></a> Gorouter Logging Changes for GDPR Compliance
+
+See [Pivotal Application Service (PAS) Highlights](#gdpr-compliance) above
+and [Gorouter Logging Changes for GDPR Compliance](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/segment-rn.html#gdpr-compliance) in _PCF Isolation Segment v2.2 Release Notes_.
 
 ### <a id="is-timestamp"></a> New Format for Diego Timestamps
 
