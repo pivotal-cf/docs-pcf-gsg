@@ -77,6 +77,14 @@ For more information, see the **Director Config Page** section of any IaaS-speci
 
 If you have more than one PCF foundation, identification tags allow you to easily identify which foundation your VMs belong to when viewing your IaaS. You are able to set custom **Identification Tags** in the **Director Config** pane of your BOSH Director tile.
 
+### <a id="bosh-dns-enable"></a> BOSH DNS Enabled By Default For App Containers and PCF Components
+
+BOSH DNS is enabled for both app containers and PCF components in 2.2. BOSH DNS lets app containers and PCF components look up services with the BOSH DNS service discovery mechanism. To support BOSH DNS, the Ops Manager Director colocates a BOSH DNS server on every deployed VM. This does not negatively impact performance. BOSH DNS is enabled by default, including during upgrades.
+
+You can disable BOSH DNS if instructed to do so by Pivotal support. From the Ops Manager installation dashboard, click the Ops Manager tile. In the **Director Config** tab, select the **Disable BOSH DNS server for troubleshooting purposes**. 
+
+<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
+
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
