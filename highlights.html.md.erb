@@ -119,6 +119,12 @@ For more information, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2
 
 <p class="note breaking"><strong>Breaking Change:</strong> If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache">Loggregator Introduces Log Cache</a>.</p>
 
+### <a id='dns-search-domains'></a> DNS Search Domains
+
+PAS v2.2 allows you to configure the DNS seach domains to be used in containers by entering a comma-separated list.
+
+For more information, see the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs-pcf-staging.cfapps.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
+
 ### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
 
 PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
