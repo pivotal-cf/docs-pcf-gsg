@@ -13,7 +13,7 @@ Ops Manager v2.2 includes the following major features:
 
 ### <a id='multi-dc'></a> Multiple Data Centers on vSphere
 
-Ops Manager now allows you to manage multiple vSphere vCenters on a single vSphere BOSH Director tile.  This feature allows you to have multiple data centers across the world rather than just one for each PCF deployment.
+Ops Manager now allows you to manage multiple vSphere vCenters on a single vSphere BOSH Director tile. This feature allows you to have multiple data centers across the world rather than just one for each PCF deployment.
 
 If you want to mark a text area as `secret`, you must set `type: secret` and `display_type: text_area` in your property blueprint.
 
@@ -79,11 +79,11 @@ If you have more than one PCF foundation, identification tags allow you to easil
 
 ### <a id="bosh-dns-enable"></a> BOSH DNS Enabled By Default For App Containers and PCF Components
 
-BOSH DNS is enabled for both app containers and PCF components in 2.2. BOSH DNS lets app containers and PCF components look up services with the BOSH DNS service discovery mechanism. To support BOSH DNS, the Ops Manager Director colocates a BOSH DNS server on every deployed VM. This does not negatively impact performance. BOSH DNS is enabled by default, including during upgrades.
+BOSH DNS is enabled for both app containers and PCF components in v2.2. BOSH DNS lets app containers and PCF components look up services with the BOSH DNS service discovery mechanism. To support BOSH DNS, the Ops Manager Director colocates a BOSH DNS server on every deployed VM. This does not negatively impact performance. BOSH DNS is enabled by default, including during upgrades.
 
 You can disable BOSH DNS if instructed to do so by Pivotal support. From the Ops Manager installation dashboard, click the Ops Manager tile. In the **Director Config** tab, select the **Disable BOSH DNS server for troubleshooting purposes**. 
 
-<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
+<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
 
 ---
 
@@ -95,7 +95,7 @@ For greater security, the SSH proxy now accepts a narrower range of ciphers, MAC
 
 ### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
 
-You can now disable logging of client IP addresses in Gorouter to comply with the General Data Protection Regulation (GDPR).
+You can now disable logging of client IP addresses in the Gorouter to comply with the General Data Protection Regulation (GDPR).
 
 For more information about this feature, see [Gorouter Logging Changes for GDPR Compliance](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#gdpr-compliance) in _Pivotal Application Service v2.2 Release Notes_.
 
