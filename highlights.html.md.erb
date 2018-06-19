@@ -91,7 +91,7 @@ If you have more than one PCF foundation, identification tags allow you to easil
 
 BOSH DNS is enabled for both app containers and PCF components in v2.2. In previous versions, Consul managed service discovery between PCF components, but Consul is being replaced by BOSH DNS. BOSH DNS lets app containers and PCF components look up services with the BOSH DNS service discovery mechanism. To support BOSH DNS, the Ops Manager Director colocates a BOSH DNS server on every deployed VM. This does not negatively impact performance. 
 
-<p class="note"><strong>Note</strong>: In PCF v2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
+<p class="note"><strong>Note:</strong> In PCF v2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
 
 BOSH DNS is enabled by default. You can disable BOSH DNS if instructed to do so by Pivotal support. From the Ops Manager installation dashboard, click the Ops Manager tile. In the **Director Config** tab, select the **Disable BOSH DNS server for troubleshooting purposes**. 
 
@@ -120,7 +120,7 @@ New installations of the PAS, PAS for Windows, PAS for Windows 2012R2, and PCF I
 The Unix epoch format is set by default for upgrades to v2.2.
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
+For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#application-containers-config).
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
@@ -142,7 +142,7 @@ For more information, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2
 
 PAS v2.2 allows you to configure the DNS search domains used in containers by entering a comma-separated list.
 
-For more information, see the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
+For more information, see the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking).
 
 ### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
 
