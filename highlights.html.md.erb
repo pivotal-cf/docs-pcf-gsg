@@ -31,10 +31,6 @@ You can now choose to deploy a selection of tiles rather than all tiles in Ops M
 
 <p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
-### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
-
-The Change Log pane products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
-
 ### <a id="manifest-history"></a> Ops Manager Stores Past Manifests
 
 Through the Ops Manager API, you can see Ops Manager's manifest history. Manifest history is helpful for running `diff` commands on manifests to see changes over time.
@@ -100,6 +96,10 @@ BOSH DNS is enabled for both app containers and PCF components in v2.2. In previ
 BOSH DNS is enabled by default. You can disable BOSH DNS if instructed to do so by Pivotal support. From the Ops Manager installation dashboard, click the Ops Manager tile. In the **Director Config** tab, select the **Disable BOSH DNS server for troubleshooting purposes**. 
 
 <p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features. If you disabled BOSH DNS in PCF v2.1, reenable it before upgrading to PCF v2.2.</p>
+
+### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
+
+The [Change Log](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#changelog) pane lists products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
 
 ---
 
