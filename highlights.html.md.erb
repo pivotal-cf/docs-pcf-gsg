@@ -8,6 +8,7 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 <p class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</p>
 
+
 ## <a id='om'></a> Ops Manager Highlights
 
 Ops Manager v2.0 includes the following major features:
@@ -30,16 +31,9 @@ See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/co
 
 ### <a id='ssh-banner'></a> Custom Login Banner
 
-In Ops Manager v2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director.
-To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
+In Ops Manager v2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director. To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
-See the Configuring Ops Manager topic for your IaaS for more information.
-
-* [Amazon Web Services](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
-* [Google Cloud Platform](../customizing/gcp-om-config.html#director-config)
-* [Microsoft Azure](../customizing/azure-om-config.html#director-config)
-* [OpenStack](../customizing/openstack-om-config.html#director-config)
-* [vSphere](../customizing/vsphere-config.html#dir-config)
+For more information, see the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-0/customizing/deploy-bosh-om.html).
 
 ### <a id='azure-stack'></a> Azure Stack Support (Beta)
 
@@ -77,16 +71,16 @@ Previous versions of Ops Manager supported NSX-V.
 When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V. The NSX-T integration is only for fresh installs of PCF.
 You can enable NSX-T networking by selecting **NSX-T** in the new **NSX Mode** dropdown menu of the **vCenter Config** pane.
 
-See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) for more information.
+For more information, see [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config).
 
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
+Operators can additionally use the NSX Manager to configure policies for PCF applications. For more information, see [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf).
 
 <p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
 ### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
 
@@ -106,11 +100,11 @@ Previous versions of PAS supported NSX-V networking.
 
 To use NSX-T networking, you must install the NSX-T tile.
 
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
+<p class='note warning'><strong>WARNING:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
 
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
+To enable NSX-T networking for your PCF installation, do the following:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
 
 1. Import and configure the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t), but do not click **Apply Changes**. You must install the NSX-T tile after you install the Ops Manager Director tile. You must install the NSX-T tile before you install the PAS tile.
 
@@ -118,17 +112,16 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 
 1. Click **Apply Changes** after installing and configuring the NSX-T and PAS tiles.
 
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
+Operators can additionally use the NSX Manager to configure policies for PCF applications. For more information, see [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf).
 
 <p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
-###<a id='pas-credhub'></a> Secure Service Instance Credentials
+### <a id='pas-credhub'></a> Secure Service Instance Credentials
 
 The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials.
 
@@ -172,11 +165,11 @@ Previous versions of PCF Isolation Segment supported NSX-V networking.
 
 To use NSX-T networking, you must install the NSX-T tile.
 
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
+<p class='note warning'><strong>WARNING:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
 
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
+To enable NSX-T networking for your PCF installation, do the following:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
 
 1. Install the NSX-T tile. 
   - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
@@ -184,18 +177,18 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 
 1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
 
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
+Operators can additionally use the NSX Manager to configure policies for PCF applications. For more information, see [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf).
 
 <p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> If you opt out of the <a href="https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
 ### <a id='multiple-cert-is'></a> Gorouter and HAProxy Support Multiple Certificates
 
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
+You can now add more than one certificate for the Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. The Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ---
 
@@ -243,4 +236,3 @@ Redis for PCF v1.11 is compatible with PCF v2.0 while taking advantage of the ne
 The Redis for PCF tile now uses SHA2 checksums for all releases.
 
 Users that require backups can use the Redis for PCF On-Demand service .
-
