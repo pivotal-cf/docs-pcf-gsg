@@ -6,28 +6,29 @@ title: PCF v1.12 Feature Highlights
 
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v1.12.
 
-## <a id='om'></a>Ops Manager Highlights
+
+## <a id='om'></a> Ops Manager Highlights
 
 Ops Manager v1.12 includes the following major features:
 
-### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
+### <a id='credhub-migration'></a> Migrate Non-Configurable Secrets to CredHub
 
 Tile Authors can write a JavaScript migration to move their existing non-configurable secrets into CredHub.
 Ops Manager v1.12 supports migrating `secret`, `simple_credential`, `rsa_pkey_credential`, and `salted_credential` types.
 
 For more information about this feature, see [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html) in the PCF Tile Developers Guide.
 
-### <a id='secure-bosh'></a>Secure BOSH Director/Agent HTTP Traffic via TLS
+### <a id='secure-bosh'></a> Secure BOSH Director/Agent HTTP Traffic via TLS
 
 Ops Manager creates a TLS certificate and passes it to BOSH. This facilitates mutually authenticated and encrypted HTTP traffic between the BOSH Director and the Agent that exists on each BOSH-created VM.
 
-### <a id='upgrade-opsman'></a>Faster Upgrade and Installation Export
+### <a id='upgrade-opsman'></a> Faster Upgrade and Installation Export
 
 Ops Manager decreases the time required to upgrade by reducing the size of the file produced by **Export Installation Settings** by several orders of magnitude. 
 
 For upgrade instructions, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
 
-### <a id='manifest-credhub'></a>Manifest-only Workflow with CredHub
+### <a id='manifest-credhub'></a> Manifest-only Workflow with CredHub
 
 This feature is relevant for operators who use Ops Manager only for manifest generation and do not click **Apply Changes**. 
 
@@ -39,13 +40,13 @@ The new Ops Manager API generates a file used by CredHub to bulk load credential
 
 For more information about using the Ops Manager API, see [Using the Ops Manager API](../customizing/ops-man-api.html). For the complete Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
 
-### <a id='multiple-runtime'></a>BOSH Director Supports Multiple Runtime Configs
+### <a id='multiple-runtime'></a> BOSH Director Supports Multiple Runtime Configs
 
 The BOSH Director now supports multiple named runtime configs. Operators can add, remove, and update each runtime config file independently, in order to more easily configure which Pivotal Cloud Foundry Add-ons are applied to which deployments and instance groups.
 
 For more information about runtime configs, see the [BOSH documentation](https://bosh.io/docs/runtime-config.html).
 
-### <a id='more-aws-regions'></a>More AWS Regions
+### <a id='more-aws-regions'></a> More AWS Regions
 
 Operators can deploy PCF and supported products to additional AWS regions. PCF now supports the following public regions:
 
@@ -66,50 +67,49 @@ Operators can deploy PCF and supported products to additional AWS regions. PCF n
 
 Pivotal publishes AMIs for all of these regions. The PDF downloaded from PivNet contain the new AMI IDs.
 
-### <a id='aws-govcloud'></a>AWS GovCloud (US)
+### <a id='aws-govcloud'></a> AWS GovCloud (US)
 
 Operators can deploy Ops Manager v1.12 to [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/).
 For more information about deploying AWS GovCloud (US), see the following AWS installation topics:
 
 * [Deploying the CloudFormation Template for Pivotal Cloud Foundry on AWS](../customizing/cloudform-template.html)
-* [Manually Configuring AWS for PCF](../customizing/pcf-aws-manual-config.html)
+* [Configuring AWS for PCF](../customizing/pcf-aws-manual-config.html)
 
-### <a id='google-xpn'></a>Google Shared Virtual Private Cloud
+### <a id='google-xpn'></a> Google Shared Virtual Private Cloud
 
-Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Project Networking (XPN), enables you to assign Google Cloud Platform (GCP) resources
-to individual projects within an organization but allows communication and shared services between projects.
+Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Project Networking (XPN), enables you to assign Google Cloud Platform (GCP) resources to individual projects within an organization but allows communication and shared services between projects.
 
 For more information about this feature, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html).
 
-### <a id='bosh2'></a>BOSH CLI v2+
+### <a id='bosh2'></a> BOSH CLI v2+
 
-Ops Manager v1.12.0 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
+Ops Manager v1.12 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
 
 There are two major releases of the BOSH CLI, and the Ops Manager Director VM includes both versions. You can `bosh` commands for the old CLI and `bosh2` commands for the new CLI, but many old CLI commands are incompatible with the BOSH Director. See the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012374148-Permissions-error-when-running-BOSH-commands-on-the-Director) article for more information.
 
 For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
 
-### <a id='om-other'></a>Other Features
+### <a id='om-other'></a> Other Features
 
 For information about other new features in Ops Manager v1.12, see the [Pivotal Cloud Foundry Ops Manager v1.12 Release Notes](https://docs.pivotal.io/pcf-release-notes/opsmanager-rn.html).
 
 ---
 
-## <a id='ert'></a>Elastic Runtime Highlights
+## <a id='ert'></a> Elastic Runtime Highlights
 
 Elastic Runtime v1.12 includes the following major features:
 
-### <a id='multi-buildpack'></a>Multiple Buildpack Applications
+### <a id='multi-buildpack'></a> Multiple Buildpack Applications
 
 Developers can deploy applications that utilize multiple buildpacks in sequence. Developers specify the buildpacks either with the Cloud Foundry Command Line Interface (cf CLI) or through an application manifest.
 
 Support for multiple buildpacks enables developers to use system buildpacks rather than custom buildpacks or Docker packaging. System buildpacks provide benefits such as automated patching of application server CVEs, and assures a constantly patched root file system across applications.
 
-### <a id='ert-credhub'></a>Elastic Runtime Uses CredHub for Simplistic Credentials
+### <a id='ert-credhub'></a> Elastic Runtime Uses CredHub for Simplistic Credentials
 
 The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager.
 
-### <a id='groot-fs'></a>GrootFS in Garden-runC
+### <a id='groot-fs'></a> GrootFS in Garden-runC
 
 GrootFS replaces previously built-in functionality in Garden-runC, including:
 
@@ -119,44 +119,43 @@ GrootFS replaces previously built-in functionality in Garden-runC, including:
 
 This is part of ongoing work designed to make PCF compliant with the Open Container Initiative (OCI) standards.
 
-### <a id='app-identity'></a>Application Instance Identity Credentials
+### <a id='app-identity'></a> Application Instance Identity Credentials
 
 Each application instance has a unique certificate and key available to it that can be used to verify the identity of the application.
 
 This gives applications an easier way to assert their identity to other clients and services, so that appropriate authentication and authorization decisions can be made on either side of the communication.
 
-For more information, see the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section of the <em>TLS Connections in PCF Deployments</em> topic.
+For more information, see the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section of the _TLS Connections in PCF Deployments_ topic.
 
-###<a id='haproxy-release'></a> HAProxy Release
+### <a id='haproxy-release'></a> HAProxy Release
 
-Elastic Runtime now uses the newly incubated
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement of this job allows the tile to expose new HAProxy features. 
+Elastic Runtime now uses the newly incubated [haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement of this job allows the tile to expose new HAProxy features. 
 
-### <a id='om-other'></a>Other Features
+### <a id='om-other'></a> Other Features
 
 For information about other new features in Elastic Runtime v1.12, see the [Pivotal Cloud Foundry Elastic Runtime v1.12 Release Notes](https://docs.pivotal.io/pcf-release-notes/runtime-rn.html).
 
 ---
 
-## <a id='apps-man'></a>Apps Manager Highlights
+## <a id='apps-man'></a> Apps Manager Highlights
 
 Apps Manager v1.12 includes the following features:
 
-### <a id='in-context-service'></a>In-context Service Creation
+### <a id='in-context-service'></a> In-Context Service Creation
 
 Developers can create services without leaving the application or space view for an accelerated workflow.
 
-### <a id='service-config-discovery'></a>Service Configuration Parameter Discovery
+### <a id='service-config-discovery'></a> Service Configuration Parameter Discovery
 
 When creating a new service, developers can discover additional parameter options as fields, or a JSON editor that enables them to define the parameters.
 
 ---
 
-## <a id='pcf-is'></a>PCF Isolation Segment Highlights
+## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
 The PCF Isolation Segment v1.12 tile includes the following features:
 
-### <a id='sharded-routers'></a>Sharded Routers 
+### <a id='sharded-routers'></a> Sharded Routers 
 
 Operators can now configure sharding mode for routers. For more information, see [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html).
 
@@ -170,24 +169,25 @@ For more information, see [Installing PCF Isolation Segment](../customizing/inst
 
 ---
 
-## <a id='pcf-windows'></a>PCF Runtime for Windows Highlights
+## <a id='pcf-windows'></a> PCF Runtime for Windows Highlights
 
 The PCF Runtime for Windows v1.12 tile includes the following features:
 
-### <a id='manage-windows-admin'></a>Operators Can Manage the Windows Admin Password
+### <a id='manage-windows-admin'></a> Operators Can Manage the Windows Admin Password
 
 Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows v1.12 tile. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see [Deploying PCF Runtime for Windows](../windows/deploy-windows.html).
 
-### <a id='windows-logs'></a>Windows Event Logs Consumable via Syslog
+### <a id='windows-logs'></a> Windows Event Logs Consumable via Syslog
 
 Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows v1.12 tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications.
+
 For more information, see [Deploying PCF Runtime for Windows](../windows/deploy-windows.html).
 
 ---
 
-## <a id='services'></a>Services Highlights
+## <a id='services'></a> Services Highlights
 
-### <a id='pcf-metrics'></a>PCF Metrics v1.4
+### <a id='pcf-metrics'></a> PCF Metrics v1.4
 
 The PCF Metrics v1.4 tile releases alongside PCF v1.12 and includes the following major features:
 
@@ -217,24 +217,21 @@ As a PCC Operator, you can use Operational Monitoring to monitor multiple PCC cl
 This feature includes log monitoring and metrics. You can opt to use metrics for service instances at the PCC service plan level on Ops Manager.
 Broker metrics are always sent to the Firehose.
 
-### <a id='rabbit'></a>RabbitMQ for PCF v1.10
+### <a id='rabbit'></a> RabbitMQ for PCF v1.10
 
-RabbitMQ for PCF v1.10 offers an on-demand cluster plan.
-Now operators can offer three types of plans:
+RabbitMQ for PCF v1.10 offers an on-demand cluster plan. Now operators can offer three types of plans:
 
 * Pre-provisioned
 * On-demand single node
 * On-demand cluster 
 
-For application teams that require more isolation,
-on-demand plans empower them to self-serve their own RabbitMQ on a single node or cluster. 
+For application teams that require more isolation, on-demand plans empower them to self-serve their own RabbitMQ on a single node or cluster. 
 
-Release v1.10 also provides smoke tests for the on-demand plans
-so that operations teams can validate the application developer workflow for on-demand services.
+Release v1.10 also provides smoke tests for the on-demand plans so that operations teams can validate the application developer workflow for on-demand services.
 
 For more information, see the [Redis for PCF v1.10 documentation](https://docs.pivotal.io/redis/1-10/index.html).
 
-### <a id='redis'></a>Redis for PCF v1.10
+### <a id='redis'></a> Redis for PCF v1.10
 
 The Redis for PCF v1.10 tile includes the following major features:
 
@@ -243,13 +240,12 @@ The Redis for PCF v1.10 tile includes the following major features:
 
 For more information, see the [RabbitMQ for PCF v1.10 documentation](https://docs.pivotal.io/rabbitmq-cf/1-10/index.html).
 
-### <a id='p-mysql'></a>MySQL for PCF v2.1
+### <a id='p-mysql'></a> MySQL for PCF v2.1
 
 The MySQL for PCF v2.1 tile includes the following major features:
 
 * Provides a new restore utility on each service instance to make restoring from a backup artifact easier
 * Adds the ability to enable or disable `lower_case_table_names` for all MySQL service instances or only specific service instances, which helps when migrating from legacy systems that need case insensitivity
-* Changes several MySQL server default configurations to provide better consistency and expected behavior when migrating
-  from the MySQL for PCF v1 series 
+* Changes several MySQL server default configurations to provide better consistency and expected behavior when migrating from the MySQL for PCF v1 series 
 
 For more information, see the [MySQL for PCF v2.1 documentation](https://docs.pivotal.io/p-mysql/2-1/).
