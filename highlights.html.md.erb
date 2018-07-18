@@ -53,9 +53,11 @@ For information about how this feature affects tile authors, see [PCF v2.2 Partn
 
 ### <a id='secret-text-field'></a> Secret Text Areas
 
-Ops Manager v2.2 supports a text area in its UI that tile authors can mark as `secret`. When a text area is marked as a `secret`, the UI shows an `*` when the page is saved, and the API does not return the value entered in this field.
+Ops Manager v2.2 supports secret text areas in tile configuration panes. This feature is useful for tiles that require PCF operators to enter multi-line credentials during configuration.  
 
-If you want to mark a text area as `secret`, you must set `type: secret` and `display_type: text_area` in your property blueprint.
+When a user enters text into a secret text area and clicks **Save**, the Ops Manager UI replaces the text with an `*`. Additionally, users of the Ops Manager API can not retrieve text entered in secret text areas. Ops Manager stores this text in CredHub. 
+
+Tile authors can mark a text area as `secret` by setting `type: secret` and `display_type: text_area` in the property blueprint for their tile.
 
 For more information, see the [Custom Forms and Properties](https://docs.pivotal.io/tiledev/tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
 
