@@ -1,209 +1,32 @@
 ---
-title: PCF v2.2 Feature Highlights
+title: PCF v2.3 Feature Highlights
 ---
 
 <html class="list-style-none"></html>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.2.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.3.
 
 
 ## <a id='om'></a> PCF Operations Manager (Ops Manager) Highlights
 
-Ops Manager v2.2 includes the following major features:
+Ops Manager v2.3 includes the following major features:
 
-### <a id='api-docs'></a> Ops Manager API Documentation is Public
-
-In time for the Ops Manager v2.2 release, Ops Manager API documentation is accessible publically through docs.pivotal.io. Previously, you could only access the Ops Manager API documentation through your own Ops Manager.
-
-For v2.2 Ops Manager API documentation, see [PCF Ops Manager API Reference](http://docs.pivotal.io/pivotalcf/2-2/opsman-api/).
-
-### <a id='multi-dc'></a> Multiple Data Centers on vSphere
-
-Ops Manager now supports multiple vSphere vCenters on a single vSphere BOSH Director tile. This allows you to spread instances across regions without having to deploy and manage multiple PCF foundations. 
-
-For more information about how to add, edit, and delete vCenters, see [Managing Multiple vSphere vCenters](../customizing/multiple-datacenters.html).
-
-### <a id="selective-deploy"></a> Selectively Deploy Tiles in Ops Manager or via an API Endpoint
-
-You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. You can drastically reduce the time to deploy and apply changes. This feature is ideal to limit updates to one or more tiles, which reduces the amount of change in any given deployment. 
-
-This feature is in beta for Ops Manager, and is generally available as an API endpoint. For more information, see [Triggering an install process](http://docs.pivotal.io/pivotalcf/2-2/opsman-api/#triggering-an-install-process) in the Ops Manager API documentation.
-
-<p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
-
-### <a id="manifest-history"></a> Ops Manager Stores Past Manifests
-
-Through the Ops Manager API, you can see Ops Manager's manifest history. Manifest history is helpful for running `diff` commands on manifests to see changes over time.
-
-### <a id="azure-stack"></a> Azure Stack is Generally Available
-
-Pivotal officially supports Azure Stack.
-
-Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your own on-premise datacenter. For more information about Azure Stack, see [What is Azure Stack?](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-poc) from the Microsoft Azure documentation.
-
-### <a id="azure-china"></a> Ops Manager Supports Azure China
-
-Ops Manager now supports a special region in Azure called Azure China. Azure China is a physically separated instance of cloud services that is located in China and independently operated. For more information about Azure China, see [What is Azure China 21Vianet?](https://docs.microsoft.com/en-us/azure/china/china-welcome) in the Azure China documentation.
-
-### <a id="om-credhub"></a> Ops Manager Credentials Stored in CredHub
-
-For even greater security, Ops Manager sends user-specified credentials to BOSH CredHub on each deployment. For more information about where Ops Manager-specific credentials are stored, see [BOSH CredHub](../credhub/index.html#bosh).
-
-For information about how this feature affects tile authors, see [PCF v2.2 Partners Release Notice](https://docs.pivotal.io/tiledev/2-2/release-notes-2-2.html#om-credhub) in the _PCF Tile Developer Guide_.
-
-### <a id='secret-text-field'></a> Secret Text Areas
-
-Ops Manager v2.2 supports a text area in its UI that tile authors can mark as `secret`. When a text area is marked as a `secret`, the UI shows an `*` when the page is saved, and the API does not return the value entered in this field.
-
-If you want to mark a text area as `secret`, you must set `type: secret` and `display_type: text_area` in your property blueprint.
-
-For more information, see the [Custom Forms and Properties](https://docs.pivotal.io/tiledev/tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
-
-### <a id="custom-ssl"></a> Specify a Custom Trusted SSL Certificate
-
-Operators can specify a custom trusted SSL certificate and key for the Ops Manager server so that traffic isn't exposed to man-in-the-middle attacks when using Ops Manager.
-
-By default, Ops Manager uses an auto-generated self-signed certificate. To change this configuration to your own SSL certificate, go to **Settings** from the Ops Manager Installation Dashboard and select the **SSL Certificate** pane. For more information about Ops Manager settings, see [Settings Page](../customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
-
-<p class="note"><strong>Note:</strong> Custom SSL certificate and key is persisted between upgrades. Custom SSL only needs a one-time configuration.</p>
-
-### <a id="om-syslog"></a> Configure an Ops Manager Syslog Server
-
-You can configure a syslog server for Ops Manager logs. Logs include rails production logs, audit logs, UAA logs, nginx logs, and upstart logs for Ops Manager processes. Previous to this change, Ops Manager logs were not centralized in one accessible location. You also have the option to TLS-encrypt your logs.
-
-For more information about configuring syslog for Ops Manager, see [Settings Page](http://docs.pivotal.io/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
-
-### <a id="tls-blobstore"></a> TLS for Internal Blobstore Supported
-
-Ops Manager now supports TLS communications for your internal blobstore. Ops Manager automatically generates and rotates TLS certifications for you.
-
-To enable internal blobstore TLS communications, all of your tiles must have stemcells v3468 or later. You must also disable **Allow Legacy Agents** in the **Director Config** pane of the BOSH Director tile.
-
-### <a id='tls-external-db'></a> Custom TLS Certificate for External MySQL Database Supported
-
-Ops Manager now allows you to configure a custom TLS certificate for an external MySQL database.
-
-For more information, see the **Director Config Page** section of any IaaS-specific Ops Manager configuration topic, such as [Configuring BOSH Director on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
-
-### <a id="identification-tags"></a> Custom Identification Tags Supported
-
-If you have more than one PCF foundation, identification tags allow you to easily identify which foundation your VMs belong to when viewing your IaaS. You are able to set custom **Identification Tags** in the **Director Config** pane of your BOSH Director tile.
-
-### <a id="bosh-dns-enable"></a> BOSH DNS Enabled By Default
-
-BOSH DNS is enabled for both app containers and PCF components in v2.2. In previous versions, Consul managed service discovery between PCF components, but Consul is being replaced by BOSH DNS. BOSH DNS lets app containers and PCF components look up services with the BOSH DNS service discovery mechanism. To support BOSH DNS, the Ops Manager Director colocates a BOSH DNS server on every deployed VM. This does not negatively impact performance. 
-
-<p class="note"><strong>Note:</strong> In PCF v2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
-
-BOSH DNS is enabled by default. You can disable BOSH DNS if instructed to do so by Pivotal support. From the Ops Manager installation dashboard, click the Ops Manager tile. In the **Director Config** tab, select the **Disable BOSH DNS server for troubleshooting purposes**. 
-
-<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features. If you disabled BOSH DNS in PCF v2.1, reenable it before upgrading to PCF v2.2.</p>
-
-### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
-
-The [Change Log](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#changelog) pane lists products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
+None at this time.
 
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
-### <a id="cipher-suites"></a> More Secure Cipher Suites for CF SSH
-
-For greater security, the SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges when you call `cf ssh` from the CF CLI.
-
-### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
-
-For internal system databases, PAS now supports a more secure [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/2-2/opsguide/internal-databases.html#migrate) for details.
-
-<p class="note warning"><strong>WARNING:</strong> Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
-
-### <a id="instance-profile"></a> Support for AWS Instance Profiles 
-
-PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
-
-For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
-
-### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
-
-PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
-
-### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
-
-You can now disable logging of client IP addresses in the Gorouter to comply with the General Data Protection Regulation (GDPR).
-
-For more information about this feature, see [Gorouter Logging Changes for GDPR Compliance](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#gdpr-compliance) in _Pivotal Application Service v2.2 Release Notes_.
-
-### <a id="timestamp"></a> New Format for Diego Timestamps
-
-You can now use a human- and machine-readable format, RFC 3339, for Diego timestamps in logs. RFC 3339 format also prevents the need for log aggregation systems to parse a complex timestamp.
-
-New installations of the PAS, PAS for Windows, PAS for Windows 2012R2, and PCF Isolation Segment tiles now default to RFC 3339 format.
-
-The Unix epoch format is set by default for upgrades to v2.2.
-You can enable the new timestamp format for Diego logs in the PAS tile.
-
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#application-containers-config).
-
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
-
-### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
-
-In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
-
-For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
-
-### <a id='dns-search-domains'></a> DNS Search Domains
-
-PAS v2.2 allows you to configure the DNS search domains used in containers by entering a comma-separated list.
-
-For more information, see the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking).
-
-### <a id="log-cache"></a> Loggregator Introduces Log Cache 
-
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Unlike the `cf logs APP-NAME --recent` command, Log Cache gives you queryable, filterable data when you use it to retrieve recent logs for your apps.
-
-For more information, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
-
-<p class="note breaking"><strong>Breaking Change:</strong> If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache">Loggregator Introduces Log Cache</a>.</p>
-
-### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
-
-PAS v2.2 adds the **Don't Forward Debug Logs** checkbox, which disables forwarding of DEBUG syslog messages to external services.
-
-The **Don't Forward Debug Logs** checkbox is enabled in PAS v2.2 by default.
-For more information about this feature, see [Forwarding of DEBUG Syslog Messages Disabled by Default](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#debug-logs)
-
-### <a id="autoscaler-cli"></a> Improved App Autoscaler CLI
-
-App Autoscaler now allows you to create custom autoscaling rules and scheduled limit changes for your apps through the App Autoscaler CLI.
-
-For more information about the App Autoscaler CLI,
-see [Using the App Autoscaler CLI](../appsman-services/autoscaler/using-autoscaler-cli.html).
+None at this time.
 
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated into Apps Manager
-
-The App Autoscaler UI is now integrated into Apps Manager.
-This enables users to configure autoscaling for their apps through Apps Manager.
-
-For more information about scaling apps using App Autoscaler, see [Scaling an Application Using App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/appsman-services/autoscaler/using-autoscaler.html).
+None at this time.
 
 ---
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
-### <a id="gdpr-compliance-ist"></a> Gorouter Logging Changes for GDPR Compliance
-
-See [Pivotal Application Service (PAS) Highlights](#gdpr-compliance) above
-and [Gorouter Logging Changes for GDPR Compliance](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/segment-rn.html#gdpr-compliance) in _PCF Isolation Segment v2.2 Release Notes_.
-
-### <a id="timestamp-ist"></a> New Format for Diego Timestamps
-
-PCF Isolation Segment shares the [New Format for Diego Timestamps](#timestamp) feature in PAS.
-
-### <a id='dns-search-domains-ist'></a> DNS Search Domains
-
-PCF Isolation Segment shares the new [DNS Search Domains](#dns-search-domains) feature in PAS.
+None at this time.
