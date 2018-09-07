@@ -17,6 +17,13 @@ Ops Manager now allows you to configure multiple OpenStack data centers to a sin
 
 For more information about how to add, edit, and delete OpenStack configs, see [Managing Multiple Data Centers](http://docs.pivotal.io/pivotalcf/2-3/customizing/multiple-datacenters.html).
 
+### <a id="verifier-control"></a> Disable Verifiers By Type with the Ops Manager API
+
+You can disable verifiers by type with the Ops Manager API. Ops Manager provides this
+option for troubleshooting purposes. For example, your deployment may have a unique
+configuration that the verifier cannot detect. In this case, you can unblock your
+deployment by disabling the verifier.
+
 ### <a id="recreate-persistent-disks"></a> Recreate All Persistent Disks
 
 You now have the option to recreate persistent disks in the BOSH Director,
