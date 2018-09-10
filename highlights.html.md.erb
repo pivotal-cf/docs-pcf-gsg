@@ -97,7 +97,7 @@ App developers can use the `nfs-experimental` service offering. This feature:
     * Adds the ability to specify your NFS version, including NFSv4 mounts.
     * Significantly improves performance, even when using NFSv3 mounts.
     * Adds file locking support via `flock` and `fcntl`.
-    * Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4. 
+    * Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4.
     * Is fully supported (despite the "experimental" term).
 
 For more information, see [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
@@ -120,29 +120,29 @@ For more information about BPM, see the [bpm-release](https://github.com/cloudf
 
 PAS for Windows v2.3 includes the following major features:
 
-### <a id='multi-buildpacks'></a>Support for Multiple Buildpacks
+### <a id='multi-buildpacks'></a> Support for Multiple Buildpacks
 
 PAS for Windows v2.3 introduces support for pushing a .NET app with multiple buildpacks.
 This feature simplifies dependency management for .NET developers and increases compatibility with partner tiles.
 
 For more information, see [Pushing an Application with Multiple Buildpacks](../buildpacks/use-multiple-buildpacks.html).
 
-### <a id='ephemeral-disk'></a>Ephemeral Disk Configuration Options
+### <a id='ephemeral-disk'></a> Ephemeral Disk Configuration Options
 
 Operators can now use ephemeral disk configuration options for Windows Server cells.
 
-### <a id='compression'></a>HTTP Compression in the HWC Buildpack
+### <a id='compression'></a> HTTP Compression in the HWC Buildpack
 
 .NET app developers can improve their application’s network performance with the new HTTP compression capabilities in the HWC buildpack.
 PAS for Windows v2.3 enables the HTTP compression module from Internet Information Services (IIS), which enables gzip compression for static assets and dynamic content in the HWC buildpack.
 
-### <a id='windows-v1803'></a>Windows Server version 1803
+### <a id='windows-v1803'></a> Windows Server v1803
 
-PAS for Windows v2.3 includes the latest version of Windows Server (version 1803).
-Windows Server version 1803 is the second release in Microsoft's Semi-Annual Channel, which uses a faster release cadence and a shorter support life cycle than the more traditional Long-Term Servicing Channel.
+PAS for Windows v2.3 includes the latest version of Windows Server (v1803).
+Windows Server v1803 is the second release in Microsoft's Semi-Annual Channel, which uses a faster release cadence and a shorter support life cycle than the more traditional Long-Term Servicing Channel.
 The Semi-Annual Channel is designed to support containers and micro-services.
 
-The container image for Windows Server version 1803 is 30% smaller than the previous release (version 1709), reducing the memory footprint required for .NET apps.
+The container image for Windows Server version 1803 is 30% smaller than the previous release (v1709), reducing the memory footprint required for .NET apps.
 The release also includes optimizations for containers, improved compatibility, and enhanced debugging tools.
 
 For more information, see [What's New in Windows Server version 1803](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1803) in the Microsoft documentation.
@@ -151,7 +151,25 @@ For more information, see [What's New in Windows Server version 1803](https://do
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-None at this time.
+### <a id='cli-parity'></a> Additional Parity with cf CLI
+
+In PAS v2.3, Apps Manager gains additional parity with cf CLI for these actions:
+    * Restaging
+    * Named service bindings
+    * Creating internal routes
+    * Container-to-container networking
+    * Per invocation `http` healthcheck with configurable timeout
+    * Autoscaling rules (custom, compare)
+
+### <a id='private-domains'></a> Create Private Domains in Apps Manager
+
+Admins and Org Managers can click Add a Domain in Apps Manager to create a new private domain. For more information, see the [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains) section of the _Managing Orgs and Spaces Using Apps Manager_ topic.
+
+### <a id='binding-names'></a> Name Service Bindings in Apps Manager
+
+You can now give binding names to service bindings in Apps Manager.
+
+For more information, see the [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#bind-services) section of the _Managing Apps and Services Using Apps Manager_ topic.
 
 ---
 
