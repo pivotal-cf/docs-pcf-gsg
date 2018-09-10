@@ -67,9 +67,52 @@ vSphere deployments of Ops Manager can now accept public SSH keys instead of pas
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
+### <a id='xenial-pas'></a> PAS Upgraded to Ubuntu 16.04 (Xenial Xerus)
+
+PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+
+The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
+
+Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
+
+For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
+
+### <a id='polyglot'></a> Polyglot Service Discovery
+
+Polyglot service discovery improves in PAS v2.3, with a configurable internal domain. This gives you the flexibility to configure a custom internal domain instead of the system generated domain `apps.internal`.
+
+### <a id='cflinuxfs3'></a> cflinuxfs3 Stack and Compatible Buildpacks
+
+PAS v2.3 adds a new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver), as well as a new set of buildpacks that are compatible with `cflinuxfs3`.
+
+cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
+    * The output of the cf buildpacks command has a stacks column.
+    * The following commands now accept an `-s` flag for specifying a stack: `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`. This is useful if there are two buildpacks of the same name that use a different stack.
+
+For more information, see the [Pivotal Application Service v2.3 Release Notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3).
+
+### <a id='nfs-volumes'></a> NFS Volumes
+
+App developers can use the `nfs-experimental` service offering. This feature:
+    * Adds the ability to specify your NFS version, including NFSv4 mounts.
+    * Significantly improves performance, even when using NFSv3 mounts.
+    * Adds file locking support via `flock` and `fcntl`.
+    * Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4. 
+    * Is fully supported (despite the "experimental" term).
+
+For more information, see [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
+
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
 In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. Where you could previously only configure the Gorouter to require TLS to verify the identity of app instances, the mutual TLS app identify verification option enables Envoy to ensure that app instances only receive communication from the Gorouter.
+
+### <a id='bosh-process-manager'></a> BOSH Process Manager
+
+Starting in v2.3, most PAS components use BOSH Process Manager (BPM). BPM is a layer between BOSH and the jobs running on PAS component VMs. It improves the way processes run on VMs by isolating colocated jobs. With the exception of networking, BPM namespaces operating system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job, rather than all jobs on the same machine.
+
+BPM also includes resource limiting capability. This prevents any one job from using too much operating system resources and impacting colocated jobs.
+
+For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.
 
 ---
 
