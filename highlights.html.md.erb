@@ -11,30 +11,57 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.3 includes the following major features:
 
+### <a id='xenial-om'></a> Ops Manager and BOSH Director Upgraded to Ubuntu 16.04 (Xenial Xerus)
+
+Ops Manager v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+
+The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
+
+Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
+
+For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
+
+### <a id='ldap'></a> Ops Manager Supports LDAP Authentication
+
+Ops Manager supports Lightweight Directory Access Protocal (LDAP) for authentication, in addition to Security Assertion Markup Language (SAML).
+
+For new Ops Manager installations, operators can configure LDAP authentication from the _Welcome to Ops Manager_ page. For more information, see the _LDAP Server_ section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/deploy-bosh-om.html#contents).
+
+For existing Ops Manager installations, operators can configure LDAP authentication through the Ops Manager Settings page. For more information, see the [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) section of the _Understanding the Ops Manager Interface_ topic.
+
 ### <a id="multi-dc"></a> Multiple Data Centers on OpenStack
 
 Ops Manager now allows you to configure multiple OpenStack data centers to a single BOSH Director.
 
 For more information about how to add, edit, and delete OpenStack configs, see [Managing Multiple Data Centers](http://docs.pivotal.io/pivotalcf/2-3/customizing/multiple-datacenters.html).
 
+### <a id='cinder-volumes'></a> Virtual Machines Running on OpenStack Can Boot From Cinder Volumes
+
+If you use OpenStack, you can now boot VMs from a Cinder volume. Cinder is an open-source block storage solution for OpenStack users. For more information, see [Configuring BOSH Director on OpenStack](https://docs.pivotal.io/pivotalcf/2-3/customizing/openstack-om-config.html#openstack-config).
+
 ### <a id="verifier-control"></a> Disable Verifiers By Type with the Ops Manager API
 
-You can disable verifiers by type with the Ops Manager API. Ops Manager provides this
-option for troubleshooting purposes. For example, your deployment may have a unique
-configuration that the verifier cannot detect. In this case, you can unblock your
-deployment by disabling the verifier.
+You can disable verifiers by type with the Ops Manager API. Ops Manager provides this option for troubleshooting purposes. For example, your deployment may have a unique configuration that the verifier cannot detect. In this case, you can unblock your deployment by disabling the verifier.
 
 ### <a id="recreate-persistent-disks"></a> Recreate All Persistent Disks
 
-You now have the option to recreate persistent disks in the BOSH Director,
-forcing BOSH to migrate and recreate all persistent disks without
-losing persistent disk data.
+You now have the option to recreate persistent disks in the BOSH Director, forcing BOSH to migrate and recreate all persistent disks without losing persistent disk data.
 
-### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes 
+### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes
 
 The _Review Pending Changes_ page in the Ops Manager installation dashboard features improved UI. The page UI is designed to make selective deployment more intuitive.
 
 For more information about the page UI, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/review-pending-changes.html#review-pending-changes).
+
+### <a id='bosh-dns-ca'></a> BOSH DNS Certificate Authority Upgrades
+
+BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to v2.3.
+
+To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. For information about how to rotate your certificates, see the [Ops Manager release notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/opsmanager-rn.html#bosh-dns-certs).
+
+### <a id='ssh-keys'></a> vSphere Deployments Accept Public SSH Keys
+
+vSphere deployments of Ops Manager can now accept public SSH keys instead of passwords. Ops Manager serves as an SSH proxy to the Director. This makes Ops Manager more consistent across IaaS targets.
 
 ---
 
