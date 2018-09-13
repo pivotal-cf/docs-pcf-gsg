@@ -104,7 +104,7 @@ For more information, see [Enable Volume Services](https://docs.pivotal.io/pivo
 
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
-In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. Where you could previously only configure the Gorouter to require TLS to verify the identity of app instances, the mutual TLS app identify verification option enables Envoy to ensure that app instances only receive communication from the Gorouter.
+In the **Application Containers** pane of PAS v2.3, the new option **Router and applications use mutual TLS to verify each other's identity** configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS). This option increases security over one-way TLS by ensuring that the Gorouter is the only client that can communicate with app instances.
 
 ### <a id='bosh-process-manager'></a> BOSH Process Manager
 
