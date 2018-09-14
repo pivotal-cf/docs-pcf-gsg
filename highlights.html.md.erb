@@ -59,6 +59,10 @@ BOSH DNS now comes with CAs that are valid for four years. These CAs will apply 
 
 To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. For information about how to rotate your certificates, see the [Ops Manager release notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/opsmanager-rn.html#bosh-dns-certs).
 
+### <a id='openid-connect'></a> OpenID Connect
+
+Pivotal is now a certified OpenID Connect provider for UAA and SSO Service. Alignment with this industry standard gives customers peace of mind that IAM in PCF will interoperate with leading enterprise identity providers supporting this standard.
+
 ### <a id='ssh-keys'></a> vSphere Deployments Accept Public SSH Keys
 
 vSphere deployments of Ops Manager can now accept public SSH keys instead of passwords. Ops Manager serves as an SSH proxy to the Director. This makes Ops Manager more consistent across IaaS targets.
@@ -94,11 +98,12 @@ For more information, see the [Pivotal Application Service v2.3 Release Notes](h
 ### <a id='nfs-volumes'></a> NFS Volumes
 
 App developers can use the `nfs-experimental` service offering. This feature:
-    * Adds the ability to specify your NFS version, including NFSv4 mounts.
-    * Significantly improves performance, even when using NFSv3 mounts.
-    * Adds file locking support via `flock` and `fcntl`.
-    * Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4.
-    * Is fully supported (despite the "experimental" term).
+
+* Adds the ability to specify your NFS version, including NFSv4 mounts.
+* Significantly improves performance, even when using NFSv3 mounts.
+* Adds file locking support via `flock` and `fcntl`.
+* Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4.
+* Is fully supported (despite the "experimental" term).
 
 For more information, see [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
 
@@ -154,12 +159,13 @@ For more information, see [What's New in Windows Server version 1803](https://do
 ### <a id='cli-parity'></a> Additional Parity with cf CLI
 
 In PAS v2.3, Apps Manager gains additional parity with cf CLI for these actions:
-    * Restaging
-    * Named service bindings
-    * Creating internal routes
-    * Container-to-container networking
-    * Per invocation `http` healthcheck with configurable timeout
-    * Autoscaling rules (custom, compare)
+
+* Restaging
+* Named service bindings
+* Creating internal routes
+* Container-to-container networking
+* Per invocation `http` healthcheck with configurable timeout
+* Autoscaling rules (custom, compare)
 
 ### <a id='private-domains'></a> Create Private Domains in Apps Manager
 
@@ -170,6 +176,21 @@ Admins and Org Managers can click Add a Domain in Apps Manager to create a new
 You can now give binding names to service bindings in Apps Manager.
 
 For more information, see the [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#bind-services) section of the _Managing Apps and Services Using Apps Manager_ topic.
+
+---
+
+## <a id='loggregator'></a> Loggregator Highlights
+
+### <a id='syslog-drain'></a> Bind All Apps in a Space to a Syslog Drain
+
+Instead of creating a service binding for each app in a space, space developers can now use the [CF Drain CLI plugin](https://github.com/cloudfoundry/cf-drain-cli) to bind a syslog drain endpoint to all apps within a space.
+
+This new feature:
+
+* Is backwards compatible for all supported PAS tiles.
+* Includes app, space, and org names in the drain.
+* Binds new apps as they become available in a space.
+* Supports logs and metrics from your apps.
 
 ---
 
