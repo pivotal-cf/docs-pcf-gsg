@@ -182,6 +182,37 @@ For more information, see the [Bind or Unbind a Service](https://docs.pivotal.i
 
 ---
 
+## <a id='bbr'></a> BOSH Backup and Restore Highlights
+
+BOSH Backup and Restore (BBR) v2.3 includes the following major features:
+
+### <a id='s3-filestores'></a> Faster Backups for External S3-Compatible Filestores
+
+To decrease the total size of your backup and the downtime of the Cloud Foundry API
+when you back up or restore your PAS deployment with BBR,
+PAS v2.3 no longer backs up the resources bucket in external S3-compatible filestores.
+
+For more information,
+see [BBR Improvements for External S3-Compatible Filestore](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#backup-resources)
+in _Pivotal Application Service v2.3 Release Notes_.
+
+### <a id='azure-storage'></a> Backup and Restore for External Azure Storage
+
+PAS v2.3 adds support for backing up and restoring external Azure blobstores with BBR.
+For more information,
+see [Enable Backup and Restore for External Azure Blobstores](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#enable-azure-bbr)
+in _Pivotal Application Service v2.3 Release Notes_.
+
+### <a id='azure-restore'></a> Options for Restoring Azure Blobstores
+
+In PAS v2.3, you can choose to restore your Azure blobstore to a different Azure storage account
+than the account where you take backups.
+For more information,
+see [Azure Blobstore Can Be Restored to a Separate Storage Account](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#restore-blobstore)
+in _Pivotal Application Service v2.3 Release Notes_.
+
+---
+
 ## <a id='loggregator'></a> Loggregator Highlights
 
 ### <a id='syslog-drain'></a> Bind All Apps in a Space to a Syslog Drain
