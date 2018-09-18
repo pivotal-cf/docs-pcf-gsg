@@ -13,9 +13,9 @@ Ops Manager v2.3 includes the following major features:
 
 ### <a id='xenial-om'></a> Ops Manager and BOSH Director Upgraded to Ubuntu 16.04 (Xenial Xerus)
 
-Ops Manager v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+Ops Manager v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
 
-The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
+The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
 Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
 
@@ -41,7 +41,7 @@ If you use OpenStack, you can now boot VMs from a Cinder volume. Cinder is an op
 
 ### <a id="verifier-control"></a> Disable Verifiers By Type with the Ops Manager API
 
-You can disable verifiers by type with the Ops Manager API. Ops Manager provides this option for troubleshooting purposes. For example, your deployment may have a unique configuration that the verifier cannot detect. In this case, you can unblock your deployment by disabling the verifier.
+You can disable form field verifiers by type with the Ops Manager API. Ops Manager provides this option for troubleshooting purposes. For example, your deployment may have a unique configuration that the verifier cannot detect. In this case, you can unblock your deployment by disabling the verifier.
 
 ### <a id="recreate-persistent-disks"></a> Recreate All Persistent Disks
 
@@ -59,13 +59,9 @@ BOSH DNS now comes with CAs that are valid for four years. These CAs will apply 
 
 To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. For information about how to rotate your certificates, see the [Ops Manager release notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/opsmanager-rn.html#bosh-dns-certs).
 
-### <a id='openid-connect'></a> OpenID Connect
+### <a id="vsphere-ssh"></a> Ops Manager on vSphere Supports SSH Key Authentication
 
-Pivotal is now a certified OpenID Connect provider for UAA and SSO Service. Alignment with this industry standard gives customers peace of mind that IAM in PCF will interoperate with leading enterprise identity providers supporting this standard.
-
-### <a id='ssh-keys'></a> vSphere Deployments Accept Public SSH Keys
-
-vSphere deployments of Ops Manager can now accept public SSH keys instead of passwords. Ops Manager serves as an SSH proxy to the Director. This makes Ops Manager more consistent across IaaS targets.
+You can now use an SSH key in addition to or instead of an admin password to boot Ops Manager on vSphere. Ops Manager serves as an SSH proxy to the Director.
 
 ---
 
@@ -73,25 +69,26 @@ vSphere deployments of Ops Manager can now accept public SSH keys instead of pas
 
 ### <a id='xenial-pas'></a> PAS Upgraded to Ubuntu 16.04 (Xenial Xerus)
 
-PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+PAS v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
 
-The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
+The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
 Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
 
 For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
 
-### <a id='polyglot'></a> Polyglot Service Discovery
+### <a id='custom-internal'></a> Configurable Domain for Internal Apps
 
-Polyglot service discovery improves in PAS v2.3, with a configurable internal domain. This gives you the flexibility to configure a custom internal domain instead of the system generated domain `apps.internal`.
+You can now configure the internal domain that apps use to reach each other. This enables service discovery at a custom domain rather than the default `apps.internal`.
 
 ### <a id='cflinuxfs3'></a> cflinuxfs3 Stack and Compatible Buildpacks
 
 PAS v2.3 adds a new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver), as well as a new set of buildpacks that are compatible with `cflinuxfs3`.
 
 cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
-    * The output of the cf buildpacks command has a stacks column.
-    * The following commands now accept an `-s` flag for specifying a stack: `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`. This is useful if there are two buildpacks of the same name that use a different stack.
+
+  * The output of the `cf buildpacks` command has a `stacks` column.
+  * The following commands now accept an `-s` flag for specifying a stack: `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`. This is useful if there are two buildpacks of the same name that use a different stack.
 
 For more information, see the [Pivotal Application Service v2.3 Release Notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3).
 
@@ -103,13 +100,13 @@ App developers can use the `nfs-experimental` service offering. This feature:
 * Significantly improves performance, even when using NFSv3 mounts.
 * Adds file locking support via `flock` and `fcntl`.
 * Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4.
-* Is fully supported (despite the "experimental" term).
+* Is fully-supported (despite the "experimental" name).
 
 For more information, see [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
 
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
-In the **Application Containers** pane of PAS v2.3, the new option **Router and applications use mutual TLS to verify each other's identity** configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS). This option increases security over one-way TLS by ensuring that the Gorouter is the only client that can communicate with app instances.
+A new option in the **Application Containers** pane of PAS v2.3 configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS). This option increases security over one-way TLS by ensuring that the Gorouter is the only client that can communicate with app instances.
 
 ### <a id='bosh-process-manager'></a> BOSH Process Manager
 
@@ -172,7 +169,7 @@ In PAS v2.3, Apps Manager gains additional parity with cf CLI for these actions:
 
 ### <a id='private-domains'></a> Create Private Domains in Apps Manager
 
-Admins and Org Managers can click Add a Domain in Apps Manager to create a new private domain. For more information, see the [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains) section of the _Managing Orgs and Spaces Using Apps Manager_ topic.
+Admins and Org Managers can click **Add a Domain** in Apps Manager to create a new private domain. For more information, see the [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains) section of the _Managing Orgs and Spaces Using Apps Manager_ topic.
 
 ### <a id='binding-names'></a> Name Service Bindings in Apps Manager
 
@@ -230,4 +227,14 @@ This new feature:
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
-There are no feature highlights for PCF Isolation Segment v2.3 at this time.
+PCF Isolation Segment (IST) v2.3 includes the following major feature:
+
+### <a id='xenial-ist'></a> IST Upgraded to Ubuntu 16.04 (Xenial Xerus)
+
+IST v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
+
+The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
+
+Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
+
+For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
