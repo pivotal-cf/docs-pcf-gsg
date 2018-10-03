@@ -1,240 +1,81 @@
 ---
-title: PCF v2.3 Feature Highlights
+title: PCF v2.4 Feature Highlights
 ---
 
-<html class="list-style-none"></html>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.3.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.4.
+
+
 
 
 ## <a id='om'></a> PCF Operations Manager (Ops Manager) Highlights
 
-Ops Manager v2.3 includes the following major features:
+Ops Manager v2.4 includes the following major features:
 
-### <a id='xenial-om'></a> Ops Manager and BOSH Director Upgraded to Ubuntu 16.04 (Xenial Xerus)
+None yet.
 
-Ops Manager v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
 
-The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
-Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
-
-For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
-
-### <a id='ldap'></a> Ops Manager Supports LDAP Authentication
-
-Ops Manager supports Lightweight Directory Access Protocal (LDAP) for authentication, in addition to Security Assertion Markup Language (SAML).
-
-For new Ops Manager installations, operators can configure LDAP authentication from the _Welcome to Ops Manager_ page. For more information, see the _LDAP Server_ section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/deploy-bosh-om.html#contents).
-
-For existing Ops Manager installations, operators can configure LDAP authentication through the Ops Manager Settings page. For more information, see the [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) section of the _Understanding the Ops Manager Interface_ topic.
-
-### <a id="multi-dc"></a> Multiple Data Centers on OpenStack
-
-Ops Manager now allows you to configure multiple OpenStack data centers to a single BOSH Director.
-
-For more information about how to add, edit, and delete OpenStack configs, see [Managing Multiple Data Centers](http://docs.pivotal.io/pivotalcf/2-3/customizing/multiple-datacenters.html).
-
-### <a id='cinder-volumes'></a> Virtual Machines Running on OpenStack Can Boot From Cinder Volumes
-
-If you use OpenStack, you can now boot VMs from a Cinder volume. Cinder is an open-source block storage solution for OpenStack users. For more information, see [Configuring BOSH Director on OpenStack](https://docs.pivotal.io/pivotalcf/2-3/customizing/openstack-om-config.html#openstack-config).
-
-### <a id="verifier-control"></a> Disable Verifiers By Type with the Ops Manager API
-
-You can disable form field verifiers by type with the Ops Manager API. Ops Manager provides this option for troubleshooting purposes. For example, your deployment may have a unique configuration that the verifier cannot detect. In this case, you can unblock your deployment by disabling the verifier.
-
-### <a id="recreate-persistent-disks"></a> Recreate All Persistent Disks
-
-You now have the option to recreate persistent disks in the BOSH Director, forcing BOSH to migrate and recreate all persistent disks without losing persistent disk data.
-
-### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes
-
-The _Review Pending Changes_ page in the Ops Manager installation dashboard features improved UI. The page UI is designed to make selective deployment more intuitive.
-
-For more information about the page UI, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/review-pending-changes.html#review-pending-changes).
-
-### <a id='bosh-dns-ca'></a> BOSH DNS Certificate Authority Upgrades
-
-BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to v2.3.
-
-To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. For information about how to rotate your certificates, see the [Ops Manager release notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/opsmanager-rn.html#bosh-dns-certs).
-
-### <a id="vsphere-ssh"></a> Ops Manager on vSphere Supports SSH Key Authentication
-
-You can now use an SSH key in addition to or instead of an admin password to boot Ops Manager on vSphere. Ops Manager serves as an SSH proxy to the Director.
 
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
-### <a id='xenial-pas'></a> PAS Upgraded to Ubuntu 16.04 (Xenial Xerus)
+PAS v2.4 includes the following major features:
 
-PAS v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
+None yet.
 
-The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
-Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
 
-For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
-
-### <a id='custom-internal'></a> Configurable Domain for Internal Apps
-
-You can now configure the internal domain that apps use to reach each other. This enables service discovery at a custom domain rather than the default `apps.internal`.
-
-### <a id='cflinuxfs3'></a> cflinuxfs3 Stack and Compatible Buildpacks
-
-PAS v2.3 adds a new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver), as well as a new set of buildpacks that are compatible with `cflinuxfs3`.
-
-cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
-
-  * The output of the `cf buildpacks` command has a `stacks` column.
-  * The following commands now accept an `-s` flag for specifying a stack: `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`. This is useful if there are two buildpacks of the same name that use a different stack.
-
-For more information, see the [Pivotal Application Service v2.3 Release Notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3).
-
-### <a id='nfs-volumes'></a> NFS Volumes
-
-App developers can use the `nfs-experimental` service offering. This feature:
-
-* Adds the ability to specify your NFS version, including NFSv4 mounts.
-* Significantly improves performance, even when using NFSv3 mounts.
-* Adds file locking support via `flock` and `fcntl`.
-* Unlocks new scenarios, like the use of EFS for AWS deployments, or any share that requires NFSv4.
-* Is fully-supported (despite the "experimental" name).
-
-For more information, see [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
-
-### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
-
-A new option in the **Application Containers** pane of PAS v2.3 configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS). This option increases security over one-way TLS by ensuring that the Gorouter is the only client that can communicate with app instances.
-
-### <a id='bosh-process-manager'></a> BOSH Process Manager
-
-Starting in v2.3, most PAS components use BOSH Process Manager (BPM). BPM is a layer between BOSH and the jobs running on PAS component VMs. It improves the way processes run on VMs by isolating colocated jobs. With the exception of networking, BPM namespaces operating system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job, rather than all jobs on the same machine.
-
-BPM also includes resource limiting capability. This prevents any one job from using too much operating system resources and impacting colocated jobs.
-
-For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.
 
 ---
 
 ## <a id='pas-windows'></a> PAS for Windows Highlights
 
-PAS for Windows v2.3 includes the following major features:
+PAS for Windows v2.4 includes the following major features:
 
-### <a id='multi-buildpacks'></a> Support for Multiple Buildpacks
+None yet.
 
-PAS for Windows v2.3 introduces support for pushing a .NET app with multiple buildpacks.
-This feature simplifies dependency management for .NET developers and increases compatibility with partner tiles.
 
-For more information, see [Pushing an Application with Multiple Buildpacks](../buildpacks/use-multiple-buildpacks.html).
 
-### <a id='ephemeral-disk'></a> Ephemeral Disk Configuration Options
-
-Operators can now use ephemeral disk configuration options for Windows Server cells.
-
-### <a id='compression'></a> HTTP Compression in the HWC Buildpack
-
-.NET app developers can improve their application’s network performance with the new HTTP compression capabilities in the HWC buildpack.
-PAS for Windows v2.3 enables the HTTP compression module from Internet Information Services (IIS), which enables gzip compression for static assets and dynamic content in the HWC buildpack.
-
-For more information, see [HTTP Compression](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/httpcompression/) in the Microsoft documentation.
-
-### <a id='windows-v1803'></a> Windows Server v1803
-
-PAS for Windows v2.3 includes the latest version of Windows Server (v1803).
-Windows Server v1803 is the second release in Microsoft's Semi-Annual Channel, which uses a faster release cadence and a shorter support life cycle than the more traditional Long-Term Servicing Channel.
-The Semi-Annual Channel is designed to support containers and micro-services.
-
-The container image for Windows Server version 1803 is 30% smaller than the previous release (v1709), reducing the memory footprint required for .NET apps.
-In addition, the container network security implementation uses HNS (Host Network Service) ACLs (Access Control Lists), which are more secure than the previously used firewall rules.
-The release also includes optimizations for containers, improved compatibility, and enhanced debugging tools.
-
-For more information, see [What's New in Windows Server version 1803](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1803) in the Microsoft documentation.
 
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-### <a id='cli-parity'></a> Additional Parity with cf CLI
+Apps Manager v2.4 includes the following major feature:
 
-In PAS v2.3, Apps Manager gains additional parity with cf CLI for these actions:
+None yet.
 
-* Restaging
-* Named service bindings
-* Creating internal routes
-* Container-to-container networking
-* Per invocation `http` healthcheck with configurable timeout
-* Autoscaling rules (custom, compare)
 
-### <a id='private-domains'></a> Create Private Domains in Apps Manager
 
-Admins and Org Managers can click **Add a Domain** in Apps Manager to create a new private domain. For more information, see the [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains) section of the _Managing Orgs and Spaces Using Apps Manager_ topic.
-
-### <a id='binding-names'></a> Name Service Bindings in Apps Manager
-
-You can now give binding names to service bindings in Apps Manager.
-
-For more information, see the [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#bind-services) section of the _Managing Apps and Services Using Apps Manager_ topic.
 
 ---
 
 ## <a id='bbr'></a> BOSH Backup and Restore Highlights
 
-BOSH Backup and Restore (BBR) in PAS v2.3 includes the following major features:
+BOSH Backup and Restore (BBR) in PAS v2.4 includes the following major features:
 
-### <a id='s3-filestores'></a> Faster Backups for External S3-Compatible Filestore
+None yet.
 
-To decrease the total size of your backup and the downtime of the Cloud Foundry API
-when you back up or restore your PAS deployment with BBR,
-PAS v2.3 no longer backs up the resources bucket in external S3-compatible filestores.
 
-For more information,
-see [BBR Improvements for External S3-Compatible Filestore](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#backup-resources)
-in _Pivotal Application Service v2.3 Release Notes_.
 
-### <a id='azure-storage'></a> Backup and Restore for External Azure Storage
-
-PAS v2.3 adds support for backing up and restoring external Azure blobstores with BBR.
-For more information,
-see [Enable Backup and Restore for External Azure Blobstores](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#enable-azure-bbr)
-in _Pivotal Application Service v2.3 Release Notes_.
-
-### <a id='azure-restore'></a> Options for Restoring Azure Blobstores
-
-In PAS v2.3, you can choose to restore your Azure blobstore to a different Azure storage account
-than the account where you take backups.
-For more information,
-see [Azure Blobstore Can Be Restored to a Separate Storage Account](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#restore-blobstore)
-in _Pivotal Application Service v2.3 Release Notes_.
 
 ---
 
 ## <a id='loggregator'></a> Loggregator Highlights
 
-### <a id='syslog-drain'></a> Bind All Apps in a Space to a Syslog Drain
+Loggregator v2.4 includes the following major feature:
 
-Instead of creating a service binding for each app in a space, space developers can now use the [CF Drain CLI plugin](https://github.com/cloudfoundry/cf-drain-cli) to bind a syslog drain endpoint to all apps within a space.
+None yet.
 
-This new feature:
 
-* Is backwards compatible for all supported PAS tiles.
-* Includes app, space, and org names in the drain.
-* Binds new apps as they become available in a space.
-* Supports logs and metrics from your apps.
+
 
 ---
 
 ## <a id='pcf-is'></a> PCF Isolation Segment Highlights
 
-PCF Isolation Segment (IST) v2.3 includes the following major feature:
+PCF Isolation Segment (IST) v2.4 includes the following major feature:
 
-### <a id='xenial-ist'></a> IST Upgraded to Ubuntu 16.04 (Xenial Xerus)
-
-IST v2.3 uses Xenial stemcells based on Ubuntu 16.04 (Xenial Xerus).
-
-The previously-supported stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution reaches end of general support (EOGS) in April 2019 and will no longer receive security updates.
-
-Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
-
-For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
+None yet.
