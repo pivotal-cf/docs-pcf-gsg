@@ -39,7 +39,7 @@ For more information, see the [Ops Manager Director installation topic for your 
 
 Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
 
-See [Deploying BOSH and Ops Manager to Azure Manually](../customizing/azure-om-deploy.html) for more information.
+See [Deploying BOSH and Ops Manager to Azure Manually](../om/azure/deploy-manual.html) for more information.
 
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
@@ -71,7 +71,7 @@ Previous versions of Ops Manager supported NSX-V.
 When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V. The NSX-T integration is only for fresh installs of PCF.
 You can enable NSX-T networking by selecting **NSX-T** in the new **NSX Mode** dropdown menu of the **vCenter Config** pane.
 
-For more information, see [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config).
+For more information, see [Configuring Ops Manager on vSphere](../om/vsphere/config.html#vcenter-config).
 
 Operators can additionally use the NSX Manager to configure policies for PCF applications. For more information, see [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf).
@@ -104,7 +104,7 @@ To use NSX-T networking, you must install the NSX-T tile.
 
 To enable NSX-T networking for your PCF installation, do the following:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../om/vsphere/config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
 
 1. Import and configure the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t), but do not click **Apply Changes**. You must install the NSX-T tile after you install the Ops Manager Director tile. You must install the NSX-T tile before you install the PAS tile.
 
@@ -169,7 +169,7 @@ To use NSX-T networking, you must install the NSX-T tile.
 
 To enable NSX-T networking for your PCF installation, do the following:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. For more information, see [Step 2: vCenter Config Page](../om/vsphere/config.html#vcenter-config) in the _Configuring Ops Manager on vSphere_ topic.
 
 1. Install the NSX-T tile. 
   - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
