@@ -12,10 +12,12 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.4 includes the following major features:
 
-None yet.
+### <a id='credhub-ga'></a> Runtime Credhub is GA
 
+Credhub is now enabled by default in the PAS tile. You can scale the number of CredHub instances in the Resource Config pane. In PAS v2.4, the number of CredHub instances defaults to 2.
 
-
+For more information on CredHub, see the [PAS v2.4 Release Notes
+](https://docs.piovtal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga)
 
 ---
 
@@ -34,6 +36,11 @@ Reference
 Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
 in the PAS v2.2 release notes.
 
+### <a id='cflinuxfs3'></a> PAS Uses cflinuxfs3 by Default
+
+PAS v2.4 uses the `cflinuxfs3` stack and its related buildpacks by default on new installations. 
+
+For more information, see the [PAS v2.4 Release Notes](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#cflinuxfs3s)
 
 
 ---
@@ -42,7 +49,21 @@ in the PAS v2.2 release notes.
 
 PAS for Windows v2.4 includes the following major features:
 
-None yet.
+### <a id='overcommit'></a> Memory and Disk Overcommit for Diego Cells
+
+You can now enable memory and disk overcommit for Diego cells.
+To configure this feature, use the Cell Memory Capacity (MB) and Cell Disk Capacity (MB) fields within the Advanced Features pane of the PAS for Windows (PASW) tile.
+For more information on this feature, see the [Configure the Tile](https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html#config) section of _Installing and Configuring PAS for Windows_.
+
+
+### <a id='identify-metrics'></a> Uniquely Identify Metrics from PAS for Windows
+
+Metrics emitted from PAS for Windows are now tagged with the BOSH deployment name of your PAS for Windows tile. With a GUID, you can uniquely identify your metrics by tile. In PAS for Windows v2.3 and earlier, metrics use the `cf` tag as the deployment name.
+
+This feature is enabled by default in new deployments of PAS for Windows v2.4. However, for upgrades to PAS for Windows v2.4, the feature is disabled by default. 
+
+For more information on this feature, see the [PAS for Windows Release Notes](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/windows-rn.html).
+
 
 
 
