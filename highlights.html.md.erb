@@ -77,6 +77,12 @@ Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have a
 
 For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial).
 
+### <a id="service-sharing"></a> Service Instance Sharing
+
+Developers can share instances of their services across spaces and orgs, enabling apps in different spaces to use the same service instance. Sharing service instances streamlines service provisioning and improves security and auditing.
+
+[Enabling Service Instance Sharing](https://docs.pivotal.io/pivotalcf/2-3/services/enable-sharing.html) explains how operators enable service instance sharing, and [Sharing Service Instances](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/sharing-instances.html) explains how developers use the feature.
+
 ### <a id='custom-internal'></a> Configurable Domain for Internal Apps
 
 You can now configure the internal domain that apps use to reach each other. This enables service discovery at a custom domain rather than the default `apps.internal`.
