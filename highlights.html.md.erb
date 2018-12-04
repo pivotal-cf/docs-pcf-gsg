@@ -12,18 +12,44 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.4 includes the following major features:
 
-### <a id='credhub-ga'></a> Runtime Credhub is GA
 
-Credhub is now enabled by default in the PAS tile. You can scale the number of CredHub instances in the Resource Config pane. In PAS v2.4, the number of CredHub instances defaults to 2.
-
-For more information on CredHub, see the [PAS v2.4 Release Notes
-](https://docs.piovtal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga)
 
 ---
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v2.4 includes the following major features:
+
+### <a id='credhub-ga'></a> Runtime Credhub is GA
+
+Credhub is now enabled by default in the PAS tile. You can scale the number of CredHub instances in the Resource Config pane. In PAS v2.4, the number of CredHub instances defaults to 2.
+
+For more information about CredHub, see the [PAS v2.4 Release Notes
+](https://docs.piovtal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga)
+
+### <a id="credhub-db"></a>CredHub Can Use the Same External Database as Other PAS Components
+
+In the PAS v2.4 tile, you can configure CredHub to use the same external database
+as other PAS components. The **CredHub** pane of the PAS tile uses updated wording
+to make this setting more clear.
+
+To use the same database for CredHub and other PAS components, whether the database
+is internal or external, select **PAS database** in the **CredHub** pane of the PAS
+tile. You configure the database later on the **Databases** pane.
+
+To use a separate external database for CredHub only, select **Other external
+database** in the **CredHub** pane of the PAS tile.
+
+For more information, see the PAS topic that corresponds to your IaaS:
+
+* [Deploying PAS on AWS](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
+* [Deploying PAS on AWS Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
+* [Deploying PAS on Azure](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#credhub)
+* [Deploying PAS on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config-terraform.html#credhub)
+* [Deploying PAS on GCP](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#credhub)
+* [Deploying PAS on GCP Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config-terraform.html#credhub)
+* [Deploying PAS on OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
+* [Deploying PAS on vSphere](http://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
 
 ### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
