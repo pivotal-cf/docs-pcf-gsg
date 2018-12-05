@@ -2,30 +2,75 @@
 title: PCF v2.4 Feature Highlights
 ---
 
-
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.4.
-
-
-
 
 ## <a id='om'></a> PCF Operations Manager (Ops Manager) Highlights
 
 Ops Manager v2.4 includes the following major features:
 
+### <a id="global-cpi"> Support for Global CPI Extensions 
 
+Ops Manager supports Global CPI extensions. 
+You can customize your IaaS deployment using hundreds of different configuration extensions.
+This feature unlocks native IaaS features while retaining the inherent portability of PCF.
 
----
+For more information about this feature, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
+
+### <a id="antivirus-boshrelease"></a> BOSH Director Supports Multiple BOSH Releases 
+
+You can add multiple BOSH releases to your BOSH Director. 
+This feature allows you to deploy your own antivirus software to BOSH deployed VMs.
+
+----
 
 ## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v2.4 includes the following major features:
 
-### <a id='credhub-ga'></a> Runtime Credhub is GA
+### <a id="zero-downtime"></a> Zero Downtime App Deployments (Beta)
 
-Credhub is now enabled by default in the PAS tile. You can scale the number of CredHub instances in the Resource Config pane. In PAS v2.4, the number of CredHub instances defaults to 2.
+Native zero downtime push and native zero downtime restart simplify new app deployment. 
+You no longer need two application versions or client orchestration to achieve zero downtime.
+
+For more information about zero downtime app deployments, see [Deploying Apps with Zero Downtime (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html).
+
+### <a id="dynamic-egress"></a> Create Dynamic Egress Policies (Beta)
+
+You can create dynamic egress policies so your apps can communicate with external services. 
+These policies are similar to Application Security Groups (ASGs) but include the following advantages:
+
+* You do not have to restart your apps when applying these policies, so there is no downtime. 
+* You can apply them to specific apps. 
+
+For more information, see [Administering Dynamic Egress Policies (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
+
+### <a id="smb"></a> SMB Volume Services
+
+SMB volume services allow developers to bind existing SMB shares to their apps. 
+The SMB protocol has native password authentication, which means you can control 
+access to file shares without the overhead of configuring an LDAP server.
+
+For more information about using SMB volume services, 
+see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable) 
+and [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html). 
+
+### <a id="metric-registrar"></a> New Metric Registrar Component
+
+The Metric Registrar allows app developers to export custom app metrics and events in a format that Loggregator can consume. App developers can then use the custom metrics to monitor apps with PCF Metrics and configure autoscaling rules with PCF Autoscaler. 
+
+For more information, see the following topics: 
+
+* [Configuring the Metric Registrar](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
+* [Registering Custom App Metrics](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
+
+### <a id='credhub-ga'></a> Runtime CredHub is GA
+
+CredHub is enabled by default in the PAS tile.
+You can scale the number of CredHub instances in the Resource Config pane.
+In PAS v2.4, the number of CredHub instances defaults to 2.
 
 For more information about CredHub, see the [PAS v2.4 Release Notes
-](https://docs.piovtal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga)
+](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga).
 
 ### <a id="credhub-db"></a>CredHub Can Use the Same External Database as Other PAS Components
 
@@ -51,16 +96,6 @@ For more information, see the PAS topic that corresponds to your IaaS:
 * [Deploying PAS on OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
 * [Deploying PAS on vSphere](http://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
 
-### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
-
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
-do not need to manage mutual TLS to access the v2 API.
-
-The Loggregator v2 API supports additional features, including selector-based subscription
-models. For more information about that feature, see [Selector-Based Subscripton Model and
-Reference
-Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
-in the PAS v2.2 release notes.
 
 ### <a id='cflinuxfs3'></a> PAS Uses cflinuxfs3 by Default
 
@@ -68,6 +103,15 @@ PAS v2.4 uses the `cflinuxfs3` stack and its related buildpacks by default on ne
 
 For more information, see the [PAS v2.4 Release Notes](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#cflinuxfs3s)
 
+
+### <a id="more-tls"></a> Enhanced Security with TLS-Encrypted Traffic
+
+PAS adds TLS encryption in the following areas:
+
+* Internal MySQL system databases (beta)
+* External MySQL databases by providing a CA certificate in PAS
+* `cf ssh` access into authenticated containers 
+* Communications between Gorouter and Linux cells
 
 ---
 
@@ -91,9 +135,6 @@ This feature is enabled by default in new deployments of PAS for Windows v2.4. H
 For more information on this feature, see the [PAS for Windows Release Notes](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/windows-rn.html).
 
 
-
-
-
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
@@ -106,6 +147,7 @@ Apps Manager has a global searchbar persistent on every Apps Manager page. With 
 searchbar, you can search org name, space name, service instance name, and app names without
 leaving the page.
 
+For more information about Apps Manager, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-4/console/index.html).
 
 ### <a id="restage-apps"></a> Restage Apps in Apps Manager
 
@@ -134,18 +176,22 @@ BOSH Backup and Restore (BBR) in PAS v2.4 includes the following major features:
 None yet.
 
 
-
-
 ---
 
 ## <a id='loggregator'></a> Loggregator Highlights
 
 Loggregator v2.4 includes the following major feature:
 
-None yet.
+### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
+do not need to manage mutual TLS to access the v2 API.
 
-
+The Loggregator v2 API supports additional features, including selector-based subscription
+models. For more information about that feature, see [Selector-Based Subscripton Model and
+Reference
+Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
+in the PAS v2.2 release notes.
 
 ---
 
