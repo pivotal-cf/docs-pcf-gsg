@@ -8,9 +8,9 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.4 includes the following major features:
 
-### <a id="global-cpi"></a> Support for Global CPI Extensions 
+### <a id="global-cpi"></a> Support for Global CPI Extensions
 
-Ops Manager supports Global CPI extensions. 
+Ops Manager supports global [cloud provider interface](https://bosh.io/docs/terminology/#cpi) (CPI) extensions. 
 You can customize your IaaS deployment using hundreds of different configuration extensions.
 This feature unlocks native IaaS features while retaining the inherent portability of PCF.
 
@@ -32,7 +32,7 @@ PAS v2.4 includes the following major features:
 
 ### <a id="zero-downtime"></a> Zero Downtime App Deployments (Beta)
 
-Native zero downtime push and native zero downtime restart simplify new app deployment. 
+Native zero downtime `push` and `restart` commands simplify new app deployment.
 You no longer need two application versions or client orchestration to achieve zero downtime.
 
 For more information about zero downtime app deployments, see [Deploying Apps with Zero Downtime (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html).
@@ -79,8 +79,8 @@ For more information about CredHub, see the [PAS v2.4 Release Notes
 ### <a id="credhub-db"></a>CredHub Can Use the Same External Database as Other PAS Components
 
 In the PAS v2.4 tile, you can configure CredHub to use the same external database
-as other PAS components. The **CredHub** pane of the PAS tile uses updated wording
-to make this setting more clear.
+as other PAS components. The **CredHub** pane of the PAS tile has updated wording
+to make this setting clearer.
 
 To use the same database for CredHub and other PAS components, whether the database
 is internal or external, select **PAS database** in the **CredHub** pane of the PAS
@@ -131,6 +131,18 @@ To configure this feature, use the Cell Memory Capacity (MB) and Cell Disk Capac
 For more information on this feature, see the [Configure the Tile](https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html#config) section of _Installing and Configuring PAS for Windows_.
 
 
+### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
+
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
+do not need to manage mutual TLS to access the v2 API.
+
+The Loggregator v2 API supports additional features, including selector-based subscription
+models. For more information about that feature, see [Selector-Based Subscripton Model and
+Reference
+Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
+in the PAS v2.2 release notes.
+
+
 ### <a id='identify-metrics'></a> Uniquely Identify Metrics from PAS for Windows
 
 Metrics emitted from PAS for Windows are now tagged with the BOSH deployment name of your PAS for Windows tile. With a GUID, you can uniquely identify your metrics by tile. In PAS for Windows v2.3 and earlier, metrics use the `cf` tag as the deployment name.
@@ -144,9 +156,9 @@ For more information on this feature, see the [PAS for Windows Release Notes](ht
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-Apps Manager v2.4 includes the following major feature:
+Apps Manager v2.4 includes the following major features:
 
-### <a id="global-search"></a> Global Search in Apps Manager
+### <a id="global-search"></a> Global Search
 
 Apps Manager has a global searchbar persistent on every Apps Manager page. With the global
 searchbar, you can search org name, space name, service instance name, and app names without
@@ -171,37 +183,3 @@ instances across the spaces you specify. With Space Developer permissions, you
 can view, add, and remove service instance sharing.
 
 For more information, see [Service Instance Sharing](../console/manage-apps.html#shared-instances).
-
----
-
-## <a id='bbr'></a> BOSH Backup and Restore Highlights
-
-BOSH Backup and Restore (BBR) in PAS v2.4 includes the following major features:
-
-None yet.
-
-
----
-
-## <a id='loggregator'></a> Loggregator Highlights
-
-Loggregator v2.4 includes the following major feature:
-
-### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
-
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
-do not need to manage mutual TLS to access the v2 API.
-
-The Loggregator v2 API supports additional features, including selector-based subscription
-models. For more information about that feature, see [Selector-Based Subscripton Model and
-Reference
-Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
-in the PAS v2.2 release notes.
-
----
-
-## <a id='pcf-is'></a> PCF Isolation Segment Highlights
-
-PCF Isolation Segment (IST) v2.4 includes the following major feature:
-
-None yet.
