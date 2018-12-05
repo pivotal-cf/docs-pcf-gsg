@@ -67,6 +67,17 @@ For more information, see the following topics:
 * [Configuring the Metric Registrar](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
 * [Registering Custom App Metrics](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
 
+### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
+
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
+do not need to manage mutual TLS to access the v2 API.
+
+The Loggregator v2 API supports additional features, including selector-based subscription
+models. For more information about that feature, see [Selector-Based Subscripton Model and
+Reference
+Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
+in the PAS v2.2 release notes.
+
 ### <a id='credhub-ga'></a> Runtime CredHub is GA
 
 CredHub is enabled by default in the PAS tile.
@@ -129,18 +140,6 @@ PAS for Windows v2.4 includes the following major features:
 You can now enable memory and disk overcommit for Diego cells.
 To configure this feature, use the Cell Memory Capacity (MB) and Cell Disk Capacity (MB) fields within the Advanced Features pane of the PAS for Windows (PASW) tile.
 For more information on this feature, see the [Configure the Tile](https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html#config) section of _Installing and Configuring PAS for Windows_.
-
-
-### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
-
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
-do not need to manage mutual TLS to access the v2 API.
-
-The Loggregator v2 API supports additional features, including selector-based subscription
-models. For more information about that feature, see [Selector-Based Subscripton Model and
-Reference
-Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
-in the PAS v2.2 release notes.
 
 
 ### <a id='identify-metrics'></a> Uniquely Identify Metrics from PAS for Windows
