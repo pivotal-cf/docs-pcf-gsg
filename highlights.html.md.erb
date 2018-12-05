@@ -8,7 +8,7 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v2.4 includes the following major features:
 
-### <a id="global-cpi"> Support for Global CPI Extensions 
+### <a id="global-cpi"></a> Support for Global CPI Extensions 
 
 Ops Manager supports Global CPI extensions. 
 You can customize your IaaS deployment using hundreds of different configuration extensions.
@@ -18,8 +18,11 @@ For more information about this feature, see [Updating Director and IaaS Propert
 
 ### <a id="antivirus-boshrelease"></a> BOSH Director Supports Multiple BOSH Releases 
 
-You can add multiple BOSH releases to your BOSH Director. 
-This feature allows you to deploy your own antivirus software to BOSH deployed VMs.
+You can specify multiple BOSH releases for the BOSH Director deployed by Ops Manager. 
+This feature allows you to deploy your own software, such as your specific antivirus programs, to BOSH-deployed VMs.
+
+For more information about adding BOSH releases to a BOSH Director, 
+see [Deploying Software with BOSH](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#bosh).
 
 ----
 
@@ -32,7 +35,7 @@ PAS v2.4 includes the following major features:
 Native zero downtime push and native zero downtime restart simplify new app deployment. 
 You no longer need two application versions or client orchestration to achieve zero downtime.
 
-For more information about zero downtime app deployments, see [Deploying Apps with Zero Downtime (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html).
+For more information about zero downtime app deployments, see [Deploying Apps with Zero Downtime (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html).
 
 ### <a id="dynamic-egress"></a> Create Dynamic Egress Policies (Beta)
 
@@ -42,7 +45,8 @@ These policies are similar to Application Security Groups (ASGs) but include the
 * You do not have to restart your apps when applying these policies, so there is no downtime. 
 * You can apply them to specific apps. 
 
-For more information, see [Administering Dynamic Egress Policies (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
+For more information, 
+see [Administering Dynamic Egress Policies (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
 
 ### <a id="smb"></a> SMB Volume Services
 
@@ -66,7 +70,7 @@ For more information, see the following topics:
 ### <a id='credhub-ga'></a> Runtime CredHub is GA
 
 CredHub is enabled by default in the PAS tile.
-You can scale the number of CredHub instances in the Resource Config pane.
+You can scale the number of CredHub instances in the **Resource Config** pane.
 In PAS v2.4, the number of CredHub instances defaults to 2.
 
 For more information about CredHub, see the [PAS v2.4 Release Notes
@@ -85,7 +89,7 @@ tile. You configure the database later on the **Databases** pane.
 To use a separate external database for CredHub only, select **Other external
 database** in the **CredHub** pane of the PAS tile.
 
-For more information, see the PAS topic that corresponds to your IaaS:
+For more information, see the PAS installation topic that corresponds to your IaaS:
 
 * [Deploying PAS on AWS](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
 * [Deploying PAS on AWS Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
@@ -103,15 +107,16 @@ PAS v2.4 uses the `cflinuxfs3` stack and its related buildpacks by default on ne
 
 For more information, see the [PAS v2.4 Release Notes](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#cflinuxfs3s)
 
-
 ### <a id="more-tls"></a> Enhanced Security with TLS-Encrypted Traffic
 
 PAS adds TLS encryption in the following areas:
 
 * Internal MySQL system databases (beta)
 * External MySQL databases by providing a CA certificate in PAS
-* `cf ssh` access into authenticated containers 
 * Communications between Gorouter and Linux cells
+
+Additionally, authenticated containers that use mTLS support `cf ssh` access. 
+The previous limitation has been removed.
 
 ---
 
