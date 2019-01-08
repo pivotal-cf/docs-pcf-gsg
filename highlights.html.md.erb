@@ -1,202 +1,30 @@
 ---
-title: PCF v2.4 Feature Highlights
+title: PCF v2.5 Feature Highlights
 ---
 
 <!--- This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights -->
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v2.4.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
 
 ## <a id='om'></a> PCF Operations Manager (Ops Manager) Highlights
 
-Ops Manager v2.4 includes the following major features:
+Ops Manager v<%= vars.current_major_version %> includes the following major features:
 
-### <a id="global-cpi"></a> Support for Global CPI Extensions
-
-Ops Manager supports global [cloud provider interface](https://bosh.io/docs/terminology/#cpi) (CPI) extensions. 
-You can customize your IaaS deployment using hundreds of different configuration extensions.
-This feature unlocks native IaaS features while retaining the inherent portability of PCF.
-
-For more information about this feature, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
-
-### <a id="antivirus-boshrelease"></a> BOSH Director Supports Multiple BOSH Releases 
-
-You can specify multiple BOSH releases for the BOSH Director deployed by Ops Manager. 
-This feature allows you to deploy your own software, such as your specific antivirus programs, to BOSH-deployed VMs.
-
-For more information about adding BOSH releases to a BOSH Director, 
-see [Deploying Software with BOSH](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#bosh).
-
-----
-
-## <a id='ert'></a> Pivotal Application Service (PAS) Highlights
-
-PAS v2.4 includes the following major features:
-
-### <a id="zero-downtime"></a> Zero Downtime App Deployments (Beta)
-
-Native zero downtime `push` and `restart` commands simplify new app deployment.
-You no longer need two application versions or client orchestration to achieve zero downtime.
-
-For more information about zero downtime app deployments, see [Deploying Apps with Zero Downtime (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html).
-
-### <a id="dynamic-egress"></a> Create Dynamic Egress Policies (Beta)
-
-You can create dynamic egress policies so your apps can communicate with external services. 
-These policies are similar to Application Security Groups (ASGs) but include the following advantages:
-
-* You do not have to restart your apps when applying these policies, so there is no downtime. 
-* You can apply them to specific apps. 
-
-For more information, 
-see [Administering Dynamic Egress Policies (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
-
-### <a id="smb"></a> SMB Volume Services
-
-SMB volume services allow developers to bind existing SMB shares to their apps. 
-The SMB protocol has native password authentication, which means you can control 
-access to file shares without the overhead of configuring an LDAP server.
-
-For more information about using SMB volume services, 
-see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable) 
-and [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html). 
-
-### <a id="metric-registrar"></a> New Metric Registrar Component
-
-The Metric Registrar allows app developers to export custom app metrics and events in a format that Loggregator can consume. App developers can then use the custom metrics to monitor apps with PCF Metrics and configure autoscaling rules with PCF Autoscaler. 
-
-For more information, see the following topics: 
-
-* [Configuring the Metric Registrar](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
-* [Registering Custom App Metrics](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
-
-### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
-
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. You
-do not need to manage mutual TLS to access the v2 API.
-
-The Loggregator v2 API supports additional features, including selector-based subscription
-models. For more information about that feature, see [Selector-Based Subscripton Model and
-Reference
-Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
-in the PAS v2.2 release notes.
-
-### <a id='credhub-ga'></a> Runtime CredHub is GA
-
-CredHub is enabled by default in the PAS tile.
-You can scale the number of CredHub instances in the **Resource Config** pane.
-In PAS v2.4, the number of CredHub instances defaults to 2.
-
-For more information about CredHub, see the [PAS v2.4 Release Notes
-](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#credhub-ga).
-
-### <a id="credhub-db"></a>CredHub Can Use the Same External Database as Other PAS Components
-
-In the PAS v2.4 tile, you can configure CredHub to use the same external database
-as other PAS components. The **CredHub** pane of the PAS tile has updated wording
-to make this setting clearer.
-
-To use the same database for CredHub and other PAS components, whether the database
-is internal or external, select **PAS database** in the **CredHub** pane of the PAS
-tile. You configure the database later on the **Databases** pane.
-
-To use a separate external database for CredHub only, select **Other external
-database** in the **CredHub** pane of the PAS tile.
-
-For more information, see the PAS installation topic that corresponds to your IaaS:
-
-* [Deploying PAS on AWS](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
-* [Deploying PAS on AWS Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
-* [Deploying PAS on Azure](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#credhub)
-* [Deploying PAS on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config-terraform.html#credhub)
-* [Deploying PAS on GCP](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#credhub)
-* [Deploying PAS on GCP Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config-terraform.html#credhub)
-* [Deploying PAS on OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
-* [Deploying PAS on vSphere](http://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
-
-
-### <a id='cflinuxfs3'></a> PAS Uses cflinuxfs3 by Default
-
-PAS v2.4 uses the `cflinuxfs3` stack and its related buildpacks by default on new installations. 
-
-For more information, see the [PAS v2.4 Release Notes](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#cflinuxfs3).
-
-### <a id="more-tls"></a> Enhanced Security with TLS-Encrypted Traffic
-
-PAS adds TLS encryption in the following areas:
-
-* Internal MySQL system databases (beta)
-* External MySQL databases by providing a CA certificate in PAS
-* Communications between Gorouter and Linux cells
-
-Additionally, authenticated containers that use mTLS support `cf ssh` access. 
-The previous limitation has been removed.
+To be included.
 
 ---
 
 ## <a id='pas-windows'></a> PAS for Windows Highlights
 
-PAS for Windows v2.4 includes the following major features:
+PAS for Windows v<%= vars.current_major_version %> includes the following major features:
 
-### <a id='overcommit'></a> Memory and Disk Overcommit for Diego Cells
-
-You can now enable memory and disk overcommit for Diego cells.
-To configure this feature, use the Cell Memory Capacity (MB) and Cell Disk Capacity (MB) fields within the Advanced Features pane of the PAS for Windows (PASW) tile.
-For more information on this feature, see the [Configure the Tile](https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html#config) section of _Installing and Configuring PAS for Windows_.
-
-
-### <a id='identify-metrics'></a> Uniquely Identify Metrics from PAS for Windows
-
-Metrics emitted from PAS for Windows are now tagged with the BOSH deployment name of your PAS for Windows tile. With a GUID, you can uniquely identify your metrics by tile. In PAS for Windows v2.3 and earlier, metrics use the `cf` tag as the deployment name.
-
-This feature is enabled by default in new deployments of PAS for Windows v2.4. However, for upgrades to PAS for Windows v2.4, the feature is disabled by default. 
-
-For more information on this feature, see the [PAS for Windows Release Notes](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/windows-rn.html#metrics-prefix).
-
-### <a id='stack'></a> Developers Can Push with Default Windows Stack
-
-Developers can push apps using `cf push -s windows`. Pushing apps with this command ensures that you are pushing with the Windows stack with the latest `rootfs`.
-
-For more information, see [Step 2: Push App to PAS for Windows Cells](https://docs.pivotal.io/pivotalcf/2-4/windows/migrating.html) in _Migrating Apps to PAS for Windows_.
-
-### <a id='smb-windows'></a> SMB Support for Windows Containers (Beta)
-
-SMB mounting allows developers to bind existing SMB shares to their containerized apps. 
-Previously, SMB shares were only accessible by using the SharpCIFS library. 
-PASW v2.4.0 natively supports SMB mounting.
-
-This enables usage of the `net use` command. This is currently limited to IP address-based UNC paths.
-
-For more information, see [SMB (WINDOWS) FILE SHARES](https://dotnet-cookbook.cfapps.io/3rdparty/smb_file_shares/) in the _.NET on Pivotal Cloud Foundry_ cookbook.
+To be included.
 
 ---
 
 ## <a id='apps-man'></a> Apps Manager Highlights
 
-Apps Manager v2.4 includes the following major features:
+Apps Manager v<%= vars.current_major_version %> includes the following major features:
 
-### <a id="global-search"></a> Global Search
-
-Apps Manager has a global searchbar persistent on every Apps Manager page. With the global
-searchbar, you can search org name, space name, service instance name, and app names without
-leaving the page.
-
-For more information about Apps Manager, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-4/console/index.html).
-
-### <a id="restage-apps"></a> Restage Apps in Apps Manager
-
-Apps Manager includes a restage button. The button is in addition to the stop and
-start buttons on the app management page. Restaging your application stops your
-app and restages it by compiling a new droplet and starting it.
-
-For more information about the restage button in the Apps Manager UI, see [Start, Stop, or Restage an App
-](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#start-stop).
-
-
-### <a id="share-service-instance"></a> Share Service Instances in Apps Manager
-
-You can share service
-instances across the spaces you specify. With Space Developer permissions, you
-can view, add, and remove service instance sharing.
-
-For more information, see [Service Instance Sharing](../console/manage-apps.html#shared-instances).
+To be included.
