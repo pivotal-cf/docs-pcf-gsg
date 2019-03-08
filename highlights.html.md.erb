@@ -6,20 +6,37 @@ title: PCF v2.5 Feature Highlights
 
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
-
 ## <a id='om'></a> PCF Operations Manager (Ops Manager) Highlights
 
 Ops Manager v<%= vars.current_major_version %> includes the following major features:
 
-To be included.
+### <a id="credhub-kms-bosh"></a> BOSH CredHub Supports Connections to External Key Management Service (KMS)
+
+BOSH CredHub ships with its own internal encryption. However, you may want to use the encryption provided by a KMS instead.
+In order to use a KMS, you must deploy a plugin with CredHub. CredHub consumes the Kubernetes API for KMS plugins.
+
+For more information, see [Using a Key Management Service with CredHub](https://docs.pivotal.io/pivotalcf/2-5/credhub/k8s-plugin.html).
 
 ---
 
-## <a id='pas-windows'></a> PAS for Windows Highlights
+## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
 
-PAS for Windows v<%= vars.current_major_version %> includes the following major features:
+PAS v<%= vars.current_major_version %> includes the following major features:
 
-To be included.
+### <a id="credhub-kms-pas"></a> Runtime CredHub Supports Connections to External Key Management Service
+
+Runtime CredHub ships with its own internal encryption. However, you may want to use the encryption provided by a KMS instead.
+In order to use a KMS, you must deploy a plugin with CredHub. CredHub consumes the Kubernetes API for KMS plugins.
+
+For more information, see [Using a Key Management Service with CredHub](https://docs.pivotal.io/pivotalcf/2-5/credhub/k8s-plugin.html).
+
+### <a id="bbr-pas-gcs"></a> BBR Supports Recovery of GCS-backed Blobstores in PAS
+
+Operators can use BBR to back up and restore PAS deployments configured with a GCS-backed blobstore.
+
+For more information, see [Enabling External Blobstore Backups](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/enabling-external-blobstore-backups.html).
+
+<!-- leaving out PAS for Windows for now -->
 
 ---
 
