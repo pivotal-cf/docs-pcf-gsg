@@ -16,6 +16,22 @@ Ops Manager v<%= vars.current_major_version %> includes the following major feat
 
 PAS v<%= vars.current_major_version %> includes the following major features:
 
+### <a id='weighted-routing'></a> Istio-Based Routing Subsystem Enables Weighted Routing (Beta)
+
+Operators can deploy an Istio-based routing subsystem with PAS v2.5 that allows developers to use weighted routing. Weighted routing gives developers more control over the percentage of traffic forwarded to each app mapped to a route.
+
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Custom Ports
+
+PAS v2.5 adds support for apps that require multiple ports or ports other than `8080`.
+
+### <a id='app-policies'></a> Configure App Policies in the cf CLI
+
+Developers can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in their deployment. This allows developers to more quickly manage and configure app policies.
+
+### <a id='metadata'></a> Specify Metdata for Apps, Orgs, and Spaces 
+
+Operators can add labels and annotations to elements throughout PAS, including apps, orgs, spaces, and more. Metadata such as environment information, billing codes, points of contact, and information about security or risk make it easier to operate, monitor, and audit PAS deployments. For more information about using metadata in PAS, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
+
 <!-- leaving out PAS for Windows for now -->
 
 ---
