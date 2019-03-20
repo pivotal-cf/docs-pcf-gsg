@@ -10,6 +10,18 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the following major features:
 
+### <a id='azure-az'></a> Native Support for Azure Availability Zones
+
+Ops Manager natively supports Azure AZs, in available regions, for clean installs of PAS 2.5.x. The AZ approach is an easier and better choice, compared to availability sets, the prior implementation.
+
+### <a id='manifest-diff'></a> View a Diff of Proposed Changes to a Manifest
+
+Ops Manager includes a diff view of proposed changes to a given manifest. This allows operators to easily review and understand changes to the manifest.
+
+### <a id='automation'></a> Use Ops Manager Automation Features
+
+Operators can now use the full automation capabilities of Ops Manager when SAML/LDAP is enabled. Previously, human intervention was required in this scenario.
+
 ---
 
 ## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
@@ -28,6 +40,10 @@ PAS v2.5 adds support for apps that require multiple ports or ports other than `
 
 Developers can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in their deployment. This allows developers to more quickly manage and configure app policies.
 
+### <a id='app-policies'></a> Disable Container-to-Container Networking Policies
+
+Operators can disable container-to-container networking policies. This allows for communication across all apps without the need to configure numerous container-to-container networking rules. 
+
 ### <a id='metadata'></a> Specify Metdata for Apps, Orgs, and Spaces 
 
 Operators can add labels and annotations to elements throughout PAS, including apps, orgs, spaces, and more. Metadata such as environment information, billing codes, points of contact, and information about security or risk make it easier to operate, monitor, and audit PAS deployments. For more information about using metadata in PAS, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
@@ -40,4 +56,10 @@ Operators can add labels and annotations to elements throughout PAS, including a
 
 Apps Manager v<%= vars.current_major_version %> includes the following major features:
 
-To be included.
+### <a id='multi-foundation'></a> Support for Multi-Foundation Deployments (Beta)
+
+Apps Manager includes support for multi-foundation deployments. This allows users to search, view, and manage applications across all foundations from a single interface.
+
+### <a id='async-bindings'></a> Asynchronous Bindings
+
+Apps Manager supports asynchronous bindings, Asynchronous bindings allow service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out for synchronous operations in PAS.
