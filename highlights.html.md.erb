@@ -10,17 +10,37 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the following major features:
 
-### <a id='azure-az'></a> Native Support for Azure Availability Zones
+### <a id='manifest-diff'></a> View a Diff of Proposed Changes to the Manifest
 
-Ops Manager natively supports Azure AZs, in available regions, for clean installs of PAS 2.5.x. The AZ approach is an easier and better choice, compared to availability sets, the prior implementation.
+A diff view in Ops Manager shows proposed changes to the manifest compared to the state of the manifest in the last successful BOSH Director deployment. This allows you to easily review and understand changes to the manifest before deploying.
 
-### <a id='manifest-diff'></a> View a Diff of Proposed Changes to a Manifest
+For more information, see [diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs).
 
-Ops Manager includes a diff view of proposed changes to a given manifest. This allows operators to easily review and understand changes to the manifest.
+### <a id='automation'></a> Additional Support for Ops Manager Automation Features
 
-### <a id='automation'></a> Use Ops Manager Automation Features
+You can configure a pre-created client account to manage automation tasks and scripts for Ops Manager. Previously, you had to login to create a UAA client for automated use of Ops Manager.
 
-Operators can now use the full automation capabilities of Ops Manager when SAML/LDAP is enabled. Previously, human intervention was required in this scenario.
+For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
+
+### <a id='azure-az'></a> Support for Microsoft Azure Availability Zones
+
+New installations of Ops Manager include support for Microsoft Azure Availability Zones (AZs). Compared to Azure Availability Sets, AZs provide higher availability, less latency, and more efficient resource management for deployments.
+
+For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
+
+### <a id='ca-rotation'></a> NATS Certificate Authority Rotatation Through Ops Manager API
+
+To better align with industry-standard practices, Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA).
+
+This feature pairs the lifecycle of the NATS CA with the Ops Manager root CA, meaning a new NATS CA is created every time an Ops Manager root CA is created.
+
+For more information about generating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/api-cert-rotation.html).
+
+### <a id='vm-extensions'></a> BOSH Director VM Extensions
+
+You can defining custom `vm_extensions` for BOSH Director VMs. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
+
+For more information about VM extensions, see [Managing VM Extensions](https://docs.pivotal.io/pivotalcf/customizing/custom-vm-extensions.html).
 
 ---
 
@@ -28,27 +48,29 @@ Operators can now use the full automation capabilities of Ops Manager when SAML/
 
 PAS v<%= vars.current_major_version %> includes the following major features:
 
-### <a id='weighted-routing'></a> Istio-Based Routing Subsystem Enables Weighted Routing (Beta)
+### <a id='weighted-routing'></a> Service Mesh Routing Plane (Beta)
 
-Operators can deploy an Istio-based routing subsystem with PAS v2.5 that allows developers to use weighted routing. Weighted routing gives developers more control over the percentage of traffic forwarded to each app mapped to a route.
+An optional service mesh routing plane includes support for weighted routing, which gives you greater control over the percentage of traffic forwarded to each app mapped to a given route.
 
-### <a id='multiple-ports'></a> Support For Apps That Require Multiple Custom Ports
-
-PAS v2.5 adds support for apps that require multiple ports or ports other than `8080`.
+To deploy the service mesh routing plane, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. 
 
 ### <a id='app-policies'></a> Configure App Policies in the cf CLI
 
-Developers can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in their deployment. This allows developers to more quickly manage and configure app policies.
+You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the API.
 
-### <a id='app-policies'></a> Disable Container-to-Container Networking Policies
+### <a id='app-policies'></a> Disable Networking Policies
 
-Operators can disable container-to-container networking policies. This allows for communication across all apps without the need to configure numerous container-to-container networking rules. 
+You can disable Silk network policy enforcement for all apps in a foundation. This allows apps to send network traffic to all other apps without the need for the operator to manually configure numerous networking rules. 
 
-### <a id='metadata'></a> Specify Metdata for Apps, Orgs, and Spaces 
+For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
-Operators can add labels and annotations to elements throughout PAS, including apps, orgs, spaces, and more. Metadata such as environment information, billing codes, points of contact, and information about security or risk make it easier to operate, monitor, and audit PAS deployments. For more information about using metadata in PAS, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
+### <a id='metadata'></a> Add Metadata to Apps, Orgs, and Spaces 
 
-<!-- leaving out PAS for Windows for now -->
+You can add labels and annotations to elements throughout PAS, including apps, orgs, spaces, and more. Metadata such as environment information, billing codes, and points of contact make it easier to operate, monitor, and audit PAS deployments. 
+
+For more information about using metadata in PAS, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
+
+<!-- Leaving out PAS for Windows for now. PASW is not being released with  PAS v2.5. -->
 
 ---
 
@@ -56,10 +78,20 @@ Operators can add labels and annotations to elements throughout PAS, including a
 
 Apps Manager v<%= vars.current_major_version %> includes the following major features:
 
-### <a id='multi-foundation'></a> Support for Multi-Foundation Deployments (Beta)
+### <a id='multi-foundation'></a> Support for Multiple Foundation Deployments (Beta)
 
-Apps Manager includes support for multi-foundation deployments. This allows users to search, view, and manage applications across all foundations from a single interface.
+Apps Manager includes support for deployments with multiple foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
 
 ### <a id='async-bindings'></a> Asynchronous Bindings
 
-Apps Manager supports asynchronous bindings, Asynchronous bindings allow service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out for synchronous operations in PAS.
+Apps Manager supports asynchronous bindings. Asynchronous bindings help avoid timeouts for synchronous operations in PAS by allowing service brokers more time to complete a bind.
+
+For more information about managing apps with Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/console/manage-apps.html).
+
+## <a id='platform-automation'></a> Platform Automation Highlights
+
+### <a id='platform-automation-ga'></a> Platform Automation for PCF is Generally Available
+
+Platform Automation for PCF extends `om` commands, uses Concourse tasks, and provides example pipelines to enable teams to create an automated pipeline for upgrading and installing their PCF foundations.
+
+For more information about Platform Automation for PCF, see the [Platform Automation for PCF documentation](https://docs.pivotal.io/pcf-automation/alpha/index.html).
