@@ -18,27 +18,27 @@ For more information, see [diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-ap
 
 ### <a id='automation'></a> Additional Support for Ops Manager Automation Features
 
-You can configure a pre-created client account to manage automation tasks and scripts for Ops Manager. Previously, you had to login to create a UAA client for automated use of Ops Manager.
+You can configure a pre-created client account to manage automation tasks and scripts for Ops Manager. Previously, you had to log in to create a client for automated use of Ops Manager.
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
 
 ### <a id='azure-az'></a> Support for Microsoft Azure Availability Zones
 
-New installations of Ops Manager include support for Microsoft Azure Availability Zones (AZs). Compared to Azure Availability Sets, AZs provide higher availability, less latency, and more efficient resource management for deployments.
+New installations of Ops Manager include support for Microsoft Azure Availability Zones (AZs). Compared to Azure Availability Sets, AZs provide higher availability, less latency, and more efficient resource management.
 
-For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
+For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/om/azure/config-terraform.html).
 
 ### <a id='ca-rotation'></a> NATS Certificate Authority Rotatation Through Ops Manager API
 
-To better align with industry-standard practices, Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA).
+Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA).
 
-This feature pairs the lifecycle of the NATS CA with the Ops Manager root CA, meaning a new NATS CA is created every time an Ops Manager root CA is created.
+This feature pairs the lifecycle of the NATS CA with the Ops Manager root CA, meaning the NATS CA and Ops Manager root CA are created, activated, and deleted at the same time.
 
 For more information about generating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/api-cert-rotation.html).
 
 ### <a id='vm-extensions'></a> BOSH Director VM Extensions
 
-You can defining custom `vm_extensions` for BOSH Director VMs. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
+You can defining custom `vm_extensions` for BOSH Director VMs using the Ops Manager API. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
 
 For more information about VM extensions, see [Managing VM Extensions](https://docs.pivotal.io/pivotalcf/customizing/custom-vm-extensions.html).
 
@@ -50,9 +50,13 @@ PAS v<%= vars.current_major_version %> includes the following major features:
 
 ### <a id='weighted-routing'></a> Service Mesh Routing Plane (Beta)
 
-An optional service mesh routing plane includes support for weighted routing, which gives you greater control over the percentage of traffic forwarded to each app mapped to a given route.
+An optional service mesh routing plane enables weighted routing, which gives you greater control over the percentage of traffic forwarded to each app mapped to a given route.
 
 To deploy the service mesh routing plane, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. 
+
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports
+
+PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
 
 ### <a id='app-policies'></a> Configure App Policies in the cf CLI
 
@@ -80,7 +84,7 @@ Apps Manager v<%= vars.current_major_version %> includes the following major fea
 
 ### <a id='multi-foundation'></a> Support for Multiple Foundation Deployments (Beta)
 
-Apps Manager includes support for deployments with multiple foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
+Apps Manager includes support for deployments with multiple PCF foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
 
 ### <a id='async-bindings'></a> Asynchronous Bindings
 
@@ -92,6 +96,6 @@ For more information about managing apps with Apps Manager, see [Managing Apps a
 
 ### <a id='platform-automation-ga'></a> Platform Automation for PCF is Generally Available
 
-Platform Automation for PCF extends `om` commands, uses Concourse tasks, and provides example pipelines to enable teams to create an automated pipeline for upgrading and installing their PCF foundations.
+Platform Automation for PCF uses `om` commands, Concourse tasks, and example pipelines to enable teams to create an automated pipeline for upgrading and installing their PCF foundations.
 
 For more information about Platform Automation for PCF, see the [Platform Automation for PCF documentation](https://docs.pivotal.io/pcf-automation/alpha/index.html).
