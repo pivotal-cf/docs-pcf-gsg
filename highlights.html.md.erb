@@ -16,11 +16,11 @@ A diff view in Ops Manager shows proposed changes to the manifest compared to th
 
 For more information, see [diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs).
 
-### <a id='automation'></a> Additional Support for Ops Manager Automation Features
+### <a id='automation'></a> Fully Automated Use of Ops Manager
 
-You can configure a pre-created client account to manage automation tasks and scripts for Ops Manager. Previously, you had to log in to create a client for automated use of Ops Manager.
+Use of Ops Manager can be completely automated when SAML/LDAP is enabled. To fully automate the use Ops Manager, you can configure a pre-created client account to manage automation tasks and scripts. Previously, you had to manually log in to create a client for automated use of Ops Manager.
 
-For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
+For more information about creating Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
 
 ### <a id='azure-az'></a> Support for Microsoft Azure Availability Zones
 
@@ -38,7 +38,7 @@ For more information about generating and rotating certificates, see [Managing C
 
 ### <a id='vm-extensions'></a> BOSH Director VM Extensions
 
-You can defining custom `vm_extensions` for BOSH Director VMs using the Ops Manager API. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
+You can define custom VM extensions for BOSH Director VMs using the Ops Manager API. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
 
 For more information about VM extensions, see [Managing VM Extensions](https://docs.pivotal.io/pivotalcf/customizing/custom-vm-extensions.html).
 
@@ -60,13 +60,15 @@ PAS v2.5 supports apps that require multiple ports and apps that require custom 
 
 For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
 
-### <a id='app-policies'></a> Configure App Policies in the cf CLI
+### <a id='app-policies'></a> Configure App Policies Across Spaces Using the cf CLI
 
-You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the API.
+You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the Policy Server External API.
+
+For more information about configuring app policies across spaces, see [Configuring Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/cf-networking.html).
 
 ### <a id='app-policies'></a> Disable Networking Policies
 
-You can disable Silk network policy enforcement for all apps in a foundation. This allows apps to send network traffic to all other apps without the need for the operator to manually configure numerous networking rules. 
+You can disable Silk network policy enforcement for all apps in a foundation. This allows apps to send network traffic to all other apps without the need for the operator to manually configure several networking rules, which can be time-consuming. 
 
 For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
@@ -84,10 +86,6 @@ For more information about using metadata in PAS, see [Using Metadata](https://d
 
 Apps Manager v<%= vars.current_major_version %> includes the following major features:
 
-### <a id='multi-foundation'></a> Support for Multiple Foundation Deployments (Beta)
-
-Apps Manager includes support for deployments with multiple PCF foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
-
 ### <a id='async-bindings'></a> Support for Asynchronous Bindings
 
 Apps Manager supports asynchronous bindings. Asynchronous bindings help avoid timeouts for synchronous operations in PAS by allowing service brokers more time to complete a bind.
@@ -100,6 +98,8 @@ Platform Automation includes the following major features:
 
 ### <a id='platform-automation-ga'></a> Platform Automation for PCF is Generally Available
 
-Platform Automation for PCF uses `om` commands, Concourse tasks, and example pipelines to enable teams to create an automated pipeline for upgrading and installing their PCF foundations.
+Platform Automation for PCF uses a command line utility for working with Ops Manager called Om, Concourse tasks, and example pipelines to help operators create an automated pipeline for installing and upgrading their PCF foundations.
 
-For more information about Platform Automation for PCF, see the [Platform Automation for PCF documentation](https://docs.pivotal.io/pcf-automation/alpha/index.html).
+For more information about Platform Automation for PCF, see the [Platform Automation for PCF documentation](http://docs.pivotal.io/platform-automation).
+
+For more information about working with Om, see [Om](https://github.com/pivotal-cf/om) on GitHub.
