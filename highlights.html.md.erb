@@ -10,15 +10,15 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the following important major features:
 
-### <a id='manifest-diff'></a> View a Diff of Proposed Changes to the Manifest
+### <a id='manifest-diff'></a> View a Summary of Proposed Changes to the Manifest
 
-A diff view in Ops Manager shows proposed changes to the manifest compared to the state of the manifest in the last successful BOSH Director deployment. This allows you to easily review and understand changes to the manifest before deploying.
+The Pending Changes page in Ops Manager shows staged changes to the manifest compared to the state of the manifest in the last successful deployment. This allows you to easily review and understand changes to the manifest before deploying.
 
-For more information, see [diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs).
+For more information, see [About Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
 
 ### <a id='automation'></a> Fully Automated Use of Ops Manager
 
-Use of Ops Manager can be completely automated when SAML/LDAP is enabled. To fully automate the use Ops Manager, you can configure a pre-created client account to manage automation tasks and scripts. Previously, you had to manually log in to create a client for automated use of Ops Manager.
+You can completely automate Ops Manager when SAML/LDAP is enabled. Configure a pre-created client account to manage automation tasks and scripts. Previously, you had to manually log in to create a client for automated use of Ops Manager.
 
 For more information about creating Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
 
@@ -28,15 +28,15 @@ New installations of Ops Manager include support for Microsoft Azure Availabilit
 
 For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/om/azure/config-terraform.html).
 
-### <a id='ca-rotation'></a> NATS Certificate Authority Rotation Through Ops Manager API
+### <a id='ca-rotation'></a> NATS Certificate Authority Rotation Through the Ops Manager API
 
-Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA).
+Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA) simultaneously with the Ops Manager root CA. 
 
 This feature pairs the lifecycle of the NATS CA with the Ops Manager root CA, meaning the NATS CA and Ops Manager root CA are created, activated, and deleted at the same time.
 
 For more information about generating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/api-cert-rotation.html).
 
-### <a id='vm-extensions'></a> BOSH Director VM Extensions
+### <a id='vm-extensions'></a> Custom VM Extensions for the BOSH Director
 
 You can define custom VM extensions for BOSH Director VMs using the Ops Manager API. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
 
