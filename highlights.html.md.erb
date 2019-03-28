@@ -6,6 +6,31 @@ title: PCF v2.5 Feature Highlights
 
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
+<p class="note warning"><strong>IMPORTANT</strong>: Review the Breaking Changes for PCF v2.5 before installing it or upgrading existing deployments.<br/>
+
+There are two critical breaking changes to review before installing or upgrading to PCF v2.5. <br/>
+
+<h3>Deprecation of cflinuxfs2</h3>
+Operators cannot upgrade the platform to PAS 2.5 until all AIs are using cflinuxfs3.<br/>
+
+During upgrade, you must check a box to verify that all AIs have been migrated. If you check the box and the AIs have not been migrated, the upgrade will cause <strong>all AIs to fail</strong>.<br/>
+
+Pivotal recommends that you communicate the change of stack to your development teams and have them migrate to cflinux3 before upgrading to v2.5.<br/>
+
+For more information about this change, see <a href-"https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/runtime-rn.html#cflinuxfs3">PAS Only Supports cflinux3</a>.<br/>
+
+<h3>Filenames for Ops Manager Release Components Have Changed on Pivotal Network</h3>
+
+All PCF pipelines, or tools similar to them, must be updated with the new naming patterns or the tools will not detect the new versions and no upgrade will appear to be available.<br/>
+
+Pivotal recommends updating the naming patterns in PCF pipelines or any similar pipeline tools that affect upgrades.<br/>
+
+For more information about this change, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html#rename">Ops Manager Release Artifacts Renamed on Pivotal Network</a>.<br/>
+
+To read the entire Breaking Changes list for PCF v2.5, see <a href="https://docs.pivotal.io/pivotalcf/2-5/breaking-changes.html">PCF v2.5 Breaking Changes
+</a>.
+</p>
+
 ## <a id='om'></a> PCF Ops Manager Highlights
 
 Ops Manager v<%= vars.current_major_version %> includes the following important major features:
