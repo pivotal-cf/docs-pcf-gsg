@@ -12,7 +12,7 @@ All PCF pipelines, or tools similar to them, must be updated with the new naming
 
 Pivotal recommends updating the naming patterns in PCF pipelines or any similar pipeline tools that affect upgrades.<br/>
 
-For more information about this change, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html#rename">Ops Manager Release Artifacts Renamed on Pivotal Network</a>.<br/>
+For more information about this change, see <a href="https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html#rename">Ops Manager Release Artifacts Renamed on Pivotal Network</a>.<br/>
 
 To read the entire Breaking Changes list for PCF v2.5, see <a href="https://docs.pivotal.io/pivotalcf/2-5/breaking-changes.html">PCF v2.5 Breaking Changes
 </a>.
@@ -26,7 +26,7 @@ Ops Manager v<%= vars.current_major_version %> includes the following important 
 
 The Pending Changes page in Ops Manager shows staged changes to the manifest compared to the state of the manifest in the last successful deployment. This allows you to easily review and understand changes to the manifest before deploying.
 
-For more information, see [About Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
+For more information, see [About Pending Changes for a Specific Tile](https://docs.pivotal.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
 
 ### <a id='automation'></a> Fully Automated Use of Ops Manager
 
@@ -71,11 +71,11 @@ For more information, see the following topics:
 * [Service Mesh (Beta)](../adminguide/service-mesh.html)
 * [Using Weighted Routing (Beta)](../devguide/weighted-routing.html)
 
-### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports (Beta)
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports 
 
 PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
 
-For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
+For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
 
 ### <a id='app-policies'></a> Configure App Policies Across Spaces Using the cf CLI
 
@@ -108,15 +108,3 @@ Apps Manager v<%= vars.current_major_version %> includes the following important
 Apps Manager supports asynchronous bindings. Asynchronous bindings help avoid timeouts for synchronous operations in PAS by allowing service brokers more time to complete a bind.
 
 For more information about managing apps with Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/console/manage-apps.html).
-
-## <a id='platform-automation'></a> Platform Automation Highlights
-
-Platform Automation includes the following important major features:
-
-### <a id='platform-automation-ga'></a> Platform Automation for PCF is Generally Available
-
-Platform Automation for PCF uses a command line utility for working with Ops Manager called Om, Concourse tasks, and example pipelines to help operators create an automated pipeline for installing and upgrading their PCF foundations.
-
-For more information about Platform Automation for PCF, see the [Platform Automation for PCF documentation](http://docs.pivotal.io/platform-automation).
-
-For more information about working with Om, see [Om](https://github.com/pivotal-cf/om) on GitHub.
