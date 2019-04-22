@@ -1,8 +1,8 @@
 ---
-title: PCF v2.5 Feature Highlights
+title: PCF v2.6 Feature Highlights
 ---
 
-<!--- This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights -->
+ <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
 
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
@@ -11,49 +11,7 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the following important major features:
 
-### Filenames for Ops Manager Release Components Have Changed on Pivotal Network
-
-All PCF pipelines, or tools similar to them, must be updated with the new naming patterns or the tools will not detect the new versions and no upgrade will appear to be available.<br/>
-
-Pivotal recommends updating the naming patterns in PCF pipelines or any similar pipeline tools that affect upgrades.<br/>
-
-For more information about this change, see <a href="https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html#rename">Ops Manager Release Artifacts Renamed on Pivotal Network</a>.<br/>
-
-To read the entire Breaking Changes list for PCF v2.5, see <a href="https://docs.pivotal.io/pivotalcf/2-5/breaking-changes.html">PCF v2.5 Breaking Changes
-</a>.
-</p>
-
-### <a id='manifest-diff'></a> View a Summary of Proposed Changes to the Manifest
-
-The Pending Changes page in Ops Manager shows staged changes to the manifest compared to the state of the manifest in the last successful deployment. This allows you to easily review and understand changes to the manifest before deploying.
-
-For more information, see [About Pending Changes for a Specific Tile](https://docs.pivotal.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
-
-### <a id='automation'></a> Fully Automated Use of Ops Manager
-
-You can completely automate Ops Manager when SAML/LDAP is enabled. Configure a pre-created client account to manage automation tasks and scripts. Previously, you had to manually log in to create a client for automated use of Ops Manager.
-
-For more information about creating Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/customizing/opsman-users.html).
-
-### <a id='azure-az'></a> Support for Microsoft Azure Availability Zones
-
-New installations of Ops Manager include support for Microsoft Azure Availability Zones (AZs). Compared to Azure Availability Sets, AZs provide higher availability, less latency, and more efficient resource management.
-
-For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/om/azure/config-terraform.html).
-
-### <a id='ca-rotation'></a> NATS Certificate Authority Rotation Through the Ops Manager API
-
-Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA) simultaneously with the Ops Manager root CA. 
-
-This feature pairs the lifecycle of the NATS CA with the Ops Manager root CA, meaning the NATS CA and Ops Manager root CA are created, activated, and deleted at the same time.
-
-For more information about generating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/security/pcf-infrastructure/api-cert-rotation.html).
-
-### <a id='vm-extensions'></a> Custom VM Extensions for the BOSH Director
-
-You can define custom VM extensions for BOSH Director VMs using the Ops Manager API. VM extensions allow you to specify IaaS-specific configurations for your VMs, such as associated security groups and load balancers.
-
-For more information about VM extensions, see [Managing VM Extensions](https://docs.pivotal.io/pivotalcf/customizing/custom-vm-extensions.html).
+No features are documented at this time.
 
 ---
 
@@ -61,42 +19,7 @@ For more information about VM extensions, see [Managing VM Extensions](https://d
 
 PAS v<%= vars.current_major_version %> includes the following important major features:
 
-### <a id='weighted-routing'></a> Service Mesh Routing Plane (Beta)
-
-An optional service mesh routing plane enables weighted routing, which gives you greater control over the percentage of traffic forwarded to each app mapped to a given route.
-
-To deploy the service mesh routing plane, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. 
-
-For more information, see the following topics:
-
-* [Service Mesh (Beta)](../adminguide/service-mesh.html)
-* [Using Weighted Routing (Beta)](../devguide/weighted-routing.html)
-
-### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports 
-
-PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
-
-For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
-
-### <a id='app-policies'></a> Configure App Policies Across Spaces Using the cf CLI
-
-You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the Policy Server External API.
-
-For more information about configuring app policies across spaces, see [Configuring Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/cf-networking.html).
-
-### <a id='app-policies'></a> Disable Networking Policies
-
-You can disable Silk network policy enforcement for all apps in a foundation. This allows apps to send network traffic to all other apps without the need for the operator to manually configure several networking rules, which can be time-consuming. 
-
-For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
-
-### <a id='metadata'></a> Add Metadata to Apps, Orgs, and Spaces 
-
-You can add labels and annotations to elements throughout PAS, including apps, orgs, spaces, and more. Metadata, such as environment information, billing codes, and points of contact, make it easier to operate, monitor, and audit PAS deployments. 
-
-For more information about using metadata in PAS, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
-
-<!-- Leaving out PAS for Windows for now. PASW is not being released with  PAS v2.5. -->
+No features are documented at this time.
 
 ---
 
@@ -104,8 +27,4 @@ For more information about using metadata in PAS, see [Using Metadata](https://d
 
 Apps Manager v<%= vars.current_major_version %> includes the following important major features:
 
-### <a id='async-bindings'></a> Support for Asynchronous Bindings
-
-Apps Manager supports asynchronous bindings. Asynchronous bindings help avoid timeouts for synchronous operations in PAS by allowing service brokers more time to complete a bind.
-
-For more information about managing apps with Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/console/manage-apps.html).
+No features are documented at this time.
