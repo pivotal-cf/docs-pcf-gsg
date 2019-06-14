@@ -20,9 +20,9 @@ Ops Manager supports products that require multiple stemcells. This means it is 
 
 Ops Manager publishes deployment times for individual products and whole deployments through the `/api/v0/installations` endpoint and **Change Log** page. 
 
-### <a id='compiled-bosh-release'></a> Specify Compiled Release Assets in BOSH Deployment Manifest 
+### <a id='compiled-bosh-release'></a> Compiled Release Assets Included in BOSH Deployment Manifest
 
-You can use the `exported_from` manifest property to prevent BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates. 
+Ops Manager now automatically includes the `exported_from` field in the `releases` section of the BOSH deployment manifest file. The `exported_from` field contains the compiled release assets for the deployment and prevents BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates.
 
 ### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
