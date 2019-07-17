@@ -5,48 +5,70 @@ owner: Ops Manager
 
 Welcome to Pivotal Cloud Foundry Documentation!
 
-Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating apps. Some people install and run the platform, others develop apps on it, and others manage the development teams or make sure that the platform is secure.
+## <a id="about-pcf"></a> What is Pivotal Cloud Foundry?
 
-The guides linked below explain how you can do what you want with Pivotal Cloud Foundry (PCF) based on your role. Or see [Getting Started with PCF](../concepts/overview.html) for a general introduction to PCF and how it works.
+Pivotal Cloud Foundry (PCF) is an enterprise platform for running and managing cloud-native apps and workloads. 
 
-## PCF Guides
+As a platform, PCF provides layers of abstraction in the form of runtimes. These abstraction layers allow operators to manage shared resources 
+without exposing the complexity of those resources to developers who want to deliver software continuously on the platform.
 
-<table id='guides' border="1" class="nice" >
-  <tr>
-    <th>I want to...</th>
-    <th>...which means my role is...</th>
-    <th>...so I should see...</th>
-  </tr><tr>
-    <td>Read about PCF and its main features and try a simple deployment on my own local machine</td>
-    <td>New User</td>
-    <td><a href="../concepts/overview.html">Getting Started with PCF</a></td>
-  </tr><tr>
-    <td>Assess PCF, plan a PCF deployment, install and configure a new PCF deployment</td>
-    <td>Architect</td>
-    <td><a href="../installing/index.html">PCF Architecture and Installation Guide</a></td>
-  </tr><tr>
-    <td>Upgrade, monitor, back up, troubleshoot, and generally maintain an existing PCF deployment</td>
-    <td>Operator</td>
-    <td><a href="../opsguide/index.html">PCF Operator Guide</a></td>
-  </tr><tr>
-    <td>Build applications that I can deploy, manage, and scale using the PAS platform.</td>
-    <td>Developer</td>
-    <td><a href="../devguide/index.html">PAS Developer Guide</a></td>
-  </tr><tr>
-    <td>Make sure that my enterprise’s PCF installation is secure and up-to-date with the latest security best practices.</td>
-    <td>Security Professional</td>
-    <td><a href="../security/index.html">PCF Security Guide</a></td>
-  </tr><tr>
-    <td>Manage Pivotal Application Service (PAS) users, orgs, spaces, and resources.</td>
-    <td>PAS Admin or Manager</td>
-    <td><a href="../pas/index.html">PAS Administrator Guide</a></td>
-  </tr><tr>
-    <td>Build a “tile” that lets PCF developers use my software services in their apps.</td>
-    <td>PCF Tile Developer</td>
-    <td><a href="http://docs.pivotal.io/tiledev">PCF Tile Developer Guide</a></td>
-  </tr>
-</table>
+PCF Operators manage the platform and its shared resources by using [Ops Manager](../customizing/ops-man.html).
 
+Runtimes available in PCF are the following:
 
+* [Pivotal Application Service (PAS)](../customizing/configure-pas.html)
+* [Enterprise Pivotal Container Service (Enterprise PKS)](https://docs.pivotal.io/runtimes/pks)
+* [Pivotal Function Service (PFS)](https://docs.pivotal.io/pfs/)
 
+## <a id="role-based-guides"></a> Role-based Documentation
 
+The documentation linked below explains how to work with Pivotal Cloud Foundry (PCF) based on your role. 
+
+### <a id="new-users"></a> For New Users
+
+For a general introduction to PCF and how it works, see the following:
+
+* [Getting Started with PAS](../pas/intro.html)
+* [Cloud Foundry Overview](../concepts/overview.html)
+
+To try out PCF in the form of Pivotal Web Services, check out the 15-minute 
+<a href="https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/" target="_blank">Getting Started with PCF</a> tutorial.
+
+### <a id="platform-ops-arch"></a> For PCF Operators and Architects
+
+PCF platform operators and architects assess PCF, plan network topologies, and determine PCF deployment needs. 
+They also install, configure, upgrade, monitor, back up, troubleshoot, and generally maintain an existing PCF deployment.
+
+For planning and installation documentation, see the following:
+
+* [Architecture and Installation Overview](installing/index.html)
+* [Platform Architecture and Planning](plan/index.html)
+* [Platform Automation](https://docs.pivotal.io/platform-automation)
+
+For documentation about managing PCF after initial deployment, 
+see the [PCF Operator Guide](opsguide/index.html).
+
+### <a id="developers"></a> For Developers
+
+Developers write and deploy apps, container workloads and functions to PCF. 
+
+For PCF developer documentation, see the following:
+
+* [PAS Developer Guide](../devguide/index.html)
+* [Using Enterprise PKS](https://docs.pivotal.io/runtimes/pks/using.html)
+
+### <a id="security"></a> For Security Professionals
+
+Security professionals ensure that PCF platform is secure and 
+comply with standard enterprise security best practices.
+
+For security and compliance documentation, see the [PCF Security and Compliance Guide](../security/index.html).
+
+### <a id="tile-dev"></a> For PCF Partner Tile Developers
+
+Tiles developers can package software that can be integrated into PCF. PCF operators can install tiles on PCF. 
+PCF developers can use these services after they are installed.
+
+Tile developers can publish tiles on Pivotal Network, where services and tiles are available for download.
+
+For tile developer documentation, see the [PCF Tile Developer Guide](https://docs.pivotal.io/tiledev/).
