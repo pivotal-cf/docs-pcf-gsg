@@ -1,105 +1,111 @@
 ---
-breadcrumb: <%= vars.product_name %> Documentation
+breadcrumb: <%= vars.platform_name %> Documentation
 title: Architecture and Installation Overview
-owner: <%= vars.product_name %> Documentation
+owner: <%= vars.platform_name %> Documentation
 ---
 
-##<a id='who'></a>For <%= vars.product_name %> Architects and Operators
+This guide describes how to design a <%= vars.platform_name %> deployment and install it on an IaaS.
 
-This guide shows you how to design a <%= vars.product_name  %> platform and install it on an IaaS. If you are doing this, you have one or both of the following roles:
 
-* **Architects** design a <%= vars.product_name %> platform. They know the IaaS that they will deploy it to, and what other relevant resources they have. In their design, they consider needs for the platform's capacity, availability, security, geography, budget, and other factors. If they do not install <%= vars.product_name %> themselves, they provide the architectural specifications to whoever does.
+## <a id='who'></a> For <%= vars.platform_name %> Architects and Operators
 
-* **Operators** run a <%= vars.product_name %> platform, keep it up-to-date, monitor its health and performance, and fix any problems. They may also install the platform, or perform "Day 2" configurations that expand its functionality and integrate it with external systems.
+If you are designing and installing a <%= vars.platform_name %> deployment, you have one or both of the following roles:
 
-This guide helps people in both roles create a <%= vars.product_name %> platform that does what they want it to.  The contents of this guide follow the phases of a typical <%= vars.product_name %> planning and installation effort.
+* **Architects** design a <%= vars.platform_name %> deployment. They know the IaaS to which they intend to deploy it and what other relevant resources they have. In their design, they consider needs for the platform's capacity, availability, security, geography, budget, and other factors. If they do not install <%= vars.platform_name %> themselves, they provide the architectural specifications to whoever does.
 
-<p class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</p>
+* **Operators** run a <%= vars.platform_name %> platform, keep it up-to-date, monitor its health and performance, and fix any problems. They may also install the platform, or perform "Day 2" configurations that expand its functionality and integrate it with external systems.
 
-##<a id='overview'></a>Planning and Installation Overview
+This guide helps people in both roles create a <%= vars.platform_name %> deployment that does what they want. The contents of this guide follow the phases of a typical <%= vars.platform_name %> planning and installation effort.
 
-<%= vars.product_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.product_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.product_name %> deployment.
 
-Here's the typical <%= vars.product_name %> planning and installation process:
+## <a id='overview'></a> Planning and Installation Overview
 
-1. **Plan Your <%= vars.product_name %> Architecture**
-  - Review the Requirements for your IaaS ([AWS](../customizing/aws.html), [Azure](../customizing/azure.html), [GCP](../customizing/gcp.html), [OpenStack](../customizing/openstack.html), [vSphere](../customizing/vsphere.html)).
-  - Under [Reference Architectures](../refarch/index.html), refer to the reference architecture for your IaaS.
+<%= vars.platform_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
+
+The typical <%= vars.platform_name %> planning and installation process is:
+
+1. **Plan**
+  - Review the requirements for your IaaS:
+      - [AWS](./aws.html)
+      - [Azure](./azure.html)
+      - [GCP](./gcp.html)
+      - [OpenStack](./openstack.html)
+      - [vSphere](./vsphere.html)).
+  - See the Reference Architecture for your IaaS.
   - Assess your platform needs, including capacity, availability, container support, host OS, resource isolation, and geographical distribution. Discuss with your Pivotal contact.
 
-1. **Deploy BOSH and Pivotal Operations Manager**
-  - [BOSH](http://bosh.io) is an open-source tool that lets you run software systems in the cloud.
-      - BOSH and its IaaS-specific Cloud Provider Interfaces (CPIs) are what enable <%= vars.product_name %> to run on multiple IaaSes.
-      - See [Deploying with BOSH](../customizing/index.html#bosh) for a brief description of the BOSH deployment process.
-   - [Pivotal Operations Manager](../customizing/ops-man.html) is a GUI application deployed by BOSH that streamlines deploying subsequent software to the cloud via BOSH.
-      - Ops Manager represents <%= vars.product_name %> products as _tiles_ with multiple configuration panes that let you input or select configuration values needed for the product.
-      - Ops Manager generates BOSH manifests containing the user-supplied configuration values, and sends them to the Director.
-      - After you install Ops Manager and BOSH, you use Ops Manager to deploy almost all <%= vars.product_name %> products.
+1. **Deploy BOSH and Ops Manager**
+  - [BOSH](https://bosh.io) is an open-source tool that lets you run software systems in the cloud.
+      - BOSH and its IaaS-specific Cloud Provider Interfaces (CPIs) are what enable <%= vars.platform_name %> to run on multiple IaaSes.
+      - See [Deploying with BOSH](#bosh) for a description of how BOSH deploys cloud software.
+   - [Ops Manager](./ops-man.html) is a graphical dashboard that deploys with BOSH. Ops Manager works with the BOSH Director to manage, configure, and upgrade <%= vars.platform_name %> products such as <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>), and <%= vars.platform_name %> services and partner products.
+      - Ops Manager represents <%= vars.platform_name %> products as _tiles_ with multiple configuration panes that let you input or select configuration values needed for the product.
+      - Ops Manager generates BOSH manifests containing the user-supplied configuration values, and sends them to the BOSH Director.
+      - After you install Ops Manager and BOSH, you use Ops Manager to deploy almost all <%= vars.platform_name %> products.
   - Deploying Ops Manager deploys both BOSH and Ops Manager with a single procedure.
-      - On AWS, you can deploy Ops Manager manually, or automatically with a CloudFormation template.
-      - On Azure, you can deploy Ops Manager manually, or automatically with an Azure Resource Manager (ARM) template. On Azure Government Cloud and Azure Germany you can only deploy Ops Manager manually.
+      - On AWS, you can deploy Ops Manager manually, or automatically with a Terraform template.
+      - On Azure, you can deploy Ops Manager manually, or automatically with a Terraform template. On Azure Government Cloud and Azure Germany, you can only deploy Ops Manager manually.
 
 1. **Deploy BOSH Add-ons** (Optional)
-  - BOSH add-ons include the [IPsec](https://docs.pivotal.io/addon-ipsec), [ClamAV](https://docs.pivotal.io/addon-antivirus/), and [File Integrity Monitoring](https://docs.pivotal.io/addon-fim), which enhance <%= vars.product_name %> platform security and security logging.
+  - BOSH add-ons include the [IPsec](https://docs.pivotal.io/addon-ipsec/index.html), [ClamAV](https://docs.pivotal.io/addon-antivirus/index.html), and [File Integrity Monitoring](https://docs.pivotal.io/addon-fim/index.html), which enhance <%= vars.platform_name %> platform security and security logging.
   - You deploy these add-ons via BOSH rather than installing them with Ops Manager tiles.
 
 1. **Install Runtimes**
-  - [PAS](../customizing/configure-pas.html) (Pivotal Application Service) lets developers develop and manage cloud-native apps and software services.
-      - PAS is based on the Cloud Foundry Foundation's open-source Application Runtime (formerly Elastic Runtime) project.
-  - [PKS](https://docs.pivotal.io/pks/index.html) (Pivotal Container Service) uses BOSH to run and manage Kubernetes container clusters.
-      - PKS is based on the Cloud Foundry Foundation's open-source Container Runtime (formerly Kubo) project.
-  - [<%= vars.product_name %> Isolation Segment](../customizing/installing-pcf-is.html) lets a single PAS deployment run apps from separate, isolated pools of computing, routing, and logging resources.
+  - [<%= vars.app_runtime_full %>](./configure-pas.html) (<%= vars.app_runtime_abbr %>) lets developers develop and manage cloud-native apps and software services.
+      - <%= vars.app_runtime_abbr %> is based on the Cloud Foundry Foundation's open-source Application Runtime (formerly Elastic Runtime) project.
+  - [<%= vars.k8s_runtime_full %>](https://docs.pivotal.io/pks/index.html) (<%= vars.k8s_runtime_abbr %>) uses BOSH to run and manage Kubernetes container clusters.
+      - <%= vars.k8s_runtime_abbr %> is based on the Cloud Foundry Foundation's open-source Container Runtime (formerly Kubo) project.
+  - [Pivotal Isolation Segment](./installing-pcf-is.html) lets a single <%= vars.app_runtime_abbr %> deployment run apps from separate, isolated pools of computing, routing, and logging resources.
       - Operators replicate and configure an Isolation Segment tile for each new resource pool they want to create.
-     - You must install PAS before you can install Isolation Segment.
-  - [PAS for Windows 2012R2](https://docs-pas-windows.cfapps.io/pas-windows/index.html) enables PAS to manage Windows Server 2012 cells hosting .NET apps, and can also be replicated to create multiple isolated resource pools.
-      - As with Isolation Segment, Operators replicate and configure a PAS for Windows 2012R2 tile for each new resource pool they want to create.
-      - You must install PAS before you can install PAS for Windows 2012R2.
-  - [Small Footprint PAS](../customizing/small-footprint.html) is an alternative to PAS that uses far fewer VMs than PAS but has limitations.
-
-1. **Install Services**
-  - Install software services for <%= vars.product_name %> developers to use in their apps.
-      - Services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
-      - Installing and managing software services on <%= vars.product_name %> is an ongoing process, and is covered in the [<%= vars.product_name %> Operator Guide](../opsguide/index.html).
+     - You must install <%= vars.app_runtime_abbr %> before you can install Isolation Segment.
+  - [<%= vars.windows_runtime_full %>](https://docs.pivotal.io/platform/application-service-windows//index.html) (<%= vars.windows_runtime_abbr %>) enables <%= vars.app_runtime_abbr %> to manage Windows Server 2016 (1709) stemcells hosting .NET apps, and can also be replicated to create multiple isolated resource pools.
+      - Operators replicate and configure a <%= vars.windows_runtime_abbr %> tile for each new resource pool they want to create.
+      - You must install <%= vars.app_runtime_abbr %> before you can install <%= vars.windows_runtime_abbr %>.
+  - [Small Footprint <%= vars.app_runtime_abbr %>](./small-footprint.html) is an alternative to <%= vars.app_runtime_abbr %> that uses far fewer VMs than <%= vars.app_runtime_abbr %> but has limitations.
 
 1. **Day 2 Configurations**
-  - Day 2 configurations set up internal operations and external integrations on a running <%= vars.product_name %> platform.
-      - Examples include front-end configuration, user accounts, logging and monitoring, internal security, and container and stemcell images.
+  - Day 2 configurations set up internal operations and external integrations on a running <%= vars.platform_name %> platform.
+      - Examples include front end configuration, user accounts, logging and monitoring, internal security, and container and stemcell images.
 
-##<a id='contents'></a>Guide Contents
+1. **Install Services**
+  - Install software services for <%= vars.platform_name %> developers to use in their apps.
+      - Services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
+      - Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [<%= vars.platform_name %> Operator Guide](../opsguide/index.html).
 
-This guide has two parts. The first part explains the <%= vars.product_name %> planning and installation process, and the second describes the main tools that operators use when installing <%= vars.product_name %>.
 
-### Planning and Installation
+## <a id='contents'></a> Guide Contents
 
-<%= vars.product_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.product_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.product_name %> deployment.
+This guide has two parts. The first part explains the <%= vars.platform_name %> planning and installation process, and the second describes the main tools that operators use when installing <%= vars.platform_name %>.
+
+<%= vars.platform_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
 
 This guide follows this bottom-up progression:
 
-* <a href="/platform/customizing/plan.html">Planning <%= vars.product_name %></a> - Design a <%= vars.product_name %> platform that runs on your IaaS and fits your needs.
+* [Planning <%= vars.platform_name %>](/platform/customizing/plan.html) - Design a <%= vars.platform_name %> platform that runs on your IaaS and fits your needs.
 
-* <a href="/platform/customizing/deploy-bosh-om.html">Deploying BOSH and Ops Manager</a> - Build the foundation of <%= vars.product_name %>.
+* [Deploying BOSH and Ops Manager](/platform/customizing/deploy-bosh-om.html) - Build the foundation of <%= vars.platform_name %>.
 
-* <a href="/platform/customizing/add-ons.html">Deploying BOSH Add-Ons</a> - Use BOSH to extend foundation-level <%= vars.product_name %> capabilities.
+* [Deploying BOSH Add-Ons](/platform/customizing/add-ons.html) - Use BOSH to extend foundation-level <%= vars.platform_name %> capabilities.
 
-* <a href="/platform/customizing/ops-man.html">Using Ops Manager</a> Ops Manager provides a dashboard for installing and configuring <%= vars.product_name %> products and services.
+* [Using Ops Manager](/platform/customizing/ops-man.html) Ops Manager provides a dashboard for installing and configuring <%= vars.platform_name %> products and services.
 
-* <a href="/platform/cf-cli/index.html">Using the Cloud Foundry Command Line Interface (cf CLI)</a> - The cf CLI runs <%= vars.product_name %> operations in the cloud from a shell on your local workstation.
+* [Using the Cloud Foundry Command Line Interface (cf CLI)](/platform/cf-cli/index.html) - The cf CLI runs <%= vars.platform_name %> operations in the cloud from a shell on your local workstation.
 
-* <a href="/platform/customizing/runtimes.html">Installing Runtimes</a> - Install the application and container runtime environments that <%= vars.product_name %> exists for.
+* [Installing Runtimes](/platform/customizing/runtimes.html) - Install the application and container runtime environments that <%= vars.platform_name %> exists for.
 
-* <a href="/platform/customizing/day2.html">Day 2 Configurations</a> - Set up internal operations and external integrations for <%= vars.product_name %>.
+* [Day 2 Configurations](/platform/customizing/day2.html) - Set up internal operations and external integrations for <%= vars.platform_name %>.
 
-* <a href="/platform/customizing/troubleshooting-diagnostics.html">Troubleshooting and Diagnostics</a>
+* [Troubleshooting and Diagnostics](/platform/customizing/troubleshooting-diagnostics.html)
 
-After installing <%= vars.product_name %>, Operators install the software services that <%= vars.product_name %> developers use in their apps. These <%= vars.product_name %> services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
+After installing <%= vars.platform_name %>, Operators install the software services that <%= vars.platform_name %> developers use in their apps. These <%= vars.platform_name %> services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
 
-Installing and managing software services on <%= vars.product_name %> is an ongoing process, and is covered in the [<%= vars.product_name %> Operator Guide](../opsguide/index.html).
+Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [<%= vars.platform_name %> Operator Guide](../opsguide/index.html).
 
-##<a id='pcf-docs'></a>Related Documentation
 
-The [<%= vars.product_name %> Operator Guide](../opsguide/index.html) explains how to maintain a running <%= vars.product_name %> platform, including monitoring, tuning, troubleshooting, and upgrading.
+## <a id='pcf-docs'></a> Related Documentation
 
-[Getting Started with <%= vars.product_name %>](../pas/intro.html) gives a high-level overview of how <%= vars.product_name %> works and explains how you can try a 
-a simple deployment on your own local machine.
+The [<%= vars.platform_name %> Operator Guide](../opsguide/index.html) explains how to maintain a running <%= vars.platform_name %> platform, including monitoring, tuning, troubleshooting, and upgrading.
 
-See [<%= vars.product_name %> Documentation](./pcf-docs.html) for all <%= vars.product_name %> documentation.
+[Getting Started with <%= vars.platform_name %>](../pas/intro.html) gives a high-level overview of how <%= vars.platform_name %> works and explains how you can try a simple deployment on your own local machine.
+
+For all <%= vars.platform_name %> documentation, see [<%= vars.platform_name %> Documentation](./pcf-docs.html).
