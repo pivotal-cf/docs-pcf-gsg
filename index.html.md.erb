@@ -55,9 +55,9 @@ The typical <%= vars.platform_name %> planning and installation process is:
       - <%= vars.app_runtime_abbr %> is based on the Cloud Foundry Foundation's open-source Application Runtime (formerly Elastic Runtime) project.
   - [<%= vars.k8s_runtime_full %>](https://docs.pivotal.io/pks/index.html) (<%= vars.k8s_runtime_abbr %>) uses BOSH to run and manage Kubernetes container clusters.
       - <%= vars.k8s_runtime_abbr %> is based on the Cloud Foundry Foundation's open-source Container Runtime (formerly Kubo) project.
-  - [Pivotal Isolation Segment](../customizing/installing-pcf-is.html) lets a single <%= vars.app_runtime_abbr %> deployment run apps from separate, isolated pools of computing, routing, and logging resources.
-      - Operators replicate and configure an Isolation Segment tile for each new resource pool they want to create.
-     - You must install <%= vars.app_runtime_abbr %> before you can install Isolation Segment.
+  - [<%= vars.segment_runtime_full %>](../customizing/installing-pcf-is.html) lets a single <%= vars.app_runtime_abbr %> deployment run apps from separate, isolated pools of computing, routing, and logging resources.
+      - Operators replicate and configure a <%= vars.segment_runtime_full %> tile for each new resource pool they want to create.
+     - You must install <%= vars.app_runtime_abbr %> before you can install <%= vars.segment_runtime_full %>.
   - [<%= vars.windows_runtime_full %>](https://docs.pivotal.io/platform/application-service-windows/index.html) (<%= vars.windows_runtime_abbr %>) enables <%= vars.app_runtime_abbr %> to manage Windows Server 2016 (1709) stemcells hosting .NET apps, and can also be replicated to create multiple isolated resource pools.
       - Operators replicate and configure a <%= vars.windows_runtime_abbr %> tile for each new resource pool they want to create.
       - You must install <%= vars.app_runtime_abbr %> before you can install <%= vars.windows_runtime_abbr %>.

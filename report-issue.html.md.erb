@@ -3,7 +3,7 @@ breadcrumb: <%= vars.platform_name %> PRE-RELEASE DOCUMENTATION
 title: Reporting Pre-Release Issues
 ---
 
-This topic describes how to report and address issues related to Pre-Release, Release Candidate, or Beta versions of products for members of the Pivotal Early Access Program (EAP). Our goal is to get the most relevant information to the Pivotal EAP team so they can address your issue in the quickest and most efficient manner possible.
+This topic describes how to report and address issues related to Pre-Release, Release Candidate, or Beta versions of products for members of the Pivotal Early Access Program (EAP). Pivotal's goal is to get the most relevant information to the Pivotal EAP team so they can address your issue in the quickest and most efficient manner possible.
 
 <p class='note'><strong>Note:</strong> These early access issues should not be routed through Pivotal Support.</p>
 
@@ -27,31 +27,31 @@ When opening an issue, <%= vars.recommended_by %> recommends the following tips 
 
 ### <a id="title"></a> Create a Well-Formed Title
 
-<%= vars.recommended_by %> recommends that you use a clear and specific one-sentence summary of your issue as the **Title** of your Tracker story. For example, "Using Pivotal Application Service <%= vars.current_major_version %>.0.alpha2, the API calls return `0` values for running apps metrics."
+<%= vars.recommended_by %> recommends that you use a clear and specific one-sentence summary of your issue as the **Title** of your Tracker story. For example, "Using <%= vars.app_runtime_full %> <%= vars.current_major_version %>.0.alpha2, the API calls return `0` values for running apps metrics."
 
-Like the subject line of an email or the title of a shared document, a simple but clear title can help the Pivotal EAP team identify and recognize the point of a tracker story, while a complicated or unclear title can make things harder than necessary. 
+Like the subject line of an email or the title of a shared document, a simple but clear title can help the Pivotal EAP team identify and recognize the point of a tracker story, while a complicated or unclear title can make things harder than necessary.
 
 ### <a id="template"></a> Provide Specific Details
 
-<%= vars.recommended_by %> recommends that you use the following template to provide specific details about your issue in the **Details** section of your Tracker story: 
+<%= vars.recommended_by %> recommends that you use the following template to provide specific details about your issue in the **Details** section of your Tracker story:
 
 ```
-Pivotal Operations Manager version (if applicable): 
-<%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) version: 
-Other Product(s) and Version(s): 
-Enhancement or Bug: 
-Summary of the Issue or Situation (attach screenshots as needed): 
-Details to reproduce (if needed): 
-Additional supporting details: 
-IaaS (AWS, Azure, GCP, vSphere or OpenStack): 
-Output from running `bosh vms`: 
-Output from running `bosh instances`: 
-Logs (if applicable and you have them): 
+<%= vars.ops_manager_full %> version (if applicable):
+<%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) version:
+Other Product(s) and Version(s):
+Enhancement or Bug:
+Summary of the Issue or Situation (attach screenshots as needed):
+Details to reproduce (if needed):
+Additional supporting details:
+IaaS (AWS, Azure, GCP, vSphere or OpenStack):
+Output from running `bosh vms`:
+Output from running `bosh instances`:
+Logs (if applicable and you have them):
 ```
 
 #### <a id="problem"></a> Define the Problem or Enhancement
 
-It is critical for the Pivotal EAP team to understand the nature and scope of the problem that you are experiencing. When opening an issue, please provide a detailed and complete description of the problem. <%= vars.recommended_by %> suggests that you include as much of the following information as possible: 
+It is critical for the Pivotal EAP team to understand the nature and scope of the problem that you are experiencing. When opening an issue, please provide a detailed and complete description of the problem. <%= vars.recommended_by %> suggests that you include as much of the following information as possible:
 
 * A brief description of the problem or enhancement request. Try to describe the symptoms clearly, carefully, and using proper terminology.
 
@@ -60,7 +60,7 @@ It is critical for the Pivotal EAP team to understand the nature and scope of th
 * Indicate any articles that you have already read and any troubleshooting steps that you have already taken.
 
 * Indicate the impact and scope of this issue on your platform or the enhancement request you would like to make.
-	* If this is an issue, is the whole platform down, or just part of it? Is one app failing, or are all apps failing? Is one app failing to push, or are multiple? 
+	* If this is an issue, is the whole platform down, or just part of it? Is one app failing, or are all apps failing? Is one app failing to push, or are multiple?
 	* If this is an enhancement request, can you describe what the goal of the enhancement is? What is the ideal workflow you want to see?
 
 Properly conveying the impact and scope of the problem you are seeing or the exact enhancement you are looking for helps the Pivotal EAP team focus in on the specific issue more quickly.
@@ -69,7 +69,7 @@ Properly conveying the impact and scope of the problem you are seeing or the exa
 
 Please include the following information when relevant:
 
-* List the software and full version numbers (x.y.z) you use. For <%= vars.platform_name %>, this includes at least the version of Ops Manager and <%= vars.app_runtime_abbr %>, but should also include any installed Service tiles and their versions.
+* List the software and full version numbers (x.y.z) you use. For <%= vars.platform_name %>, this includes at least the version of <%= vars.ops_manager %> and <%= vars.app_runtime_abbr %>, but should also include any installed Service tiles and their versions.
 
 * List your IaaS version information.
 
@@ -79,7 +79,7 @@ Please include the following information when relevant:
 	* Details about your hardware and storage.
 	* Any non-standard or unsupported changes that have been made to the platform, such as running open-source Cloud Foundry, running without Ops Manager, or running custom tiles.
 	<p class='note'><strong>Note:</strong> This should always be a sandbox, testing, or pre-production environment.</p>
-  
+
 * Include the **exact** message for any errors you are seeing. Either copy and paste the message, or include a screenshot of it.
 
 * Post screenshots of the Status page for each tile deployed in Ops Manager or the output of `bosh vms --details`. For more information about the `bosh vms` command, see the [BOSH VMs](https://docs.pivotal.io/platform/customizing/trouble-advanced.html#vms) section of the _Advanced Troubleshooting with the BOSH CLI_ topic.
