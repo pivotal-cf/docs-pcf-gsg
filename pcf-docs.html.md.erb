@@ -1,5 +1,5 @@
 ---
-title: Pivotal Platform Documentation
+title: Ops Manager Documentation
 owner: Ops Manager
 ---
 
@@ -20,20 +20,20 @@ The <%= vars.platform_name %> platform provides a layer of abstraction that:
 
 * Optimizes resource usage and workload uptime.
 
-<%= vars.platform_name %> Operators manage the platform and its shared resources by using Pivotal Operations Manager. For more information, see [Using Ops Manager](../customizing/ops-man.html).
+Operators manage the platform and its shared resources by using the <%= vars.ops_manager %> Installation Dashboard, the <%= vars.ops_manager %> API or Platform Automation. For more information, see [Using Ops Manager](../customizing/ops-man.html).
 
 ### <a id="runtimes-services"></a> Runtimes and Services
 
 <%= vars.platform_name %> provides runtime environments for managing, hosting, and updating software workloads, and software services for the hosted workloads to use.
 
-Available runtimes are based on:
+Available runtimes are:
 
 - <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
-- <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>) (Kubernetes)
+- <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>)
 
-For more information about <%= vars.platform_name %> runtime environments, see [<%= vars.platform_name %> Runtimes](../customizing/runtimes.html)
+For more information about <%= vars.platform_name %> runtime environments, see [<%= vars.platform_name %> Runtimes](../customizing/runtimes.html).
 
-For all <%= vars.platform_name %> runtime and service documentation, see [<%= vars.platform_name %> Add-Ons](https://docs.pivotal.io/#add-ons)
+For all <%= vars.platform_name %> runtime and service documentation, see [<%= vars.platform_name %> Add-Ons](https://docs.pivotal.io/#add-ons).
 
 
 ## <a id="start-here"></a> Where to Start in the Documentation
@@ -50,12 +50,12 @@ The topics linked below list the best documentation starting points for these ro
 
 ### <a id="new-users"></a> For New Users
 
-For a general introduction to Pivotal runtimes and how they work, see:
+For a general introduction to <%= vars.platform_name %> runtimes and how they work, see:
 
 * **<%= vars.app_runtime_abbr %>**
   * Theory: [<%= vars.app_runtime_abbr %> Overview](../concepts/overview.html)
   * Practice: [Getting Started with <%= vars.app_runtime_abbr %>](../pas/intro.html)
-    To try Pivotal Web Services, a <%= vars.app_runtime_abbr %> runtime hosted by Pivotal, follow the 15-minute tutorial [Getting Started with <%= vars.platform_name %>](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/).
+    To try Pivotal Web Services, a <%= vars.app_runtime_abbr %> runtime hosted by VMware, follow the 15-minute tutorial [Getting Started with Pivotal Platform](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/).
 
 * **<%= vars.k8s_runtime_abbr %>**
   * Theory: [What is Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) in the Kubernetes documentation
@@ -71,7 +71,7 @@ For planning and installation documentation, see:
 * [Platform Architecture and Planning](../plan/index.html)
 * [Platform Automation](https://docs.pivotal.io/platform-automation)
 
-For documentation about managing <%= vars.platform_name %> after initial deployment, see the [<%= vars.platform_name %> Operator Guide](../opsguide/index.html).
+For documentation about managing <%= vars.platform_name %> after initial deployment, see the [Operator Guide](../opsguide/index.html).
 
 ### <a id="dev"></a> For Developers
 
