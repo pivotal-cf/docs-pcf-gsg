@@ -11,11 +11,11 @@ This guide describes how to design a <%= vars.platform_name %> deployment and in
 
 If you are designing and installing a <%= vars.platform_name %> deployment, you have one or both of the following roles:
 
-* **Architects** design a <%= vars.platform_name %> deployment. They know the IaaS to which they intend to deploy it and what other relevant resources they have. In their design, they consider needs for the platform's capacity, availability, security, geography, budget, and other factors. If they do not install <%= vars.platform_name %> themselves, they provide the architectural specifications to whoever does.
+* **Architects** design an <%= vars.platform_name %> deployment. They know the IaaS to which they intend to deploy it and what other relevant resources they have. In their design, they consider needs for the platform's capacity, availability, security, geography, budget, and other factors. If they do not install <%= vars.platform_name %> themselves, they provide the architectural specifications to whoever does.
 
-* **Operators** run a <%= vars.platform_name %> platform, keep it up-to-date, monitor its health and performance, and fix any problems. They may also install the platform, or perform "Day 2" configurations that expand its functionality and integrate it with external systems.
+* **Operators** run an <%= vars.platform_name %> platform, keep it up-to-date, monitor its health and performance, and fix any problems. They may also install the platform, or perform "Day 2" configurations that expand its functionality and integrate it with external systems.
 
-This guide helps people in both roles create a <%= vars.platform_name %> deployment that does what they want. The contents of this guide follow the phases of a typical <%= vars.platform_name %> planning and installation effort.
+This guide helps people in both roles create an <%= vars.platform_name %> deployment that does what they want. The contents of this guide follow the phases of a typical <%= vars.platform_name %> planning and installation effort.
 
 
 ## <a id='overview'></a> Planning and Installation Overview
@@ -34,11 +34,11 @@ The typical <%= vars.platform_name %> planning and installation process is:
   - See the Reference Architecture for your IaaS.
   - Assess your platform needs, including capacity, availability, container support, host OS, resource isolation, and geographical distribution. Discuss with your Pivotal contact.
 
-1. **Deploy BOSH and Ops Manager**
+1. **Deploy BOSH and Ops Manager Installation Dashboard**
   - [BOSH](https://bosh.io) is an open-source tool that lets you run software systems in the cloud.
       - BOSH and its IaaS-specific Cloud Provider Interfaces (CPIs) are what enable <%= vars.platform_name %> to run on multiple IaaSes.
       - See [Deploying with BOSH](#bosh) for a description of how BOSH deploys cloud software.
-   - [Ops Manager](../customizing/ops-man.html) is a graphical dashboard that deploys with BOSH. Ops Manager works with the BOSH Director to manage, configure, and upgrade <%= vars.platform_name %> products such as <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>), and <%= vars.platform_name %> services and partner products.
+   - The [Ops Manager](../customizing/ops-man.html) Installation Dashboard is a graphical interface that deploys with BOSH. Ops Manager works with the BOSH Director to manage, configure, and upgrade <%= vars.platform_name %> products such as <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>), and <%= vars.platform_name %> services and partner products.
       - Ops Manager represents <%= vars.platform_name %> products as _tiles_ with multiple configuration panes that let you input or select configuration values needed for the product.
       - Ops Manager generates BOSH manifests containing the user-supplied configuration values, and sends them to the BOSH Director.
       - After you install Ops Manager and BOSH, you use Ops Manager to deploy almost all <%= vars.platform_name %> products.
@@ -61,7 +61,7 @@ The typical <%= vars.platform_name %> planning and installation process is:
   - [<%= vars.windows_runtime_full %>](https://docs.pivotal.io/platform/application-service-windows/index.html) (<%= vars.windows_runtime_abbr %>) enables <%= vars.app_runtime_abbr %> to manage Windows Server 2016 (1709) stemcells hosting .NET apps, and can also be replicated to create multiple isolated resource pools.
       - Operators replicate and configure a <%= vars.windows_runtime_abbr %> tile for each new resource pool they want to create.
       - You must install <%= vars.app_runtime_abbr %> before you can install <%= vars.windows_runtime_abbr %>.
-  - [Small Footprint <%= vars.app_runtime_abbr %>](../customizing/small-footprint.html) is an alternative to <%= vars.app_runtime_abbr %> that uses far fewer VMs than <%= vars.app_runtime_abbr %> but has limitations.
+  - [<%= vars.app_runtime_full %> &#91;Small Footprint&#93;](../customizing/small-footprint.html) is an alternative to <%= vars.app_runtime_abbr %> that uses far fewer VMs than <%= vars.app_runtime_abbr %> but has limitations.
 
 1. **Day 2 Configurations**
   - Day 2 configurations set up internal operations and external integrations on a running <%= vars.platform_name %> platform.
@@ -70,14 +70,14 @@ The typical <%= vars.platform_name %> planning and installation process is:
 1. **Install Services**
   - Install software services for <%= vars.platform_name %> developers to use in their apps.
       - Services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
-      - Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [<%= vars.platform_name %> Operator Guide](../opsguide/index.html).
+      - Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [Operator Guide](../opsguide/index.html).
 
 
 ## <a id='contents'></a> Guide Contents
 
 This guide has two parts. The first part explains the <%= vars.platform_name %> planning and installation process, and the second describes the main tools that operators use when installing <%= vars.platform_name %>.
 
-<%= vars.platform_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
+<%= vars.platform_name %> supports a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
 
 This guide follows this bottom-up progression:
 
