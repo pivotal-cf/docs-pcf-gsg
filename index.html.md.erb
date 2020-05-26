@@ -19,9 +19,11 @@ This guide helps people in both roles create an <%= vars.platform_name %> deploy
 
 ## <a id='overview'></a> Planning and Installation Overview
 
-<%= vars.platform_name %> is a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
+<%= vars.platform_name %> and its runtimes, such as <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), comprise a suite of products.
+This suite can run on various IaaSes.
+Planning and installing an <%= vars.platform_name %> platform means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on an installed and running <%= vars.platform_name %> deployment.
 
-The typical <%= vars.platform_name %> planning and installation process is:
+The typical planning and installation process is:
 
 1. **Plan**
   - Review the requirements for your IaaS:
@@ -37,17 +39,12 @@ The typical <%= vars.platform_name %> planning and installation process is:
   - [BOSH](https://bosh.io) is an open-source tool that lets you run software systems in the cloud.
       - BOSH and its IaaS-specific Cloud Provider Interfaces (CPIs) are what enable <%= vars.platform_name %> to run on multiple IaaSes.
       - See [Deploying with BOSH](#bosh) for a description of how BOSH deploys cloud software.
-   - The [Ops Manager](../customizing/ops-man.html) Installation Dashboard is a graphical interface that deploys with BOSH. Ops Manager works with the BOSH Director to manage, configure, and upgrade <%= vars.platform_name %> products such as <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>), and <%= vars.platform_name %> services and partner products.
-      - Ops Manager represents products as _tiles_ with multiple configuration panes that let you input or select configuration values needed for the product.
+   - The [Ops Manager](../customizing/ops-man.html) Installation Dashboard is a graphical interface that deploys with BOSH. Ops Manager works with the BOSH Director to manage, configure, and upgrade <%= vars.platform_name %> products such as <%= vars.app_runtime_abbr %>, <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>), and <%= vars.platform_name %> services and partner products.
+      - The Ops Manager UI represents products as _tiles_ with multiple configuration panes that let you input or select configuration values needed for the product.
       - Ops Manager generates BOSH manifests containing the user-supplied configuration values, and sends them to the BOSH Director.
       - After you install Ops Manager and BOSH, you use the Ops Manager UI or API to deploy almost all <%= vars.platform_name %> products.
-  - Deploying Ops Manager deploys both BOSH and Ops Manager with a single procedure.
-      - On AWS, you can deploy Ops Manager manually, or automatically with a Terraform template.
-      - On Azure, you can deploy Ops Manager manually, or automatically with a Terraform template. On Azure Government Cloud and Azure Germany, you can only deploy Ops Manager manually.
-
-1. **Deploy BOSH Add-ons** (Optional)
-  - BOSH add-ons include the [IPsec](https://docs.pivotal.io/addon-ipsec/index.html), [ClamAV](https://docs.pivotal.io/addon-antivirus/index.html), and [File Integrity Monitoring](https://docs.pivotal.io/addon-fim/index.html), which enhance <%= vars.platform_name %> platform security and security logging.
-  - You deploy these add-ons via BOSH rather than installing them with Ops Manager tiles.
+  - Deploying Ops Manager installs both BOSH and Ops Manager with a single procedure.
+  Some IaaSes allow you to install BOSH and Ops Manager using Terraform instead of installing manually.
 
 1. **Install Runtimes**
   - [<%= vars.app_runtime_full %>](../customizing/configure-pas.html) (<%= vars.app_runtime_abbr %>) lets developers develop and manage cloud-native apps and software services.
@@ -67,20 +64,16 @@ The typical <%= vars.platform_name %> planning and installation process is:
       - Examples include front end configuration, user accounts, logging and monitoring, internal security, and container and stemcell images.
 
 1. **Install Services**
-  - Install software services for <%= vars.platform_name %> developers to use in their apps.
+  - Install software services for developers to use in their apps.
       - Services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
       - Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [Operator Guide](../opsguide/index.html).
 
 
 ## <a id='contents'></a> Guide Contents
 
-This guide has two parts. The first part explains the <%= vars.platform_name %> planning and installation process, and the second describes the main tools that operators use when installing <%= vars.platform_name %>.
-
-<%= vars.platform_name %> supports a suite of products that runs on multiple IaaSes. Planning and installing <%= vars.platform_name %> means building layers from the bottom up, starting with the details of your IaaS and ending with "Day 2" configurations that you perform on a installed and running <%= vars.platform_name %> deployment.
-
 This guide follows this bottom-up progression:
 
-* [Planning <%= vars.platform_name %>](/platform/customizing/plan.html): Design a <%= vars.platform_name %> platform that runs on your IaaS and fits your needs.
+* [Planning Your <%= vars.platform_name %> Deployment](/platform/customizing/plan.html): Design an <%= vars.platform_name %> platform that runs on your IaaS and fits your needs.
 
 * [Deploying BOSH and Ops Manager](/platform/customizing/deploy-bosh-om.html): Build the foundation of <%= vars.platform_name %>.
 
@@ -90,13 +83,13 @@ This guide follows this bottom-up progression:
 
 * [Using the Cloud Foundry Command Line Interface (cf CLI)](/platform/cf-cli/index.html): The cf CLI runs <%= vars.platform_name %> operations in the cloud from a shell on your local workstation.
 
-* [Installing Runtimes](/platform/customizing/runtimes.html): Install the application and container runtime environments that <%= vars.platform_name %> exists for.
+* [Ops Manager Runtimes](/platform/customizing/runtimes.html): Install the application and container runtime environments that <%= vars.platform_name %> exists for.
 
 * [Day 2 Configurations](/platform/customizing/day2.html): Set up internal operations and external integrations for <%= vars.platform_name %>.
 
 * [Troubleshooting and Diagnostics](/platform/customizing/troubleshooting-diagnostics.html)
 
-After installing <%= vars.platform_name %>, Operators install the software services that <%= vars.platform_name %> developers use in their apps. These <%= vars.platform_name %> services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
+After installing <%= vars.platform_name %>, Operators install the software services that developers use in their apps. These <%= vars.platform_name %> services include the databases, caches, and message brokers that stateless cloud apps rely on to save information.
 
 Installing and managing software services on <%= vars.platform_name %> is an ongoing process, and is covered in the [Operator Guide](../opsguide/index.html).
 
@@ -105,6 +98,4 @@ Installing and managing software services on <%= vars.platform_name %> is an ong
 
 The [Operator Guide](../opsguide/index.html) explains how to maintain a running <%= vars.platform_name %> platform, including monitoring, tuning, troubleshooting, and upgrading.
 
-[Getting Started with <%= vars.platform_name %>](../pas/intro.html) gives a high-level overview of how <%= vars.platform_name %> works and explains how you can try a simple deployment on your own local machine.
-
-For all <%= vars.platform_name %> documentation, see [<%= vars.platform_name %> Documentation](./pcf-docs.html).
+[Getting Started with <%= vars.app_runtime_abbr %>](../pas/intro.html) gives a high-level overview of how <%= vars.app_runtime_abbr %> works and explains how you can try a simple deployment on your own local machine.
