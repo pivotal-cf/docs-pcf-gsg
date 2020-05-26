@@ -5,10 +5,12 @@ owner: Ops Manager
 
 <% current_page.data.title = vars.platform_name + " Documentation"  %>
 
-Welcome to <%= vars.platform_name  %> documentation! This topic describes <%= vars.platform_name %> and provides documentation starting points for different <%= vars.platform_name %> users and perspectives.
+Welcome to documentation for <%= vars.platform_name  %> and the
+Tanzu Application Service runtimes.
+This topic describes <%= vars.platform_name %> and provides documentation starting points for different <%= vars.platform_name %> users and perspectives.
 
 
-## <a id="about-pcf"></a> What is <%= vars.platform_name %>?
+## <a id="about-pcf"></a> What is the <%= vars.platform_name %> platform?
 
 <%= vars.platform_name  %> is a multi-cloud enterprise platform for running, managing, and optimizing distributed apps and workloads. It offers runtime environments that manage containers using either Kubernetes or Diego.
 
@@ -24,23 +26,28 @@ Operators manage the platform and its shared resources by using the <%= vars.ops
 
 ### <a id="runtimes-services"></a> Runtimes and Services
 
-<%= vars.platform_name %> provides runtime environments for managing, hosting, and updating software workloads, and software services for the hosted workloads to use.
+<%= vars.platform_name %> provides a platform for the runtime environments and
+software services for the hosted workloads to use.
+The runtime environments manage, host, and update software workloads.
 
 Available runtimes are:
 
 - <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
 - <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>)
+- <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
+- <%= vars.app_runtime_full %> &#91;Small Footprint&#93;
 
-For more information about <%= vars.platform_name %> runtime environments, see [Runtimes](../customizing/runtimes.html).
+For more information about runtime environments, see [Runtimes](../customizing/runtimes.html).
 
-For all <%= vars.platform_name %> runtime and service documentation, see [VMware Tanzu documentation](https://docs.pivotal.io/#add-ons).
+For runtime and service documentation, see [VMware Tanzu documentation](https://docs.pivotal.io/#add-ons).
 
 
 ## <a id="start-here"></a> Where to Start in the Documentation
 
-The most relevant places to start in the <%= vars.platform_name %> documentation depend on the roles you expect to fulfill with the <%= vars.platform_name %> platform.
+The most relevant places to start in this documentation depend on the roles you expect to fulfill
+with <%= vars.platform_name %>, its runtimes, and services.
 
-The topics linked below list the best documentation starting points for these roles:
+The topics linked below list documentation starting points for these roles:
 
 - [New Users](#new-users)
 - [Platform Operators and Architects](#ops-arch)
