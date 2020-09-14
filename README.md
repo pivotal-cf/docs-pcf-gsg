@@ -1,3 +1,13 @@
+**Note**: This repository is no longer in use for Ops Manager v2.7 and later.
+See the following repositories for current product documentation:
+
+- Ops Manager: https://github.com/pivotal-cf/docs-ops-manager
+- Tanzu Application Service (TAS for VMs): https://github.com/pivotal-cf/docs-pas
+- Tanzu Application Service [Windows] (TAS for VMs [Windows]): https://github.com/pivotal-cf/docs-pcf-windows
+- Tanzu Kubernetes Grid Integrated Edition (TKGi): https://github.com/pivotal-cf/docs-pks
+
+------
+
 Getting Started
 ====
 
